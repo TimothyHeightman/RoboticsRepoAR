@@ -42,7 +42,7 @@ public class TransformMatrixBackend : MonoBehaviour
         {
             testFinal *= item;
         }
-        Debug.Log("Equal?: " + (testFinal == effectorMatrix))
+        Debug.Log("Equal?: " + (testFinal == effectorMatrix));
     }
 
     //LINK FRONTEND TO THIS METHOD
