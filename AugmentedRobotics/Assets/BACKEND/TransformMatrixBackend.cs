@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -28,7 +27,7 @@ public class TransformMatrixBackend : MonoBehaviour
 
     //Used in testing of validity of results (testing purposes)
     Matrix4x4 testFinal;
-
+    
     void TestAccuracy()
     {
         //TESTING: Used to test validity during the build process
