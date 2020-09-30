@@ -9,6 +9,8 @@ public class Robot : MonoBehaviour
     public List<Transform> parts;
     public GameObject markerPrefab;
 
+    
+
 
     //Need to fill in array of joints, call this on startup
 
@@ -33,8 +35,8 @@ public class Robot : MonoBehaviour
         for (int i = 0; i < joints.Length; i++)
         {
             joints[i].Setup();
-            joints[i].marker = Instantiate(markerPrefab);
-            //joints[i].marker = new GameObject();
+            //joints[i].marker = Instantiate(markerPrefab);
+            joints[i].marker = new GameObject();
             
             joints[i].marker.transform.parent = joints[i].robotPart.transform;
             joints[i].PlaceMarker(previousRotation);

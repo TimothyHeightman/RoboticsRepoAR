@@ -29,6 +29,8 @@ public class DHParameters : MonoBehaviour
 
     public static List<Vector4> GenerateParameterListForAllFrames(Matrix4x4[] successiveMatrices, Matrix4x4 effectorMatrix)
     {
+        paramListAllFrames = new List<Vector4>();
+
         // For each part of the robot, generate parameter values
         foreach(Matrix4x4 frameMatrix in successiveMatrices)
         {
@@ -75,7 +77,7 @@ public class DHParameters : MonoBehaviour
         {
             if (param == false)
             {
-                Debug.Log(param + "is false. The matrix is invalid.");
+                Debug.Log(param + " is false. The matrix is invalid.");
                 isMValid = false;
             }
             else{

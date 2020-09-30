@@ -35,6 +35,8 @@ public class TransformMatrixBackend : MonoBehaviour
     public Matrix4x4 EffectorMatrix { get => effectorMatrix; set => effectorMatrix = value; }
     public Matrix4x4[] SucessiveMatrices { get => sucessiveMatrices; set => sucessiveMatrices = value; }
 
+    public List<Vector4> paramListAllFrames;
+
     private void Start()
     {
         robot = this.GetComponent<Robot>();
@@ -77,6 +79,8 @@ public class TransformMatrixBackend : MonoBehaviour
             }
 
         }
+
+        //paramListAllFrames = DHParameters.GenerateParameterListForAllFrames(SucessiveMatrices, EffectorMatrix);
     }
 
     public void UpdateSelectedMatrices(int movedJointIndex)

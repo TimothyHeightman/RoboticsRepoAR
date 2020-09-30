@@ -21,7 +21,8 @@ public class TestInteractionScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             isMoving = !isMoving;
-            robot.ChangeRotationState(selectedJointIndex, isMoving);
+            robot.ChangeRotationState(selectedJointIndex, isMoving);        //CALL THIS METHOD TO TOGGLE MOVEMENT
         }
     }
+
 }

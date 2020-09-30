@@ -184,7 +184,7 @@ ArticulationBody:
   m_GameObject: {fileID: 375319050}
   m_Enabled: 1
   m_Mass: 1
-  m_ParentAnchorPosition: {x: 0.00789, y: 0.04106001, z: 0.08860003}
+  m_ParentAnchorPosition: {x: 0.00789, y: 0.04106001, z: 0.08860002}
   m_ParentAnchorRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
   m_AnchorPosition: {x: 0, y: 0, z: 0}
   m_AnchorRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -347,7 +347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   robot: {fileID: 3670535341190419872}
-  jointIndex: 0
+  selectedJointIndex: 0
   isMoving: 0
 --- !u!4 &861514132
 Transform:
@@ -880,7 +880,7 @@ ArticulationBody:
   m_GameObject: {fileID: 3164088223054284784}
   m_Enabled: 1
   m_Mass: 1
-  m_ParentAnchorPosition: {x: 0, y: 0, z: 0.013110003}
+  m_ParentAnchorPosition: {x: 0, y: 0, z: 0.013110004}
   m_ParentAnchorRotation: {x: 0, y: 0.7071068, z: 0, w: -0.7071068}
   m_AnchorPosition: {x: 0, y: 0, z: 0.01311}
   m_AnchorRotation: {x: 0, y: 0.70710677, z: 0, w: -0.70710677}
@@ -1140,6 +1140,7 @@ GameObject:
   - component: {fileID: 4160073568360353573}
   - component: {fileID: 3670535341190419873}
   - component: {fileID: 3670535341190419872}
+  - component: {fileID: 3670535341190419874}
   m_Layer: 0
   m_Name: v2FirstHighResArticulation
   m_TagString: Untagged
@@ -1217,6 +1218,19 @@ MonoBehaviour:
     e32: 0
     e33: 0
   sucessiveMatrices: []
+  paramListAllFrames: []
+--- !u!114 &3670535341190419874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3670535341190419871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ab4c9ad4495d4ece83428d08fd78082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4131909606389623499
 Transform:
   m_ObjectHideFlags: 0
@@ -1240,7 +1254,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3670535341190419871}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4131909606389623499}
@@ -1287,7 +1301,7 @@ ArticulationBody:
   m_GameObject: {fileID: 5687933005671028209}
   m_Enabled: 1
   m_Mass: 1
-  m_ParentAnchorPosition: {x: 0.007935004, y: 0.024999995, z: 0.08860009}
+  m_ParentAnchorPosition: {x: 0.007935004, y: 0.02499999, z: 0.08860008}
   m_ParentAnchorRotation: {x: 4.547474e-13, y: -0.0000041849885, z: 0.707107, w: -0.70710665}
   m_AnchorPosition: {x: 0.007935004, y: 0.024999982, z: 0.08860006}
   m_AnchorRotation: {x: 4.5474735e-13, y: -0.000004184988, z: 0.70710695, w: -0.7071066}
@@ -1669,7 +1683,7 @@ ArticulationBody:
   m_GameObject: {fileID: 8071409126755583435}
   m_Enabled: 1
   m_Mass: 1
-  m_ParentAnchorPosition: {x: 0.0005099997, y: -0.00008000136, z: 0.08859011}
+  m_ParentAnchorPosition: {x: 0.0005099997, y: -0.00008000136, z: 0.0885901}
   m_ParentAnchorRotation: {x: 0, y: 1.0000001, z: 0, w: -0.000000043711392}
   m_AnchorPosition: {x: 0.0005099997, y: -0.00008000136, z: 0.08859008}
   m_AnchorRotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
@@ -1802,7 +1816,7 @@ ArticulationBody:
   m_GameObject: {fileID: 8241995718827621485}
   m_Enabled: 1
   m_Mass: 1
-  m_ParentAnchorPosition: {x: -0.0021400002, y: 0, z: 0.038600035}
+  m_ParentAnchorPosition: {x: -0.0021400002, y: 0, z: 0.03860004}
   m_ParentAnchorRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
   m_AnchorPosition: {x: -0.00214, y: 0, z: 0.03860002}
   m_AnchorRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -1920,7 +1934,7 @@ ArticulationBody:
   m_GameObject: {fileID: 8628056187053164166}
   m_Enabled: 1
   m_Mass: 1
-  m_ParentAnchorPosition: {x: -0.004110001, y: 0.00008000136, z: 0.06915007}
+  m_ParentAnchorPosition: {x: -0.004110001, y: 0.00008000136, z: 0.06915006}
   m_ParentAnchorRotation: {x: 0, y: 0.7071068, z: 0, w: -0.7071068}
   m_AnchorPosition: {x: -0.004110001, y: 0.00008000136, z: 0.06915005}
   m_AnchorRotation: {x: 0, y: 0.70710677, z: 0, w: -0.70710677}
