@@ -124,6 +124,107 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &375319050
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 375319051}
+  - component: {fileID: 375319053}
+  - component: {fileID: 375319052}
+  m_Layer: 0
+  m_Name: EffectorPlaceholder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &375319051
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375319050}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.00789, y: 0.04106, z: 0.0886}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1980543854002147096}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &375319052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375319050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4916d5503b8a3d4ca1831e7fd678020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  robotPart: {fileID: 0}
+  startToEndAngles: {x: 0, y: 0, z: 0}
+  isBase: 0
+  isEnd: 1
+  articulationBody: {fileID: 0}
+  jointController: {fileID: 0}
+  marker: {fileID: 0}
+--- !u!171741748 &375319053
+ArticulationBody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375319050}
+  m_Enabled: 1
+  m_Mass: 1
+  m_ParentAnchorPosition: {x: 0.00789, y: 0.04106001, z: 0.08860003}
+  m_ParentAnchorRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
+  m_AnchorPosition: {x: 0, y: 0, z: 0}
+  m_AnchorRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_ComputeParentAnchor: 1
+  m_ArticulationJointType: 0
+  m_LinearX: 2
+  m_LinearY: 2
+  m_LinearZ: 2
+  m_SwingY: 2
+  m_SwingZ: 2
+  m_Twist: 2
+  m_XDrive:
+    lowerLimit: 0
+    upperLimit: 0
+    stiffness: 0
+    damping: 0
+    forceLimit: 3.4028235e+38
+    target: 0
+    targetVelocity: 0
+  m_YDrive:
+    lowerLimit: 0
+    upperLimit: 0
+    stiffness: 0
+    damping: 0
+    forceLimit: 3.4028235e+38
+    target: 0
+    targetVelocity: 0
+  m_ZDrive:
+    lowerLimit: 0
+    upperLimit: 0
+    stiffness: 0
+    damping: 0
+    forceLimit: 3.4028235e+38
+    target: 0
+    targetVelocity: 0
+  m_LinearDamping: 0.05
+  m_AngularDamping: 0.05
+  m_JointFriction: 0.05
+  m_Immovable: 0
+  m_UseGravity: 1
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,103 +361,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &950618430
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 950618434}
-  - component: {fileID: 950618433}
-  - component: {fileID: 950618432}
-  - component: {fileID: 950618431}
-  m_Layer: 0
-  m_Name: Plane
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!64 &950618431
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 950618430}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &950618432
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 950618430}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &950618433
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 950618430}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &950618434
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 950618430}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963194225
 GameObject:
@@ -784,6 +789,7 @@ Transform:
   m_Children:
   - {fileID: 2401707305768207375}
   - {fileID: 6415761032987466648}
+  - {fileID: 375319051}
   m_Father: {fileID: 3469972792358931327}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -875,9 +881,9 @@ ArticulationBody:
   m_Enabled: 1
   m_Mass: 1
   m_ParentAnchorPosition: {x: 0, y: 0, z: 0.013110003}
-  m_ParentAnchorRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_ParentAnchorRotation: {x: 0, y: 0.7071068, z: 0, w: -0.7071068}
   m_AnchorPosition: {x: 0, y: 0, z: 0.01311}
-  m_AnchorRotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+  m_AnchorRotation: {x: 0, y: 0.70710677, z: 0, w: -0.70710677}
   m_ComputeParentAnchor: 1
   m_ArticulationJointType: 2
   m_LinearX: 2
@@ -943,6 +949,7 @@ GameObject:
   - component: {fileID: 3164088223054284782}
   - component: {fileID: 3164088223054284783}
   - component: {fileID: 3164088223054284785}
+  - component: {fileID: 3164088223054284786}
   m_Layer: 0
   m_Name: Bone1
   m_TagString: Untagged
@@ -963,6 +970,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 300
+--- !u!114 &3164088223054284786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3164088223054284784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4916d5503b8a3d4ca1831e7fd678020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  robotPart: {fileID: 0}
+  startToEndAngles: {x: 0, y: -90, z: 0}
+  isBase: 0
+  isEnd: 0
+  articulationBody: {fileID: 0}
+  jointController: {fileID: 3164088223054284785}
+  marker: {fileID: 0}
 --- !u!171741748 &3305213284165407078
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -973,9 +999,9 @@ ArticulationBody:
   m_Enabled: 1
   m_Mass: 1
   m_ParentAnchorPosition: {x: 0.07171, y: 0.8859008, z: -0.41000047}
-  m_ParentAnchorRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_ParentAnchorRotation: {x: 0, y: 0.70803183, z: 0, w: 0.70618063}
   m_AnchorPosition: {x: 0.07171, y: 0.8859006, z: -0.4100004}
-  m_AnchorRotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+  m_AnchorRotation: {x: 0, y: 0.7080318, z: 0, w: 0.7061806}
   m_ComputeParentAnchor: 1
   m_ArticulationJointType: 2
   m_LinearX: 2
@@ -1134,23 +1160,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joints:
-  - robotPart: {fileID: 7688391116199257282}
-    isBase: 1
-    jointController: {fileID: 0}
-  - robotPart: {fileID: 3164088223054284784}
-    isBase: 0
-    jointController: {fileID: 3164088223054284785}
-  - robotPart: {fileID: 8241995718827621485}
-    isBase: 0
-    jointController: {fileID: 8241995718827621486}
-  - robotPart: {fileID: 8628056187053164166}
-    isBase: 0
-    jointController: {fileID: 8628056187053164167}
-  - robotPart: {fileID: 8071409126755583435}
-    isBase: 0
-    jointController: {fileID: 8071409126755583436}
+  - {fileID: 7688391116199257283}
+  - {fileID: 3164088223054284786}
+  - {fileID: 8241995718827621487}
+  - {fileID: 8628056187053164168}
+  - {fileID: 8071409126755583437}
+  - {fileID: 375319052}
   matrixBackend: {fileID: 3670535341190419873}
   parts: []
+  markerPrefab: {fileID: 6496650804407699843, guid: 88094be5c40edb841b409c6d95fc4fca,
+    type: 3}
 --- !u!114 &3670535341190419873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1221,12 +1240,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3670535341190419871}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4131909606389623499}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!4 &4286085990346572578
 Transform:
@@ -1268,10 +1287,10 @@ ArticulationBody:
   m_GameObject: {fileID: 5687933005671028209}
   m_Enabled: 1
   m_Mass: 1
-  m_ParentAnchorPosition: {x: 0, y: 0, z: 0}
-  m_ParentAnchorRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_AnchorPosition: {x: 0, y: 0, z: 0}
-  m_AnchorRotation: {x: 0, y: 0, z: 0.70710677, w: 0.70710677}
+  m_ParentAnchorPosition: {x: 0.007935004, y: 0.024999995, z: 0.08860009}
+  m_ParentAnchorRotation: {x: 4.547474e-13, y: -0.0000041849885, z: 0.707107, w: -0.70710665}
+  m_AnchorPosition: {x: 0.007935004, y: 0.024999982, z: 0.08860006}
+  m_AnchorRotation: {x: 4.5474735e-13, y: -0.000004184988, z: 0.70710695, w: -0.7071066}
   m_ComputeParentAnchor: 1
   m_ArticulationJointType: 1
   m_LinearX: 0
@@ -1565,6 +1584,7 @@ GameObject:
   - component: {fileID: 7377831349964087879}
   - component: {fileID: 7688391116199257280}
   - component: {fileID: 7688391116199257281}
+  - component: {fileID: 7688391116199257283}
   m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
@@ -1572,6 +1592,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7688391116199257283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7688391116199257282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4916d5503b8a3d4ca1831e7fd678020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  robotPart: {fileID: 7688391116199257282}
+  startToEndAngles: {x: 0, y: 0, z: 0}
+  isBase: 1
+  isEnd: 0
+  articulationBody: {fileID: 0}
+  jointController: {fileID: 0}
+  marker: {fileID: 0}
 --- !u!23 &7764277001938822851
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1631,9 +1670,9 @@ ArticulationBody:
   m_Enabled: 1
   m_Mass: 1
   m_ParentAnchorPosition: {x: 0.0005099997, y: -0.00008000136, z: 0.08859011}
-  m_ParentAnchorRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_ParentAnchorRotation: {x: 0, y: 1.0000001, z: 0, w: -0.000000043711392}
   m_AnchorPosition: {x: 0.0005099997, y: -0.00008000136, z: 0.08859008}
-  m_AnchorRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
+  m_AnchorRotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
   m_ComputeParentAnchor: 1
   m_ArticulationJointType: 2
   m_LinearX: 2
@@ -1699,6 +1738,7 @@ GameObject:
   - component: {fileID: 8071409126755583433}
   - component: {fileID: 8071409126755583434}
   - component: {fileID: 8071409126755583436}
+  - component: {fileID: 8071409126755583437}
   m_Layer: 0
   m_Name: Bone4
   m_TagString: Untagged
@@ -1719,6 +1759,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 300
+--- !u!114 &8071409126755583437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8071409126755583435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4916d5503b8a3d4ca1831e7fd678020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  robotPart: {fileID: 0}
+  startToEndAngles: {x: -90, y: 0, z: 0}
+  isBase: 0
+  isEnd: 0
+  articulationBody: {fileID: 0}
+  jointController: {fileID: 8071409126755583436}
+  marker: {fileID: 0}
 --- !u!4 &8221067453046488765
 Transform:
   m_ObjectHideFlags: 0
@@ -1744,9 +1803,9 @@ ArticulationBody:
   m_Enabled: 1
   m_Mass: 1
   m_ParentAnchorPosition: {x: -0.0021400002, y: 0, z: 0.038600035}
-  m_ParentAnchorRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_ParentAnchorRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
   m_AnchorPosition: {x: -0.00214, y: 0, z: 0.03860002}
-  m_AnchorRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
+  m_AnchorRotation: {x: 0, y: 0, z: 0, w: 1}
   m_ComputeParentAnchor: 1
   m_ArticulationJointType: 2
   m_LinearX: 2
@@ -1812,6 +1871,7 @@ GameObject:
   - component: {fileID: 8241995718827621483}
   - component: {fileID: 8241995718827621484}
   - component: {fileID: 8241995718827621486}
+  - component: {fileID: 8241995718827621487}
   m_Layer: 0
   m_Name: Bone2
   m_TagString: Untagged
@@ -1832,6 +1892,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 300
+--- !u!114 &8241995718827621487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8241995718827621485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4916d5503b8a3d4ca1831e7fd678020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  robotPart: {fileID: 0}
+  startToEndAngles: {x: 0, y: 90, z: 0}
+  isBase: 0
+  isEnd: 0
+  articulationBody: {fileID: 0}
+  jointController: {fileID: 8241995718827621486}
+  marker: {fileID: 0}
 --- !u!171741748 &8628056187053164164
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -1842,9 +1921,9 @@ ArticulationBody:
   m_Enabled: 1
   m_Mass: 1
   m_ParentAnchorPosition: {x: -0.004110001, y: 0.00008000136, z: 0.06915007}
-  m_ParentAnchorRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_ParentAnchorRotation: {x: 0, y: 0.7071068, z: 0, w: -0.7071068}
   m_AnchorPosition: {x: -0.004110001, y: 0.00008000136, z: 0.06915005}
-  m_AnchorRotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+  m_AnchorRotation: {x: 0, y: 0.70710677, z: 0, w: -0.70710677}
   m_ComputeParentAnchor: 1
   m_ArticulationJointType: 2
   m_LinearX: 2
@@ -1910,6 +1989,7 @@ GameObject:
   - component: {fileID: 8628056187053164164}
   - component: {fileID: 8628056187053164165}
   - component: {fileID: 8628056187053164167}
+  - component: {fileID: 8628056187053164168}
   m_Layer: 0
   m_Name: Bone3
   m_TagString: Untagged
@@ -1930,6 +2010,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 300
+--- !u!114 &8628056187053164168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8628056187053164166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4916d5503b8a3d4ca1831e7fd678020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  robotPart: {fileID: 0}
+  startToEndAngles: {x: 0, y: 90, z: 0}
+  isBase: 0
+  isEnd: 0
+  articulationBody: {fileID: 0}
+  jointController: {fileID: 8628056187053164167}
+  marker: {fileID: 0}
 --- !u!33 &8928760142487857803
 MeshFilter:
   m_ObjectHideFlags: 0

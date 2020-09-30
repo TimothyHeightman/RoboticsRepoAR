@@ -25,9 +25,13 @@ public class ArticulationJointController : MonoBehaviour
         StopRotation();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         userInput = Input.GetAxis("Horizontal");
+    }
+
+    private void FixedUpdate()
+    {        
         if (userInput != 0)
         {
             float rotationChange = userInput * speed * Time.fixedDeltaTime;

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -45,7 +46,7 @@ public class TransformMatrixBackend : MonoBehaviour
 
     void TestAccuracy()
     {
-        //TESTING: Used to test validity during the build process
+        //TESTING: Used to test validity during the build process+
 
         SucessiveMatrices = new Matrix4x4[robot.parts.Count - 1];
 
@@ -93,16 +94,20 @@ public class TransformMatrixBackend : MonoBehaviour
     {
         //Produces the transformation matrix from the global frame of the scene to the frame of the base
         //This will be used so that we can get matrices in terms of the base rather than the global frame
-        OriginMatrix = Matrix4x4.TRS(baseTransform.position, baseTransform.rotation, baseTransform.localScale);        
+
+        OriginMatrix = Matrix4x4.TRS(baseTransform.position, baseTransform.rotation, Vector3.one);        
     }
 
-    void UpdateEffectorMatrix(Transform effTransform)
+    void UpdateEffectorMatrix(Transform effectorTransform)
     {
+
         //First get matrix relative to global origin
-        Matrix4x4 globalTransMatrix = Matrix4x4.TRS(effTransform.position, effTransform.rotation, effTransform.localScale);
+        Matrix4x4 globalTransMatrix = Matrix4x4.TRS(effectorTransform.position, effectorTransform.rotation, Vector3.one);
 
         //Then use inverse of the base to get matrix relative to the base
         EffectorMatrix = Matrix4x4.Inverse(OriginMatrix) * globalTransMatrix;
+
+        //Debug.Log(effectorTransform.position);
     }
 
     void UpdateIntermediateMatrices(List<Transform> middleParts)
@@ -111,7 +116,7 @@ public class TransformMatrixBackend : MonoBehaviour
         Matrix4x4 lastGlobal = Matrix4x4.identity;
         for (int i = 0; i < middleParts.Count; i++)
         {
-            Matrix4x4 globalTransMatrix = Matrix4x4.TRS(middleParts[i].position, middleParts[i].rotation, middleParts[i].localScale);
+            Matrix4x4 globalTransMatrix = Matrix4x4.TRS(middleParts[i].position, middleParts[i].rotation, Vector3.one);
             if (i == 0)
             {
                 //For first part connected to the base then we need the matrix from the base to middleParts[0]

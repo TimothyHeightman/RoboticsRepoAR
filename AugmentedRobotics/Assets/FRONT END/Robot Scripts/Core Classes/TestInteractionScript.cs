@@ -5,14 +5,14 @@ using UnityEngine;
 public class TestInteractionScript : MonoBehaviour
 {
     public Robot robot;
-    public int jointIndex;
+    public int selectedJointIndex;
     public bool isMoving;
 
     void Start()
     {
         isMoving = true;
-        jointIndex = 2;
-        robot.ChangeRotationState(jointIndex, isMoving);
+        selectedJointIndex = 1;
+        robot.ChangeRotationState(selectedJointIndex, isMoving);
     }
 
     // Update is called once per frame
@@ -21,7 +21,7 @@ public class TestInteractionScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             isMoving = !isMoving;
-            robot.ChangeRotationState(jointIndex, isMoving);
+            robot.ChangeRotationState(selectedJointIndex, isMoving);
         }
     }
 }
