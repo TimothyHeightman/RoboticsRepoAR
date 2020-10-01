@@ -865,5 +865,5 @@ MonoBehaviour:
   availableMeshes:
   - id: 0
     card: {fileID: 603385215029787174}
-    prefab: {fileID: 4681399297907839161, guid: 0bd350dadf1f446c3a8643ccef79784e,
+    prefab: {fileID: 2557453656729204814, guid: 1361d4af7f2ac1f4ca625bf2ba0a1324,
       type: 3}

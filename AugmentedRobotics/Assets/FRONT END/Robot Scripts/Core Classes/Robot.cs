@@ -16,16 +16,20 @@ public class Robot : MonoBehaviour
 
     private void Start()
     {
+        SelectionManager.Instance.robot = this;
+
         matrixBackend = this.GetComponent<TransformMatrixBackend>();
 
         SetupMarkers();
 
-        UpdatePartsTransforms();      
+        UpdatePartsTransforms();
+
+        matrixBackend.Initialise();
     }
 
     private void Update()
     {
-        UpdateMatrices();
+        //UpdateMatrices();
     }
 
 
@@ -62,6 +66,7 @@ public class Robot : MonoBehaviour
         {
             ArticulationJointController jointController = joints[jointIndex].jointController;
             jointController.enabled = isMovable;    //OnEnable and FixedUpdate methods of jointController will now run for movement
+            Debug.Log(isMovable);
             if (!isMovable)
             {
                 UpdateMatrices(jointIndex); //If we have finished moving an update then recalc matrices, if we want to do this during motion call this inside AJC

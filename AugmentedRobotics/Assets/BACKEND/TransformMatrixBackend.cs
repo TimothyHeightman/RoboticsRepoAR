@@ -29,7 +29,7 @@ public class TransformMatrixBackend : MonoBehaviour
     Matrix4x4 testFinal;
 
     //Link to backend component of this robot parent GameObject
-    Robot robot;
+    public Robot robot;
 
     public Matrix4x4 OriginMatrix { get => originMatrix; set => originMatrix = value; }
     public Matrix4x4 EffectorMatrix { get => effectorMatrix; set => effectorMatrix = value; }
@@ -37,9 +37,11 @@ public class TransformMatrixBackend : MonoBehaviour
 
     public List<Vector4> paramListAllFrames;
 
-    private void Start()
+
+    public void Initialise()
     {
         robot = this.GetComponent<Robot>();
+        Debug.Log(robot.parts.Count);
         SucessiveMatrices = new Matrix4x4[robot.parts.Count - 1];
         GenerateAllMatrices();
     }
