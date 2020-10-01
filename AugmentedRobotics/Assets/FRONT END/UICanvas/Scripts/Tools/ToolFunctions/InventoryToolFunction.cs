@@ -5,18 +5,18 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
-public enum Robot {
+public enum RobotMesh {
     Frank
 }
 
 [System.Serializable]
 public class Mesh
 {
-    public Robot id;
+    public RobotMesh id;
     public GameObject card;
     public GameObject prefab;
 
-    public Mesh(Robot id, GameObject card, GameObject prefab)
+    public Mesh(RobotMesh id, GameObject card, GameObject prefab)
     {
         this.id = id;
         this.card = card;
@@ -30,9 +30,9 @@ public class InventoryToolFunction : Function
 
     [Header("Robots: Assign Prefabs and Modal Cards to Enum")]
     [SerializeField] private List<Mesh> availableMeshes = new List<Mesh>();
-    private Dictionary<Robot, GameObject> availableMeshesDict = new Dictionary<Robot, GameObject>();
-    private Dictionary<Robot, GameObject> availableMeshCardsDict = new Dictionary<Robot, GameObject>();
-    private Dictionary<Robot, GameObject> activeMeshes = new Dictionary<Robot, GameObject>();
+    private Dictionary<RobotMesh, GameObject> availableMeshesDict = new Dictionary<RobotMesh, GameObject>();
+    private Dictionary<RobotMesh, GameObject> availableMeshCardsDict = new Dictionary<RobotMesh, GameObject>();
+    private Dictionary<RobotMesh, GameObject> activeMeshes = new Dictionary<RobotMesh, GameObject>();
 
     void Awake()
     {
@@ -51,7 +51,7 @@ public class InventoryToolFunction : Function
             availableMeshCardsDict.Add(mesh.id, mesh.card);
         }
     }
-    private GameObject returnFromKey(Dictionary<Robot, GameObject> dictOfCardsOrPrefabs, Robot thisItem)
+    private GameObject returnFromKey(Dictionary<RobotMesh, GameObject> dictOfCardsOrPrefabs, RobotMesh thisItem)
     {
         if (dictOfCardsOrPrefabs.ContainsKey(thisItem) == false)
         {
@@ -61,7 +61,7 @@ public class InventoryToolFunction : Function
         return dictOfCardsOrPrefabs[thisItem];
     }
 
-    public GameObject ReturnTrueIfMeshActive(Robot item)
+    public GameObject ReturnTrueIfMeshActive(RobotMesh item)
     {
         if (activeMeshes.ContainsKey(item) != false)
         {
@@ -73,7 +73,7 @@ public class InventoryToolFunction : Function
         }
     }
 
-    private void InstantiateRobot(Robot item)
+    private void InstantiateRobot(RobotMesh item)
     {
         if (activeMeshes.ContainsKey(item) == false)
         {
