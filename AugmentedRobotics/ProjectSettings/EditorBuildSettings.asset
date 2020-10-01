@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/FRONT END/UICanvas/DevScenes/InitialUISetup.unity
+    guid: 39e8455eb86a49047aeea9bdb83a4250
   m_configObjects: {}

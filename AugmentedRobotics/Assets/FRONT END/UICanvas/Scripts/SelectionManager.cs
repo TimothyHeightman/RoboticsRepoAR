@@ -24,6 +24,7 @@ public class SelectionManager : MonoBehaviour
 
     public Robot robot;
     public Joint joint;
+    public Joint previous;
 
     public RotateToolFunction rotateToolFunction;
     public MoveToolFunction moveToolFunction;
@@ -33,6 +34,7 @@ public class SelectionManager : MonoBehaviour
     {
         _instance = this;
         cam = Camera.main;
+        previous = null;
     }
 
     private void Update()
@@ -47,8 +49,31 @@ public class SelectionManager : MonoBehaviour
             {
                 GameObject hitObject = hit.collider.gameObject;
                 if (hitObject.GetComponent<Joint>() != null)
-                {                              
+                {
+                    if (previous != null)
+                    {
+                        if (previous != hitObject.GetComponent<Joint>())
+                        {
+                            if (previous.GetComponent<ArticulationJointController>() != null)
+                            {
+                                previous.GetComponent<ArticulationJointController>().enabled = false;
+                            }
+                            
+                        }
+                    }
+
                     joint = hitObject.GetComponent<Joint>();
+                    previous = joint;
+
+                    if (rotateToolFunction != null)
+                    {
+                        if (rotateToolFunction.enabled == true)
+                        {
+                            joint.GetComponent<ArticulationJointController>().enabled = true;
+                        }
+                    }
+
+                    
                 }
             }           
         }
