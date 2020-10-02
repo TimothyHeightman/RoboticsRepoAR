@@ -9,14 +9,10 @@ using UnityEngine.UI;
 
 public class ARModeTool : Tool
 {
+    [SerializeField] GameObject highlightARButton;
     void Awake()
     {
         functionObject = UIManager.Instance.homeScreen;
-        /*if (functionObject == null)
-        {
-            Transform functionParent = UIManager.Instance.useOutsideAR;
-            functionObject = UIManager.Instance.InstantiatePrefab(UIManager.Instance.homeScreen, functionParent);
-        }*/
     }
 
     public override void ActivateTool()
@@ -28,6 +24,7 @@ public class ARModeTool : Tool
     public override void DeactivateTool()
     {
         // Deactivate AR mode (add homeScreen, deactivate AR)
+        highlightARButton.SetActive(false);
         UIManager.Instance.homeScreen.SetActive(true);
     }
 

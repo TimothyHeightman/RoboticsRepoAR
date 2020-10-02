@@ -12,11 +12,6 @@ public class TooltrayTool : Tool
     void Awake()
     {
         functionObject = UIManager.Instance.openedTools;
-        /*if (functionObject == null)
-        {
-            Transform functionParent = UIManager.Instance.useInAR;
-            functionObject = UIManager.Instance.InstantiatePrefab(UIManager.Instance.openedTools, functionParent);
-        }*/
 
     }
 

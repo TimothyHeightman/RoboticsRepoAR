@@ -37,6 +37,9 @@ public abstract class Tool : MonoBehaviour, IPointerDownHandler
 
     public virtual void DeactivateTool()
     {
+        // Disable tool highlight
+        this.transform.GetChild(0).gameObject.SetActive(false);
+
         // Disable the function script
         UIManager.Instance.activeTool = null;
         functionObject.SetActive(false);
@@ -44,6 +47,9 @@ public abstract class Tool : MonoBehaviour, IPointerDownHandler
 
     public virtual void ActivateTool()
     {
+        // Enable tool highlight
+        this.transform.GetChild(0).gameObject.SetActive(false);
+
         // Enable the function script
         SwitchTool();
         functionObject.SetActive(true);
