@@ -22,6 +22,7 @@ public class ButtonAnim : MonoBehaviour, IPointerClickHandler, IPointerEnterHand
 
     public virtual void OnPointerClick(PointerEventData data)
     {
+        Application.Quit();
     }
 
     public virtual void OnPointerExit(PointerEventData data)

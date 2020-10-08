@@ -9,4 +9,9 @@ public class QuitTool : ButtonAnim
         Application.Quit();
     }
 
+    public void OnClick()
+    {
+        Application.Quit();
+    }
+
 }

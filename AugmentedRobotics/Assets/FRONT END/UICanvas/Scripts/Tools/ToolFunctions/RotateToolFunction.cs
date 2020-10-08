@@ -13,7 +13,10 @@ public class RotateToolFunction : Function
     public Joint selectedJoint;
     int selectedJointIndex;
 
-    public Joint movingJoint;
+    public Material tempMaterial;
+
+
+
 
     private void Start()
     {
@@ -37,9 +40,47 @@ public class RotateToolFunction : Function
         {
             ToggleMovement(false);
         }
-        if (movingJoint != null)
+    }
+
+    private void Update()
+    {
+        Ray ray = SelectionManager.Instance.cam.ScreenPointToRay(Input.mousePosition); //Get user input based on click from camera in game view
+        RaycastHit hit;                                    //Currently calling this every frame for debugging purposes
+        Debug.DrawRay(ray.origin, ray.direction * 20, Color.yellow);
+
+        if (Physics.Raycast(ray, out hit))
         {
-            movingJoint.GetComponent<ArticulationJointController> ().enabled = false;
+            if (Input.GetMouseButtonDown(0))
+            {
+                GameObject hitObject = hit.collider.gameObject;
+                if (hitObject.GetComponent<Joint>() != null)
+                {
+                    if (SelectionManager.Instance.previous != null)
+                    {
+                        if (SelectionManager.Instance.previous != hitObject.GetComponent<Joint>())
+                        {
+                            if (SelectionManager.Instance.previous.GetComponent<ArticulationJointController>() != null)
+                            {
+                                ToggleOutline(SelectionManager.Instance.previous, false);
+
+                                SelectionManager.Instance.previous.GetComponent<ArticulationJointController>().enabled = false;
+                            }
+
+                        }
+                    }
+
+                    SelectionManager.Instance.joint = hitObject.GetComponent<Joint>();
+                    SelectionManager.Instance.previous = SelectionManager.Instance.joint;
+
+                    UpdateRefs();
+
+                    if (SelectionManager.Instance.joint.GetComponent<ArticulationJointController>() != null)
+                    {
+                        SelectionManager.Instance.joint.GetComponent<ArticulationJointController>().enabled = true;
+                        ToggleOutline(SelectionManager.Instance.joint, true);
+                    }                    
+                }
+            }
         }
     }
 
@@ -70,10 +111,29 @@ public class RotateToolFunction : Function
         {
             Debug.Log(selectedJointIndex);
             selectedRobot.ChangeRotationState(selectedJointIndex, activate);        //This line will trigger the backend
+
             if (activate)
             {
-                movingJoint = selectedJoint;
+                selectedJoint.GetComponent<Renderer>().materials[1] = SelectionManager.Instance.outline;
+            }
+            else
+            {
+                selectedJoint.GetComponent<Renderer>().materials[1] = null;
             }
         }        
+    }
+
+    void ToggleOutline(Joint joint, bool isEnabled)
+    {
+        Renderer renderer = joint.gameObject.GetComponent<Renderer>();
+        Material[] materials = new Material[2];
+        materials[0] = renderer.materials[0];
+
+        if (isEnabled)
+        {
+            materials[1] = SelectionManager.Instance.outline;
+        }
+
+        joint.GetComponent<Renderer>().materials = materials;
     }
 }
