@@ -6,6 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+<<<<<<< Updated upstream
     path: Assets/FRONT END/UICanvas/DevScenes/InitialUISetup.unity
     guid: 39e8455eb86a49047aeea9bdb83a4250
   m_configObjects: {}
+=======
+    path: Assets/FRONT END/Object Handling/Scenes/ObjectManipulation.unity
+    guid: eb3ba3452d9d4a645ac6c6843e4ab3e6
+  m_configObjects:
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 1b4f7801c2ea56a46b7b473f5e8c3b8e,
+      type: 2}
+    UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 8f6a8dce22753ba46a5914d96a0df0c7,
+      type: 2}
+>>>>>>> Stashed changes
