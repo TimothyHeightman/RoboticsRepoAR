@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   robotPart: {fileID: 0}
-  startToEndAngles: {x: 0, y: 0, z: 0}
+  startToEndAngles: {x: 0, y: 90, z: -90}
   isBase: 0
   isEnd: 1
   articulationBody: {fileID: 0}
@@ -691,7 +691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   robotPart: {fileID: 0}
-  startToEndAngles: {x: 0, y: -90, z: 0}
+  startToEndAngles: {x: 0, y: 0, z: 0}
   isBase: 0
   isEnd: 0
   articulationBody: {fileID: 0}
@@ -1130,7 +1130,7 @@ ArticulationBody:
   m_AngularDamping: 0.05
   m_JointFriction: 0.05
   m_Immovable: 0
-  m_UseGravity: 0
+  m_UseGravity: 1
 --- !u!64 &7029799237154957339
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1171,7 +1171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   robotPart: {fileID: 0}
-  startToEndAngles: {x: -90, y: 0, z: 0}
+  startToEndAngles: {x: 90, y: 0, z: 0}
   isBase: 0
   isEnd: 0
   articulationBody: {fileID: 0}
@@ -1354,7 +1354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   robotPart: {fileID: 0}
-  startToEndAngles: {x: 0, y: 90, z: 0}
+  startToEndAngles: {x: -90, y: 0, z: 0}
   isBase: 0
   isEnd: 0
   articulationBody: {fileID: 0}
@@ -1537,7 +1537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   robotPart: {fileID: 0}
-  startToEndAngles: {x: 0, y: 90, z: 0}
+  startToEndAngles: {x: 90, y: 0, z: 0}
   isBase: 0
   isEnd: 0
   articulationBody: {fileID: 0}

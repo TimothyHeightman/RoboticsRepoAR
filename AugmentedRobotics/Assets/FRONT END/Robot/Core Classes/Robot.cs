@@ -29,7 +29,7 @@ public class Robot : MonoBehaviour
 
     private void Update()
     {
-        //UpdateMatrices();
+        UpdateMatrices();
     }
 
 
@@ -38,13 +38,26 @@ public class Robot : MonoBehaviour
         Quaternion previousRotation = Quaternion.identity;
         for (int i = 0; i < joints.Length; i++)
         {
-            joints[i].Setup();
+            Joint joint = joints[i];
+            joint.Setup();
             //joints[i].marker = Instantiate(markerPrefab);
-            joints[i].marker = new GameObject();
-            
-            joints[i].marker.transform.parent = joints[i].robotPart.transform;
-            joints[i].PlaceMarker(previousRotation);
-            previousRotation = joints[i].marker.transform.rotation;                      
+            joint.marker = new GameObject();   
+            joint.marker.transform.parent = joints[i].robotPart.transform;
+            joint.PlaceMarker(previousRotation);
+            previousRotation = joint.marker.transform.rotation;
+
+            joint.dhFrame = new GameObject();
+            joint.dhFrame.transform.parent = joints[i].robotPart.transform;
+            joint.dhFrame.transform.rotation = joint.marker.transform.rotation;
+            joint.dhFrame.transform.position = joint.marker.transform.position;
+            joint.dhFrame.name = "DH Frame";
+
+            if (i > 1 && i < joints.Length - 1)     //special cases here for Franka
+            {
+                joint.PlaceDHFrame(joint.dhFrame, joints[i - 1].dhFrame);
+            }
+
+            GameObject.Destroy(joint.marker);
         }
     }
 
@@ -56,7 +69,7 @@ public class Robot : MonoBehaviour
 
         for (int i = 0; i < joints.Length; i++)
         {
-            parts.Add(joints[i].marker.transform);
+            parts.Add(joints[i].dhFrame.transform);
         }
     }
 

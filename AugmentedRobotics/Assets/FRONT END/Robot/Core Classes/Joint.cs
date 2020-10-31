@@ -10,6 +10,7 @@ public class Joint : MonoBehaviour
     public ArticulationBody articulationBody;
     public ArticulationJointController jointController;
     public GameObject marker;
+    public GameObject dhFrame;
 
 
 
@@ -26,7 +27,7 @@ public class Joint : MonoBehaviour
         marker.transform.localPosition = articulationBody.anchorPosition;
         if (isBase)
         {
-            marker.transform.localRotation = Quaternion.identity;
+            marker.transform.localRotation = Quaternion.Euler(new Vector3(0f, 0f, 90f));
         }
         else
         {
@@ -34,8 +35,15 @@ public class Joint : MonoBehaviour
             tempRot.eulerAngles = startToEndAngles;
             marker.transform.rotation = previousRotation * tempRot;
             //marker.transform.localRotation = articulationBody.anchorRotation;
-        }
-        
+        }        
+    }
+
+    public void PlaceDHFrame(GameObject jointMarker, GameObject previousFrame)
+    {
+        Vector3 displacement = jointMarker.transform.position - previousFrame.transform.position;
+        Vector3 z1 = jointMarker.transform.forward;     //z axis direction in world space of frame to be moved
+        float offset = Vector3.Dot(displacement, z1);
+        jointMarker.transform.position -= z1 * offset;
     }
 
     
