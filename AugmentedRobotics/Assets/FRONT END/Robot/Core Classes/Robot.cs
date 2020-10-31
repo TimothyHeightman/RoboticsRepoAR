@@ -5,7 +5,7 @@ using UnityEngine;
 public class Robot : MonoBehaviour
 {
     public Joint[] joints;
-    public TransformMatrixBackend matrixBackend;
+    public DHGenerator dhGenerator;
     public List<Transform> parts;
     public GameObject markerPrefab;
 
@@ -18,7 +18,7 @@ public class Robot : MonoBehaviour
     {
         SelectionManager.Instance.robot = this;
 
-        matrixBackend = this.GetComponent<TransformMatrixBackend>();
+        dhGenerator = this.GetComponent<DHGenerator>();
 
         SetupMarkers();
 
@@ -30,6 +30,7 @@ public class Robot : MonoBehaviour
     private void Update()
     {
         //UpdateMatrices();
+        dhGenerator.GenerateAllParameters();
     }
 
 
@@ -89,7 +90,7 @@ public class Robot : MonoBehaviour
 
     private void UpdateMatrices(int jointIndex = 0)
     {
-        matrixBackend.GenerateAllMatrices();
+        //matrixBackend.GenerateAllMatrices();
 
         //By default update all matrices, if not then update all matrices after and including the index of the joint passed in - MAY NOT BE NEEDED
         //if (jointIndex == 0)

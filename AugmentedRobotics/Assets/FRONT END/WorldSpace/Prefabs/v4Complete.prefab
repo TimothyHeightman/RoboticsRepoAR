@@ -243,12 +243,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   robotPart: {fileID: 0}
-  startToEndAngles: {x: 0, y: 90, z: -90}
+  startToEndAngles: {x: -90, y: 90, z: -90}
   isBase: 0
   isEnd: 1
   articulationBody: {fileID: 0}
   jointController: {fileID: 0}
   marker: {fileID: 0}
+  dhFrame: {fileID: 0}
 --- !u!1 &2302241895835814467
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,9 +406,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2897562928178684660}
-  - component: {fileID: 2557453656729204848}
   - component: {fileID: 2557453656729204849}
-  - component: {fileID: 2557453656729204851}
+  - component: {fileID: 1418310224753513341}
   m_Layer: 0
   m_Name: v4Complete
   m_TagString: Untagged
@@ -430,55 +430,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!114 &2557453656729204848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2557453656729204814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d8c28783c5b4cd4f8be0eb3b438b45d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  originMatrix:
-    e00: 0
-    e01: 0
-    e02: 0
-    e03: 0
-    e10: 0
-    e11: 0
-    e12: 0
-    e13: 0
-    e20: 0
-    e21: 0
-    e22: 0
-    e23: 0
-    e30: 0
-    e31: 0
-    e32: 0
-    e33: 0
-  effectorMatrix:
-    e00: 0
-    e01: 0
-    e02: 0
-    e03: 0
-    e10: 0
-    e11: 0
-    e12: 0
-    e13: 0
-    e20: 0
-    e21: 0
-    e22: 0
-    e23: 0
-    e30: 0
-    e31: 0
-    e32: 0
-    e33: 0
-  sucessiveMatrices: []
-  robot: {fileID: 2557453656729204849}
-  paramListAllFrames: []
 --- !u!114 &2557453656729204849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -498,11 +449,11 @@ MonoBehaviour:
   - {fileID: 7363589472742042457}
   - {fileID: 7029799237154957340}
   - {fileID: 1264872675271821277}
-  matrixBackend: {fileID: 2557453656729204848}
+  dhGenerator: {fileID: 0}
   parts: []
   markerPrefab: {fileID: 6496650804407699843, guid: 88094be5c40edb841b409c6d95fc4fca,
     type: 3}
---- !u!114 &2557453656729204851
+--- !u!114 &1418310224753513341
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -511,9 +462,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2557453656729204814}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ab4c9ad4495d4ece83428d08fd78082, type: 3}
+  m_Script: {fileID: 11500000, guid: e9b0c342b0a4ae14f82b045e10e55d28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  robot: {fileID: 0}
+  frames: []
+  dhParams: []
 --- !u!1 &4207667750020573729
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,6 +651,7 @@ MonoBehaviour:
   articulationBody: {fileID: 0}
   jointController: {fileID: 4207667750020573728}
   marker: {fileID: 0}
+  dhFrame: {fileID: 0}
 --- !u!1 &4347032501590883513
 GameObject:
   m_ObjectHideFlags: 0
@@ -1177,6 +1132,7 @@ MonoBehaviour:
   articulationBody: {fileID: 0}
   jointController: {fileID: 7029799237154957341}
   marker: {fileID: 0}
+  dhFrame: {fileID: 0}
 --- !u!1 &7200351521298485692
 GameObject:
   m_ObjectHideFlags: 0
@@ -1360,6 +1316,7 @@ MonoBehaviour:
   articulationBody: {fileID: 0}
   jointController: {fileID: 7200351521298485695}
   marker: {fileID: 0}
+  dhFrame: {fileID: 0}
 --- !u!1 &7363589472742042455
 GameObject:
   m_ObjectHideFlags: 0
@@ -1457,10 +1414,10 @@ ArticulationBody:
   m_Enabled: 1
   m_Mass: 1
   m_ParentAnchorPosition: {x: -0.004110001, y: 0.00008000136, z: 0.06915007}
-  m_ParentAnchorRotation: {x: 0, y: 0.7071068, z: 0, w: -0.7071068}
+  m_ParentAnchorRotation: {x: 0, y: 0.70710677, z: 0, w: -0.70710677}
   m_AnchorPosition: {x: -0.004110001, y: 0.00008000136, z: 0.06915005}
   m_AnchorRotation: {x: 0, y: 0.70710677, z: 0, w: -0.70710677}
-  m_ComputeParentAnchor: 1
+  m_ComputeParentAnchor: 0
   m_ArticulationJointType: 2
   m_LinearX: 2
   m_LinearY: 2
@@ -1496,7 +1453,7 @@ ArticulationBody:
   m_AngularDamping: 0.05
   m_JointFriction: 0.05
   m_Immovable: 0
-  m_UseGravity: 0
+  m_UseGravity: 1
 --- !u!64 &7363589472742042452
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1543,6 +1500,7 @@ MonoBehaviour:
   articulationBody: {fileID: 0}
   jointController: {fileID: 7363589472742042454}
   marker: {fileID: 0}
+  dhFrame: {fileID: 0}
 --- !u!1 &8880847790324926739
 GameObject:
   m_ObjectHideFlags: 0
@@ -1711,3 +1669,4 @@ MonoBehaviour:
   articulationBody: {fileID: 0}
   jointController: {fileID: 0}
   marker: {fileID: 0}
+  dhFrame: {fileID: 0}
