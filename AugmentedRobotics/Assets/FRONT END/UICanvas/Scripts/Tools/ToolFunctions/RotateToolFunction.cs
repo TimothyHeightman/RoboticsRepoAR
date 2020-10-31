@@ -126,12 +126,18 @@ public class RotateToolFunction : Function
     void ToggleOutline(Joint joint, bool isEnabled)
     {
         Renderer renderer = joint.gameObject.GetComponent<Renderer>();
-        Material[] materials = new Material[2];
-        materials[0] = renderer.materials[0];
+        Material[] materials;
 
         if (isEnabled)
         {
+            materials = new Material[2];
+            materials[0] = renderer.materials[0];
             materials[1] = SelectionManager.Instance.outline;
+        }
+        else
+        {
+            materials = new Material[1];
+            materials[0] = renderer.materials[0];
         }
 
         joint.GetComponent<Renderer>().materials = materials;
