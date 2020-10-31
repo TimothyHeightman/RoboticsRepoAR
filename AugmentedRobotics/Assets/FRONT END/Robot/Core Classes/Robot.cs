@@ -24,12 +24,12 @@ public class Robot : MonoBehaviour
 
         UpdatePartsTransforms();
 
-        matrixBackend.Initialise();
+        //matrixBackend.Initialise();
     }
 
     private void Update()
     {
-        UpdateMatrices();
+        //UpdateMatrices();
     }
 
 
@@ -52,12 +52,12 @@ public class Robot : MonoBehaviour
             joint.dhFrame.transform.position = joint.marker.transform.position;
             joint.dhFrame.name = "DH Frame";
 
-            if (i > 1 && i < joints.Length - 1)     //special cases here for Franka
+            if (i > 1 && i < joints.Length - 1)     //special cases here for Franka - base and effector always skipped, first element has parallel z axis so we skip
             {
                 joint.PlaceDHFrame(joint.dhFrame, joints[i - 1].dhFrame);
             }
 
-            GameObject.Destroy(joint.marker);
+            GameObject.Destroy(joint.marker);       //Removes old joint markers for clarity
         }
     }
 
@@ -82,7 +82,7 @@ public class Robot : MonoBehaviour
             Debug.Log(isMovable);
             if (!isMovable)
             {
-                UpdateMatrices(jointIndex); //If we have finished moving an update then recalc matrices, if we want to do this during motion call this inside AJC
+                //UpdateMatrices(jointIndex); //If we have finished moving an update then recalc matrices, if we want to do this during motion call this inside AJC
             }
         }        
     }
