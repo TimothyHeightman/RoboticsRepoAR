@@ -8,9 +8,30 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/FRONT END/UICanvas/DevScenes/InitialUISetup.unity
     guid: 39e8455eb86a49047aeea9bdb83a4250
-  - enabled: 1
-    path: Assets/FRONT END/AR stuff/AR/AR ROTATION/RotateAR.unity
+  - enabled: 0
+    path: Assets/FRONT END/AR stuff/ROTATION/AR ROTATION/RotateAR.unity
     guid: e5401b73602d50b4683eaea59cabe55b
+  - enabled: 0
+    path: Assets/FRONT END/Object Handling/Scenes/ObjectPlacement.unity
+    guid: 7141e3f661a61a44d92a6817a01a5589
+  - enabled: 0
+    path: Assets/FRONT END/Object Handling/Scenes/Tester.unity
+    guid: a9de62a4549135646920c52a31ae518d
+  - enabled: 0
+    path: Assets/FRONT END/AR stuff/PLACEMENT/PlacementTest.unity
+    guid: f60479ab803d1474fad9e1113aaea68f
+  - enabled: 0
+    path: Assets/FRONT END/AR stuff/ROTATION/GazeInteractionScene.unity
+    guid: a0f8fae6125862a43aee2ae49ffd73b3
+  - enabled: 1
+    path: Assets/FRONT END/AR stuff/IMAGE TRACKED ANCHOR/ImageTracking.unity
+    guid: afbe117eeb62f564db426e007e3f37c5
   m_configObjects:
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 1b4f7801c2ea56a46b7b473f5e8c3b8e,
+      type: 2}
+    UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 8f6a8dce22753ba46a5914d96a0df0c7,
+      type: 2}
+    com.unity.xr.arcore.PlayerSettings: {fileID: 11400000, guid: 88e07b08ddbd1fc4ba365465462f3e97,
+      type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 95587fd6b0c904f4ba4f3673dbc8527f,
       type: 2}
