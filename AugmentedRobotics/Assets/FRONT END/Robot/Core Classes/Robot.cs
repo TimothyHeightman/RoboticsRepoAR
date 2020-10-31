@@ -5,7 +5,7 @@ using UnityEngine;
 public class Robot : MonoBehaviour
 {
     public Joint[] joints;
-    public TransformMatrixBackend matrixBackend;
+    public DHGenerator dhGenerator;
     public List<Transform> parts;
     public GameObject markerPrefab;
 
@@ -18,18 +18,19 @@ public class Robot : MonoBehaviour
     {
         SelectionManager.Instance.robot = this;
 
-        matrixBackend = this.GetComponent<TransformMatrixBackend>();
+        dhGenerator = this.GetComponent<DHGenerator>();
 
         SetupMarkers();
 
         UpdatePartsTransforms();
 
-        matrixBackend.Initialise();
+        //matrixBackend.Initialise();
     }
 
     private void Update()
     {
         //UpdateMatrices();
+        dhGenerator.GenerateAllParameters();
     }
 
 
@@ -38,13 +39,26 @@ public class Robot : MonoBehaviour
         Quaternion previousRotation = Quaternion.identity;
         for (int i = 0; i < joints.Length; i++)
         {
-            joints[i].Setup();
+            Joint joint = joints[i];
+            joint.Setup();
             //joints[i].marker = Instantiate(markerPrefab);
-            joints[i].marker = new GameObject();
-            
-            joints[i].marker.transform.parent = joints[i].robotPart.transform;
-            joints[i].PlaceMarker(previousRotation);
-            previousRotation = joints[i].marker.transform.rotation;                      
+            joint.marker = new GameObject();   
+            joint.marker.transform.parent = joints[i].robotPart.transform;
+            joint.PlaceMarker(previousRotation);
+            previousRotation = joint.marker.transform.rotation;
+
+            joint.dhFrame = new GameObject();
+            joint.dhFrame.transform.parent = joints[i].robotPart.transform;
+            joint.dhFrame.transform.rotation = joint.marker.transform.rotation;
+            joint.dhFrame.transform.position = joint.marker.transform.position;
+            joint.dhFrame.name = "DH Frame";
+
+            if (i > 1 && i < joints.Length - 1)     //special cases here for Franka - base and effector always skipped, first element has parallel z axis so we skip
+            {
+                joint.PlaceDHFrame(joint.dhFrame, joints[i - 1].dhFrame);
+            }
+
+            GameObject.Destroy(joint.marker);       //Removes old joint markers for clarity
         }
     }
 
@@ -56,7 +70,7 @@ public class Robot : MonoBehaviour
 
         for (int i = 0; i < joints.Length; i++)
         {
-            parts.Add(joints[i].marker.transform);
+            parts.Add(joints[i].dhFrame.transform);
         }
     }
 
@@ -69,14 +83,14 @@ public class Robot : MonoBehaviour
             Debug.Log(isMovable);
             if (!isMovable)
             {
-                UpdateMatrices(jointIndex); //If we have finished moving an update then recalc matrices, if we want to do this during motion call this inside AJC
+                //UpdateMatrices(jointIndex); //If we have finished moving an update then recalc matrices, if we want to do this during motion call this inside AJC
             }
         }        
     }
 
     private void UpdateMatrices(int jointIndex = 0)
     {
-        matrixBackend.GenerateAllMatrices();
+        //matrixBackend.GenerateAllMatrices();
 
         //By default update all matrices, if not then update all matrices after and including the index of the joint passed in - MAY NOT BE NEEDED
         //if (jointIndex == 0)

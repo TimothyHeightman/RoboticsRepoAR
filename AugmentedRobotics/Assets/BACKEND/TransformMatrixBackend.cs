@@ -41,7 +41,6 @@ public class TransformMatrixBackend : MonoBehaviour
     public void Initialise()
     {
         robot = this.GetComponent<Robot>();
-        Debug.Log(robot.parts.Count);
         SucessiveMatrices = new Matrix4x4[robot.parts.Count - 1];
         GenerateAllMatrices();
     }
@@ -82,7 +81,7 @@ public class TransformMatrixBackend : MonoBehaviour
 
         }
 
-        //paramListAllFrames = DHParameters.GenerateParameterListForAllFrames(SucessiveMatrices, EffectorMatrix);
+        paramListAllFrames = DHParameters.GenerateParameterListForAllFrames(SucessiveMatrices, EffectorMatrix);
     }
 
     public void UpdateSelectedMatrices(int movedJointIndex)
@@ -101,7 +100,8 @@ public class TransformMatrixBackend : MonoBehaviour
         //Produces the transformation matrix from the global frame of the scene to the frame of the base
         //This will be used so that we can get matrices in terms of the base rather than the global frame
 
-        OriginMatrix = Matrix4x4.TRS(baseTransform.position, baseTransform.rotation, Vector3.one);        
+        OriginMatrix = Matrix4x4.TRS(baseTransform.position, baseTransform.rotation, Vector3.one);
+        
     }
 
     void UpdateEffectorMatrix(Transform effectorTransform)
@@ -122,6 +122,7 @@ public class TransformMatrixBackend : MonoBehaviour
         Matrix4x4 lastGlobal = Matrix4x4.identity;
         for (int i = 0; i < middleParts.Count; i++)
         {
+
             Matrix4x4 globalTransMatrix = Matrix4x4.TRS(middleParts[i].position, middleParts[i].rotation, Vector3.one);
             if (i == 0)
             {
@@ -133,7 +134,20 @@ public class TransformMatrixBackend : MonoBehaviour
             {
                 //Otherwise get transformation matrix between parts i and i-1, stored at successiveMatrices[i]
                 SucessiveMatrices[i] = (Matrix4x4.Inverse(lastGlobal) * globalTransMatrix);
+                if (i==1)
+                {
+                    //Debug.Log("Inverse " + MatrixExtensions.ExtractRotation(Matrix4x4.Inverse(lastGlobal)).eulerAngles);
+                    //Debug.Log("Global " + MatrixExtensions.ExtractRotation(globalTransMatrix).eulerAngles);
+                }
+                
                 lastGlobal = globalTransMatrix;
+            }
+
+            if (i == 3)
+            {
+                
+                //Debug.Log(MatrixExtensions.ExtractPosition(SucessiveMatrices[i]).y);
+                Debug.Log(MatrixExtensions.ExtractRotation(SucessiveMatrices[i]).eulerAngles);
             }
         }
     }

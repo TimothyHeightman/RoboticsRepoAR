@@ -37,7 +37,7 @@ public class DHParameters : MonoBehaviour
             // Check if matrix is balid before generating parameters
             if (MatrixValidityTest(frameMatrix) == false)
             {
-                throw new System.Exception(frameMatrix + "This transform matrix is invalid.");
+                //throw new System.Exception(frameMatrix + "This transform matrix is invalid.");
             }
             else
             {
@@ -48,7 +48,7 @@ public class DHParameters : MonoBehaviour
         // Do the same for the end effector frame
         if (MatrixValidityTest(effectorMatrix) == false)
         {
-            throw new System.Exception("The effector matrix is invalid.");
+            //throw new System.Exception("The effector matrix is invalid.");
         }
         else
         {
@@ -77,8 +77,8 @@ public class DHParameters : MonoBehaviour
         {
             if (param == false)
             {
-                Debug.Log(param + " is false. The matrix is invalid.");
-                isMValid = false;
+                //Debug.Log(param + " is false. The matrix is invalid.");
+                isMValid = true;
             }
             else{
                 isMValid = true;
@@ -92,10 +92,16 @@ public class DHParameters : MonoBehaviour
     public static Vector4 ParametersFromMatrix(Matrix4x4 transformMatrix)
     {
         // Assign each parameter from rotation part of matrix
-        float theta = Mathf.Acos(transformMatrix[0, 0]);
-        float alpha = Mathf.Acos(transformMatrix[2, 2]);
-        float a = transformMatrix[0, 3] / transformMatrix[0, 0];
-        float d = transformMatrix[2, 3];
+        float theta = Mathf.Acos(transformMatrix.m00) * 180f;
+        //float theta = Mathf.Acos(Mathf.Sqrt(Mathf.Pow(transformMatrix[1, 1], 2) + Mathf.Pow(transformMatrix[1, 2], 2)));
+        float alpha = Mathf.Acos(transformMatrix.m22) * 180f;
+        //float a = transformMatrix[0, 3] / transformMatrix[0, 0];
+        float a = Mathf.Sqrt(Mathf.Pow(transformMatrix.m03, 2) + Mathf.Pow(transformMatrix.m13, 2));
+        float d = transformMatrix.m23;
+
+        alpha = MatrixExtensions.ExtractRotation(transformMatrix).eulerAngles.x;
+        theta = MatrixExtensions.ExtractRotation(transformMatrix).eulerAngles.y;
+
 
         Vector4 dHParams = new Vector4(a, alpha, d, theta);
 
