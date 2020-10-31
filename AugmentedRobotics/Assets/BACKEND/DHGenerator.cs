@@ -8,12 +8,14 @@ public class DHGenerator : MonoBehaviour
     public Robot robot;
     public List<Transform> frames;
     public Vector4[] dhParams;
+    public Matrix4x4[] matrices;
 
     void Start()
     {
         robot = this.GetComponent<Robot>();
         frames = robot.parts;
         dhParams = new Vector4[frames.Count - 1];
+        matrices = new Matrix4x4[frames.Count - 1];
     }
 
     public void GenerateAllParameters()
@@ -49,6 +51,13 @@ public class DHGenerator : MonoBehaviour
             dhParams[i] = tempParams;
         }
     }
+
+    public void GenerateAllMatrices()
+    {
+
+    }
+
+
 
 
 }
