@@ -50,11 +50,42 @@ public class DHGenerator : MonoBehaviour
 
             dhParams[i] = tempParams;
         }
+        GenerateAllMatrices();
     }
 
     public void GenerateAllMatrices()
     {
+        Matrix4x4 tempMatrix = new Matrix4x4();
+        Vector4 param = new Vector4();
+        float cAlpha, sAlpha, cTheta, sTheta;
 
+        for (int i = 0; i < frames.Count-1; i++)
+        {
+            tempMatrix = Matrix4x4.zero;
+            param = dhParams[i];
+            cAlpha = Mathf.Cos(param.y / 180f);
+            sAlpha = Mathf.Sin(param.y / 180f);
+            cTheta = Mathf.Cos(param.w / 180f);
+            sTheta = Mathf.Sin(param.w / 180f);
+
+            tempMatrix.m00 = cTheta;
+            tempMatrix.m01 = -sTheta * cAlpha;
+            tempMatrix.m02 = sTheta * sAlpha;
+            tempMatrix.m03 = param.x * cTheta;
+
+            tempMatrix.m10 = sTheta;            
+            tempMatrix.m11 = cTheta * cAlpha;
+            tempMatrix.m12 = -cTheta * sAlpha;
+            tempMatrix.m13 = param.x * sAlpha;
+
+            tempMatrix.m21 = sAlpha;
+            tempMatrix.m22 = cAlpha;
+            tempMatrix.m23 = param.z;
+
+            tempMatrix.m33 = 1f;
+
+            matrices[i] = tempMatrix;
+        }
     }
 
 
