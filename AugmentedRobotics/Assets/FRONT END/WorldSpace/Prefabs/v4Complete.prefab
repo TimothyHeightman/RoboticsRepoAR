@@ -408,6 +408,7 @@ GameObject:
   - component: {fileID: 2897562928178684660}
   - component: {fileID: 2557453656729204849}
   - component: {fileID: 1418310224753513341}
+  - component: {fileID: 9056694151868146299}
   m_Layer: 0
   m_Name: v4Complete
   m_TagString: Untagged
@@ -453,6 +454,9 @@ MonoBehaviour:
   parts: []
   markerPrefab: {fileID: 6496650804407699843, guid: 88094be5c40edb841b409c6d95fc4fca,
     type: 3}
+  isTranslating: 0
+  targetPos: {x: 0, y: 0, z: 0}
+  newPos: {x: 0, y: 0, z: 0}
 --- !u!114 &1418310224753513341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -469,6 +473,29 @@ MonoBehaviour:
   frames: []
   dhParams: []
   matrices: []
+--- !u!114 &9056694151868146299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2557453656729204814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4a7428cfabc4aa4bb04ef91f3c7105c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  robot: {fileID: 0}
+  dHGenerator: {fileID: 0}
+  dhparams: []
+  joints: []
+  sphere: {fileID: 3209932363326786678, guid: dda9fc59631cfce438092b68a8c8da05, type: 3}
+  spheres: []
+  newMaterialRef:
+  - {fileID: 2100000, guid: 4b128d38533977b448537669cea18a85, type: 2}
+  lineAX: {fileID: 8979210096490737579, guid: 57f6738eced8fff4f92880bf83394a23, type: 3}
+  lineDZ: {fileID: 613798085651359561, guid: 845fe1c041ac0e7438be92cf0f0b8209, type: 3}
+  lines: []
 --- !u!1 &4207667750020573729
 GameObject:
   m_ObjectHideFlags: 0

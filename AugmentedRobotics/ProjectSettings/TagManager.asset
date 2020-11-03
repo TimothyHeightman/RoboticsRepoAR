@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - hasInfo
   - Effects
+  - Line
   layers:
   - Default
   - TransparentFX
