@@ -7,47 +7,93 @@ public class MoveToolFunction : Function
     //LM 01/10/20
     //Class that handles moving base of the articulated body, cannot be used for movement of joints
 
-    public Robot selectedRobot; //will need to connect this when robot is instantiated from the inventory
-    public Joint selectedJoint;
-    int selectedJointIndex;
+    public Robot selectedRobot;
+    public Vector3 inputPos;
 
-    private void Start()
+    public bool isTranslating, isRobotPresent;
+    public Vector3 targetPos, newPos;
+    float smoothTime = 0.1f;        //controls snappiness of the translation
+    float maxSpeed = 20f;        //controls max speed of translation
+    Vector3 baseVelocity = Vector3.zero;
+    ArticulationBody baseBody;
+
+    IEnumerator Translator()
     {
-        selectedJointIndex = 1;     //corresponding to joint that isnt base        
+        newPos = selectedRobot.joints[0].transform.position;        
+
+        while (targetPos != newPos)     //if we are not yet at the target location
+        {
+            newPos = Vector3.SmoothDamp(selectedRobot.joints[0].transform.position, targetPos, ref baseVelocity, smoothTime, maxSpeed);      //check our velocity works as expected
+            baseBody.TeleportRoot(newPos, selectedRobot.joints[0].transform.rotation);
+            Debug.Log("Moving");
+            yield return null;
+        }
+
+        isTranslating = false;
+        Debug.Log("Coroutine Ending");
     }
+
+    void UpdateReferences()
+    {
+        selectedRobot = SelectionManager.Instance.robot;
+        isTranslating = false;
+        targetPos = selectedRobot.joints[0].transform.position;
+        baseBody = selectedRobot.joints[0].GetComponent<ArticulationBody>();
+    } 
+
 
     private void OnEnable()
     {
         SelectionManager.Instance.moveToolFunction = this;
-        UpdateRefs();
-    }
-
-    public void UpdateRefs()
-    {
-        selectedRobot = SelectionManager.Instance.robot;
-        selectedJoint = SelectionManager.Instance.joint;
-    }
-
-    int GetIndexFromJoint()
-    {
-        for (int i = 0; i < selectedRobot.joints.Length - 1; i++)
+        if (SelectionManager.Instance.robot != null)
         {
-            if (selectedRobot.joints[i] == selectedJoint)
+            isRobotPresent = true;
+            UpdateReferences();
+        }
+        else
+        {
+            isRobotPresent = false;
+        }
+    }
+
+
+    private void Update()
+    {
+        if (isRobotPresent)
+        {
+            //Continously check if new input has been received and 
+            CheckNewInput();
+        }
+    }
+
+
+    private void OnDisable()
+    {
+        //halt all movement on disabling of tool
+        StopCoroutine("Translator");
+        if (selectedRobot != null)
+        {
+            targetPos = selectedRobot.transform.position;
+        }
+    }
+
+    
+    void CheckNewInput()
+    {
+        inputPos = Vector3.zero;  //Replace this with whatever method you need to obtain a target position from user input
+
+        if (inputPos != targetPos)
+        {
+            Debug.Log("not equal");
+            targetPos = inputPos;
+
+            if (!isTranslating)
             {
-                return i;
+                Debug.Log("Coroutine Starting");
+                StartCoroutine("Translator");
+                isTranslating = true;
             }
         }
-        return 1;
-    }
 
-    public void ToggleMovement(bool activate)
-    {
-        UpdateRefs();
-
-        GetIndexFromJoint();
-        if (selectedJointIndex == 0)
-        {
-            Debug.Log("Movement active:" + activate + " (not yet implemented)");     //This line will trigger the backend
-        }
     }
 }

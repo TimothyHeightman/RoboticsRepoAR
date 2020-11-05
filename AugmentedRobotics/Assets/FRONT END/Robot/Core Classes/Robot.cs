@@ -10,25 +10,12 @@ public class Robot : MonoBehaviour
     public List<Transform> parts;
     public GameObject markerPrefab;
 
-    public bool isTranslating;
-    public Vector3 targetPos, newPos;
-    float smoothTime = 0.1f;        //controls snappiness of the translation
-    float maxSpeed = 20f;        //controls max speed of translation
-    Vector3 baseVelocity = Vector3.zero;
-    ArticulationBody baseBody;
-
-    
-
 
     //Need to fill in array of joints, call this on startup
 
     private void Start()
     {
         SelectionManager.Instance.robot = this;
-
-        isTranslating = false;
-        targetPos = joints[0].transform.position;
-        baseBody = joints[0].GetComponent<ArticulationBody>();
 
         dhGenerator = this.GetComponent<DHGenerator>();
 
@@ -43,28 +30,7 @@ public class Robot : MonoBehaviour
     {
         //UpdateMatrices();
         dhGenerator.GenerateAllParameters();
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TranslateBase(new Vector3(2,1,1));
-        }
     }
-
-    IEnumerator Translator()
-    {
-        while (targetPos != newPos)
-        {
-            newPos = Vector3.SmoothDamp(joints[0].transform.position, targetPos, ref baseVelocity, smoothTime, maxSpeed);      //check our velocity works as expected
-            baseBody.TeleportRoot(newPos, joints[0].transform.rotation);
-            Debug.Log("live");
-            yield return null;
-        }
-
-        isTranslating = false;
-    }
-
-
-
 
     void SetupMarkers()
     {
@@ -119,22 +85,6 @@ public class Robot : MonoBehaviour
             }
         }        
     }
-
-    public void TranslateBase(Vector3 newTarget)
-    {
-        //Pass in a target position to translate the robot
-        //The variables smoothTime and maxSpeed of this class controll the snappiness
-        //and max speed of this motion respectively
-
-        targetPos = newTarget;
-
-        if (!isTranslating)
-        {
-            isTranslating = true;
-            StartCoroutine("Translator");
-        }
-    }
-
 
     //private void UpdateMatrices(int jointIndex = 0)
     //{
