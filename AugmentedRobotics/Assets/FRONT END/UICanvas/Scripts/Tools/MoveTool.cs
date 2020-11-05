@@ -10,11 +10,15 @@ using UnityEngine.UI;
 public class MoveTool : Tool
 {
     [SerializeField] private GameObject moveToolFunctionPrefab;
-
-    void Awake()
+    public void Initialise()
     {
         Transform functionParent = UIManager.Instance.toolFunctionParent;
         functionObject = UIManager.Instance.InstantiatePrefab(moveToolFunctionPrefab, functionParent);
         functionObject.SetActive(false);
+        SelectionManager.Instance.moveToolFunction = functionObject.GetComponent<MoveToolFunction>();
+    }
+    void Awake()
+    {
+        Initialise();
     }
 }

@@ -29,6 +29,14 @@ public class SelectionManager : MonoBehaviour
 
     public RotateToolFunction rotateToolFunction;
     public MoveToolFunction moveToolFunction;
+    public MoveTool moveTool;
+
+    private void Start()
+    {
+        moveTool.enabled = true;
+        moveTool.Initialise();
+        moveTool.enabled = false;
+    }
 
 
     private void Awake()
