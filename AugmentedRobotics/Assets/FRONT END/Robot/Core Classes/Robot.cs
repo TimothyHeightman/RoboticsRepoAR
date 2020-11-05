@@ -29,7 +29,7 @@ public class Robot : MonoBehaviour
     private void Update()
     {
         //UpdateMatrices();
-        dhGenerator.GenerateAllParameters();
+        dhGenerator.GenerateAllParameters(parts);
     }
 
     void SetupMarkers()

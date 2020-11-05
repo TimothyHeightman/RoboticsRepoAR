@@ -6,19 +6,19 @@ public class DHGenerator : MonoBehaviour
 {
     //Link to backend component of this robot parent GameObject
     public Robot robot;
-    public List<Transform> frames;
+    public List<Transform> tempFrames;
     public Vector4[] dhParams;
     public Matrix4x4[] matrices;
 
     void Start()
     {
         robot = this.GetComponent<Robot>();
-        frames = robot.parts;
-        dhParams = new Vector4[frames.Count - 1];
-        matrices = new Matrix4x4[frames.Count - 1];
+        List<Transform> tempFrames = robot.parts;
+        dhParams = new Vector4[tempFrames.Count - 1];
+        matrices = new Matrix4x4[tempFrames.Count - 1];
     }
 
-    public void GenerateAllParameters()
+    public void GenerateAllParameters(List<Transform> frames)
     {
         for (int i = 0; i < frames.Count - 1; i++)
         {
@@ -50,10 +50,10 @@ public class DHGenerator : MonoBehaviour
 
             dhParams[i] = tempParams;
         }
-        GenerateAllMatrices();
+        GenerateAllMatrices(frames);
     }
 
-    public void GenerateAllMatrices()
+    public void GenerateAllMatrices(List<Transform> frames)
     {
         Matrix4x4 tempMatrix = new Matrix4x4();
         Vector4 param = new Vector4();
