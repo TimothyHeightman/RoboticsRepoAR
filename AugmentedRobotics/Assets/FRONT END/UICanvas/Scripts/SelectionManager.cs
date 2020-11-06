@@ -30,12 +30,13 @@ public class SelectionManager : MonoBehaviour
     public RotateToolFunction rotateToolFunction;
     public MoveToolFunction moveToolFunction;
     public MoveTool moveTool;
+    public InventoryTool inventoryTool;
+    public InventoryToolFunction InventoryToolFunction;
 
     private void Start()
     {
-        moveTool.enabled = true;
         moveTool.Initialise();
-        moveTool.enabled = false;
+        inventoryTool.Initialise();
     }
 
 

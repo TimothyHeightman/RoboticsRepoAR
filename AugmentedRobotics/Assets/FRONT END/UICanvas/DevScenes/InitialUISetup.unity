@@ -1586,6 +1586,8 @@ MonoBehaviour:
   rotateToolFunction: {fileID: 0}
   moveToolFunction: {fileID: 0}
   moveTool: {fileID: 3940474890026982671}
+  inventoryTool: {fileID: 3940474888554925661}
+  InventoryToolFunction: {fileID: 0}
 --- !u!1 &1743250945
 GameObject:
   m_ObjectHideFlags: 0

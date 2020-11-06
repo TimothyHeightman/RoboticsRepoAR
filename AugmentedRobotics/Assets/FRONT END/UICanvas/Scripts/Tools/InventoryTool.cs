@@ -13,8 +13,17 @@ public class InventoryTool : Tool
 
     void Awake()
     {
+        Initialise();
+    }
+
+    public void Initialise()
+    {
         Transform functionParent = UIManager.Instance.modalsParent;
-        functionObject = UIManager.Instance.InstantiatePrefab(inventoryModalPrefab, functionParent);
-        functionObject.SetActive(false);
+        if (SelectionManager.Instance.InventoryToolFunction == null)
+        {
+            functionObject = UIManager.Instance.InstantiatePrefab(inventoryModalPrefab, functionParent);
+            SelectionManager.Instance.InventoryToolFunction = functionObject.GetComponent<InventoryToolFunction>();
+            functionObject.SetActive(false);
+        }        
     }
 }
