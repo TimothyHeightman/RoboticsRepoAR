@@ -43,6 +43,15 @@ public class InventoryToolFunction : Function
         }
     }
 
+    public void SpawnRobot(out GameObject robotReference)
+    {
+        robotReference = null;
+        foreach (Mesh mesh in availableMeshes)
+        {
+            robotReference = InstantiateRobot(mesh.id);
+        }
+    }
+
     private void DictionaryMeshes()
     {
         // Assigns a key to each card to ease calling each object in program
@@ -74,7 +83,7 @@ public class InventoryToolFunction : Function
         }
     }
 
-    private void InstantiateRobot(RobotMesh item)
+    private GameObject InstantiateRobot(RobotMesh item)
     {
         if (activeMeshes.ContainsKey(item) == false)
         {
@@ -82,8 +91,10 @@ public class InventoryToolFunction : Function
             GameObject newMesh = UIManager.Instance.InstantiatePrefab(meshPrefab, UIManager.Instance.meshParent);
             activeMeshes.Add(item, newMesh);
             returnFromKey(availableMeshCardsDict, item).GetComponent<Button>().interactable = false;
-            this.gameObject.SetActive(false);  
-        } 
+            this.gameObject.SetActive(false);
+            return newMesh;
+        }
+        return null;
     }
 
 }

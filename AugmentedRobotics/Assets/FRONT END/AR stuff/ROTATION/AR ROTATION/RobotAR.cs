@@ -13,7 +13,7 @@ public class RobotAR : MonoBehaviour
 
     private void Start()
     {
-        SelectionManagerAR.Instance.robot = this;
+        //SelectionManager.Instance.robot = this;
         matrixBackend = this.GetComponent<TransformMatrixBackendAR>();
 
         SetupMarkers();

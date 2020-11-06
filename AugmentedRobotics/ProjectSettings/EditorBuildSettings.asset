@@ -21,12 +21,20 @@ EditorBuildSettings:
     path: Assets/FRONT END/AR stuff/PLACEMENT/PlacementTest.unity
     guid: f60479ab803d1474fad9e1113aaea68f
   - enabled: 0
-    path: Assets/FRONT END/AR stuff/ROTATION/GazeInteractionScene.unity
+    path: Assets/FRONT END/AR stuff/GAZE/GazeInteractionScene.unity
     guid: a0f8fae6125862a43aee2ae49ffd73b3
-  - enabled: 1
+  - enabled: 0
     path: Assets/FRONT END/AR stuff/IMAGE TRACKED ANCHOR/ImageTracking.unity
     guid: afbe117eeb62f564db426e007e3f37c5
+  - enabled: 0
+    path: Assets/FRONT END/AR stuff/ARMaster/ARSceneOne.unity
+    guid: adbf5d9cf047c4b478446fa3f51d24a4
+  - enabled: 1
+    path: Assets/FRONT END/AR stuff/ARMaster/UISetupCopy.unity
+    guid: 46afdd1643d1e2a41af80868406da75f
   m_configObjects:
+    Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: af59f17ec567c6544aa430beac819da2,
+      type: 2}
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 1b4f7801c2ea56a46b7b473f5e8c3b8e,
       type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 8f6a8dce22753ba46a5914d96a0df0c7,

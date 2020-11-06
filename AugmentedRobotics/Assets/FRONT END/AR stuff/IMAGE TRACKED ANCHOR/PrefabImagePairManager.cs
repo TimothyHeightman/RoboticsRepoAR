@@ -103,7 +103,10 @@ namespace UnityEngine.XR.ARFoundation.Samples
         {
             if (m_PrefabsDictionary.TryGetValue(trackedImage.referenceImage.guid, out var prefab))
             {
-                m_Instantiated[trackedImage.referenceImage.guid] = Instantiate(prefab, trackedImage.transform);
+                //m_Instantiated[trackedImage.referenceImage.guid] = Instantiate(prefab, trackedImage.transform);
+
+                m_Instantiated[trackedImage.referenceImage.guid] = Instantiate(prefab, trackedImage.transform, true);
+
                 //m_Instantiated[trackedImage.referenceImage.guid].transform.parent = null;
                 //m_Instantiated[trackedImage.referenceImage.guid] = Instantiate(prefab, trackedImage.transform.position, trackedImage.transform.rotation);
                 //m_Instantiated[trackedImage.referenceImage.guid].transform.localScale = trackedImage.transform.localScale;
@@ -120,7 +123,6 @@ namespace UnityEngine.XR.ARFoundation.Samples
             m_PrefabsDictionary[referenceImage.guid] = alternativePrefab;
             if (m_Instantiated.TryGetValue(referenceImage.guid, out var instantiatedPrefab))
             {
-
                 m_Instantiated[referenceImage.guid] = Instantiate(alternativePrefab, instantiatedPrefab.transform.parent);
 
                 //m_Instantiated[referenceImage.guid].transform.parent = null;

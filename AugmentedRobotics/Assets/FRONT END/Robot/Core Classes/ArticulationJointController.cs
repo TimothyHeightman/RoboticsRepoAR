@@ -9,6 +9,7 @@ public class ArticulationJointController : MonoBehaviour
     private ArticulationBody articulation;
     private float userInput;
 
+    private Touch touch;
     void Start()
     {
         //Grab the ArticulationBody of this joint
@@ -27,17 +28,28 @@ public class ArticulationJointController : MonoBehaviour
 
     private void Update()
     {
-        userInput = Input.GetAxis("Horizontal");
+        //userInput = Input.GetAxis("Horizontal");
+        touch = Input.GetTouch(0);
     }
 
     private void FixedUpdate()
-    {        
-        if (userInput != 0)
+    {
+        //if (userInput != 0)
+        //{
+        //    float rotationChange = userInput * speed * Time.fixedDeltaTime;
+        //    float rotationGoal = CurrentPrimaryAxisRotation() + rotationChange;
+        //    RotateTo(rotationGoal);
+        //}
+
+        if (touch.phase == TouchPhase.Moved)
         {
-            float rotationChange = userInput * speed * Time.fixedDeltaTime;
+            Debug.Log("ROTATING");
+            float rotationChange = -touch.deltaPosition.x * speed;
             float rotationGoal = CurrentPrimaryAxisRotation() + rotationChange;
             RotateTo(rotationGoal);
         }
+
+
     }
 
     // MOVEMENT HELPERS

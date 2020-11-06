@@ -25,7 +25,7 @@ public class RotateToolFunctionAR : Function
 
     private void OnEnable()
     {
-        SelectionManagerAR.Instance.rotateToolFunction = this;
+        //SelectionManager.Instance.rotateToolFunction = this;
         UpdateRefs();
         
         if (selectedJoint != null)
@@ -44,7 +44,7 @@ public class RotateToolFunctionAR : Function
 
     private void Update()
     {
-        Ray ray = SelectionManagerAR.Instance.cam.ScreenPointToRay(Input.mousePosition); //Get user input based on click from camera in game view
+        Ray ray = SelectionManager.Instance.cam.ScreenPointToRay(Input.mousePosition); //Get user input based on click from camera in game view
         RaycastHit hit;                                    //Currently calling this every frame for debugging purposes
         Debug.DrawRay(ray.origin, ray.direction * 20, Color.yellow);
 
@@ -55,29 +55,29 @@ public class RotateToolFunctionAR : Function
                 GameObject hitObject = hit.collider.gameObject;
                 if (hitObject.GetComponent<Joint>() != null)
                 {
-                    if (SelectionManagerAR.Instance.previous != null)
+                    if (SelectionManager.Instance.previous != null)
                     {
-                        if (SelectionManagerAR.Instance.previous != hitObject.GetComponent<Joint>())
+                        if (SelectionManager.Instance.previous != hitObject.GetComponent<Joint>())
                         {
-                            if (SelectionManagerAR.Instance.previous.GetComponent<ArticulationJointControllerAR>() != null)
+                            if (SelectionManager.Instance.previous.GetComponent<ArticulationJointController>() != null)
                             {
-                                ToggleOutline(SelectionManagerAR.Instance.previous, false);
+                                ToggleOutline(SelectionManager.Instance.previous, false);
 
-                                SelectionManagerAR.Instance.previous.GetComponent<ArticulationJointControllerAR>().enabled = false;
+                                SelectionManager.Instance.previous.GetComponent<ArticulationJointController>().enabled = false;
                             }
 
                         }
                     }
 
-                    SelectionManagerAR.Instance.joint = hitObject.GetComponent<Joint>();
-                    SelectionManagerAR.Instance.previous = SelectionManagerAR.Instance.joint;
+                    SelectionManager.Instance.joint = hitObject.GetComponent<Joint>();
+                    SelectionManager.Instance.previous = SelectionManager.Instance.joint;
 
                     UpdateRefs();
 
-                    if (SelectionManagerAR.Instance.joint.GetComponent<ArticulationJointControllerAR>() != null)
+                    if (SelectionManager.Instance.joint.GetComponent<ArticulationJointController>() != null)
                     {
-                        SelectionManagerAR.Instance.joint.GetComponent<ArticulationJointControllerAR>().enabled = true;
-                        ToggleOutline(SelectionManagerAR.Instance.joint, true);
+                        SelectionManager.Instance.joint.GetComponent<ArticulationJointController>().enabled = true;
+                        ToggleOutline(SelectionManager.Instance.joint, true);
                     }                    
                 }
             }
@@ -86,8 +86,8 @@ public class RotateToolFunctionAR : Function
 
     public void UpdateRefs()
     {
-        selectedRobot = SelectionManagerAR.Instance.robot;
-        selectedJoint = SelectionManagerAR.Instance.joint;
+        //selectedRobot = SelectionManager.Instance.robot;
+        selectedJoint = SelectionManager.Instance.joint;
     }
 
     int GetIndexFromJoint()
@@ -114,7 +114,7 @@ public class RotateToolFunctionAR : Function
 
             if (activate)
             {
-                selectedJoint.GetComponent<Renderer>().materials[1] = SelectionManagerAR.Instance.outline;
+                selectedJoint.GetComponent<Renderer>().materials[1] = SelectionManager.Instance.outline;
             }
             else
             {
@@ -131,7 +131,7 @@ public class RotateToolFunctionAR : Function
 
         if (isEnabled)
         {
-            materials[1] = SelectionManagerAR.Instance.outline;
+            materials[1] = SelectionManager.Instance.outline;
         }
 
         joint.GetComponent<Renderer>().materials = materials;

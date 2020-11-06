@@ -12,8 +12,8 @@ public class MoveToolFunction : Function
 
     public bool isTranslating, isRobotPresent;
     public Vector3 targetPos, newPos;
-    float smoothTime = 0.1f;        //controls snappiness of the translation
-    float maxSpeed = 20f;        //controls max speed of translation
+    [SerializeField] float smoothTime = 0.1f;        //controls snappiness of the translation
+    [SerializeField] float maxSpeed = 20f;        //controls max speed of translation
     Vector3 baseVelocity = Vector3.zero;
     ArticulationBody baseBody;
 
@@ -25,12 +25,13 @@ public class MoveToolFunction : Function
         {
             newPos = Vector3.SmoothDamp(selectedRobot.joints[0].transform.position, targetPos, ref baseVelocity, smoothTime, maxSpeed);      //check our velocity works as expected
             baseBody.TeleportRoot(newPos, selectedRobot.joints[0].transform.rotation);
-            Debug.Log("Moving");
+            Debug.Log("TRANSLATION ONGOING");
             yield return null;
         }
 
         isTranslating = false;
         Debug.Log("Coroutine Ending");
+        gameObject.SetActive(false);
     }
 
     void UpdateReferences()
@@ -39,10 +40,20 @@ public class MoveToolFunction : Function
         isTranslating = false;
         targetPos = selectedRobot.joints[0].transform.position;
         baseBody = selectedRobot.joints[0].GetComponent<ArticulationBody>();
-    } 
+    }
 
 
-    private void OnEnable()
+    void OnEnable()
+    {
+        ProcessRefs();
+    }
+    private void Start()
+    {
+        ProcessRefs();
+    }
+
+
+    void ProcessRefs()
     {
         SelectionManager.Instance.moveToolFunction = this;
         if (SelectionManager.Instance.robot != null)
@@ -56,11 +67,11 @@ public class MoveToolFunction : Function
         }
     }
 
-
     private void Update()
     {
         if (isRobotPresent)
         {
+
             //Continously check if new input has been received and 
             CheckNewInput();
         }
@@ -80,7 +91,7 @@ public class MoveToolFunction : Function
     
     void CheckNewInput()
     {
-        inputPos = Vector3.zero;  //Replace this with whatever method you need to obtain a target position from user input
+        //inputPos = Vector3.zero;  //Replace this with whatever method you need to obtain a target position from user input
 
         if (inputPos != targetPos)
         {

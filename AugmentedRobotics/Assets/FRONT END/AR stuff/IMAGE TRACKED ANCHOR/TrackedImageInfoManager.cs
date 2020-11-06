@@ -34,7 +34,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
 
         /// <summary>
         /// If an image is detected but no source texture can be found,
-        /// this texture is used instead.
+        /// this tex ture is used instead.
         /// </summary>
         public Texture2D defaultTexture
         {

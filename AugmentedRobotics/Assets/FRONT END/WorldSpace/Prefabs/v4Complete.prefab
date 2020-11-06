@@ -454,9 +454,6 @@ MonoBehaviour:
   parts: []
   markerPrefab: {fileID: 6496650804407699843, guid: 88094be5c40edb841b409c6d95fc4fca,
     type: 3}
-  isTranslating: 0
-  targetPos: {x: 0, y: 0, z: 0}
-  newPos: {x: 0, y: 0, z: 0}
 --- !u!114 &1418310224753513341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -560,7 +557,6 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b693371d6399b894a9a958e70623cca5, type: 2}
   - {fileID: 2100000, guid: b693371d6399b894a9a958e70623cca5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -1042,7 +1038,6 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 16c75a87fc4a82d408e2cc878622b497, type: 2}
-  - {fileID: 2100000, guid: 16c75a87fc4a82d408e2cc878622b497, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1226,7 +1221,6 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 16c75a87fc4a82d408e2cc878622b497, type: 2}
-  - {fileID: 2100000, guid: 16c75a87fc4a82d408e2cc878622b497, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1409,7 +1403,6 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b693371d6399b894a9a958e70623cca5, type: 2}
   - {fileID: 2100000, guid: b693371d6399b894a9a958e70623cca5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0

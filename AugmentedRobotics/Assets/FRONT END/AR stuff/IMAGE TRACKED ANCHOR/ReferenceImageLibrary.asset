@@ -25,3 +25,13 @@ MonoBehaviour:
     m_SpecifySize: 1
     m_Name: TrackedImage2
     m_Texture: {fileID: 2800000, guid: ee82e3f638db68d44b1776f97e94db96, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 5087935578294019460
+      m_GuidHigh: 379904445328877484
+    m_SerializedTextureGuid:
+      m_GuidLow: 7981619930248563936
+      m_GuidHigh: 4940684389032245131
+    m_Size: {x: 0.15, y: 0.15}
+    m_SpecifySize: 1
+    m_Name: TrackedImage3
+    m_Texture: {fileID: 0}

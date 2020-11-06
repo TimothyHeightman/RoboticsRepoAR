@@ -1038,13 +1038,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.23573579, y: 0, z: 0, w: 0.97181726}
-  m_LocalPosition: {x: 0, y: 1.28, z: -1.49}
+  m_LocalRotation: {x: 0.032457408, y: 0, z: 0, w: 0.99947315}
+  m_LocalPosition: {x: 0, y: 0.15, z: -0.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 27.27, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 3.72, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1327,7 +1327,7 @@ PrefabInstance:
     - target: {fileID: 2557453656729204814, guid: 3d4ebeada0580b948b893bc59fc69286,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2897562928178684660, guid: 3d4ebeada0580b948b893bc59fc69286,
         type: 3}
@@ -1402,7 +1402,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1232636689
 Transform:
   m_ObjectHideFlags: 0
@@ -1790,16 +1790,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1516401317}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 314ccd1d9919b964d8d788b23bb4f959, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d5db3893c5b49b4c8be811b0aee1fdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  outline: {fileID: 2100000, guid: 63c5eb2eb7a196649a064b015f2f1886, type: 2}
+  outline: {fileID: 2100000, guid: 8d7fead1a30447f43bb5bd5367be7a1d, type: 2}
   robot: {fileID: 0}
   joint: {fileID: 0}
   previous: {fileID: 0}
   rotateToolFunction: {fileID: 0}
   moveToolFunction: {fileID: 0}
+  moveTool: {fileID: 3940474890026982671}
+  inventoryTool: {fileID: 3940474888554925661}
+  InventoryToolFunction: {fileID: 0}
 --- !u!4 &1595710792 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2897562928178684660, guid: 3d4ebeada0580b948b893bc59fc69286,
@@ -2758,7 +2761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14b9e64d145d64ec1b5312485ab8e0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryModalPrefab: {fileID: 8744570810062171904, guid: 5c23cc2ef746edf48996d49f6d0330dd,
+  inventoryModalPrefab: {fileID: 8744570810062171904, guid: 800c63c82304642f7a99fe54e12c1543,
     type: 3}
 --- !u!114 &3940474888554925662
 MonoBehaviour:
@@ -3272,7 +3275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efbcf139e725e7143b4e8c046006f8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateToolFunctionPrefab: {fileID: 6794810565034122934, guid: c8e4a46d3bc3c8a4eac8058fc9521699,
+  rotateToolFunctionPrefab: {fileID: 6794810565034122934, guid: 6806b051164bf4dbd96739d48a49cea4,
     type: 3}
 --- !u!114 &3940474890035160389
 MonoBehaviour:

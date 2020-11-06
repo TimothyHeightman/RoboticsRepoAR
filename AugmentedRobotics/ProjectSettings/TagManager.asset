@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Effects
   - Line
+  - hasInfo
+  - Robot
+  - Tools
   layers:
   - Default
   - TransparentFX

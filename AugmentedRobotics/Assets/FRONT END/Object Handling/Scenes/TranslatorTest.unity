@@ -449,7 +449,8 @@ MonoBehaviour:
   markerPrefab: {fileID: 6496650804407699843, guid: 88094be5c40edb841b409c6d95fc4fca,
     type: 3}
   isTranslating: 0
-  targetPos: {x: 0, y: 0, z: 0}
+  targetPos: {x: 0, y: -16.41, z: 0}
+  newPos: {x: 0, y: 0, z: 0}
 --- !u!171741748 &1172014752512710260
 ArticulationBody:
   m_ObjectHideFlags: 0

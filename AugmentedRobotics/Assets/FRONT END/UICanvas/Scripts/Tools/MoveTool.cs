@@ -18,6 +18,7 @@ public class MoveTool : Tool
             functionObject = UIManager.Instance.InstantiatePrefab(moveToolFunctionPrefab, functionParent);            
             SelectionManager.Instance.moveToolFunction = functionObject.GetComponent<MoveToolFunction>();
             functionObject.SetActive(false);
+            //SelectionManager.Instance.moveToolFunction.gameObject.SetActive(false);
         }
         
     }
