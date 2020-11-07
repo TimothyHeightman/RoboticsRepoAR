@@ -11,7 +11,7 @@ public class ButtonAnim : MonoBehaviour, IPointerClickHandler, IPointerEnterHand
 
     void Awake()
     {
-        highlight = this.transform.GetChild(0).gameObject;
+        highlight = this.transform.GetChild(0).gameObject;      //THIS KEEPS THROWING AN ERROR
     }
 
     public virtual void OnPointerEnter(PointerEventData data)

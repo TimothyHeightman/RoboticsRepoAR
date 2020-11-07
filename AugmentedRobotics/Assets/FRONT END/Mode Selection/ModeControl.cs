@@ -11,13 +11,17 @@ public class ModeControl : MonoBehaviour
      * operation that the user can choose between.
      */
 
-    public bool isMobile, isARCapable, isARIdeal; 
+    public bool isMobile, isARCapable, isARIdeal;   //false by default
     RuntimePlatform platform;
 
     int minAndroidSDK = 24;     //Minimum API version for ARCore support (Android 7) - corresponds to isARCapable
     int targetAndroidSDK = 25;  //If API is below this then only allow image tracked AR - corresponds to isARIdeal
     float minIOSVersion = 11f;  //Same here for IOS for ARKit
     float targetIOSVersion = 12f;   //Again modify this to allow only image tracking for below this version
+
+    public GameObject modePanel;
+    public GameObject arPanel;
+    public GameObject vrButton, arButton, imageButton, planeButton;
 
     private static ModeControl _instance;
 
@@ -64,17 +68,16 @@ public class ModeControl : MonoBehaviour
 
                 if (SDK >= targetAndroidSDK)
                 {
-                    isARIdeal = true;       //Is device capable of plane detection?
-                    LoadFullARScene();
+                    isARIdeal = true;       //Is device capable of plane detection?                    
                 }
                 else
                 {
-                    LoadImageARScene();
+                    planeButton.SetActive(false);
                 }
             }
             else
             {
-                LoadVRScene();
+                arButton.SetActive(false);
             }
         }
 
@@ -92,6 +95,14 @@ public class ModeControl : MonoBehaviour
                 {
                     isARIdeal = true;       //Is device capable of plane detection?
                 }
+                else
+                {
+                    planeButton.SetActive(false);
+                }
+            }
+            else
+            {
+                planeButton.SetActive(false);
             }
         }
 
@@ -101,9 +112,12 @@ public class ModeControl : MonoBehaviour
             isMobile = false;
             isARCapable = false;
             isARIdeal = false;
-            LoadDesktopScene();
+            arButton.SetActive(false);      //Only allow VR if on desktop
         }
     }
+
+
+    //SCENE LOADING
 
     public void LoadDesktopScene()
     {
