@@ -16,7 +16,7 @@ public class SelectionManager : MonoBehaviour
         {
             if (_instance == null)
             {
-                Debug.LogError("ObjectManager is NULL.");
+                Debug.LogError("SelectionManager is NULL.");
             }
 
             return _instance;
@@ -32,6 +32,8 @@ public class SelectionManager : MonoBehaviour
     public MoveTool moveTool;
     public InventoryTool inventoryTool;
     public InventoryToolFunction InventoryToolFunction;
+
+    public ModeControl modeControl;
 
     private void Start()
     {

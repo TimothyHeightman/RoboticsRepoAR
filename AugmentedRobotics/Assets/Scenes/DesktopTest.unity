@@ -1579,7 +1579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 963194227}
-  outline: {fileID: 2100000, guid: 63c5eb2eb7a196649a064b015f2f1886, type: 2}
+  outline: {fileID: 2100000, guid: 4b128d38533977b448537669cea18a85, type: 2}
   robot: {fileID: 0}
   joint: {fileID: 0}
   previous: {fileID: 0}
@@ -2357,7 +2357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14b9e64d145d64ec1b5312485ab8e0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryModalPrefab: {fileID: 8744570810062171904, guid: 800c63c82304642f7a99fe54e12c1543,
+  inventoryModalPrefab: {fileID: 8744570810062171904, guid: 63a5157623836fc4ab5fe0533e012cc0,
     type: 3}
 --- !u!114 &3940474888554925662
 MonoBehaviour:

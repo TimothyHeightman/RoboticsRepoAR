@@ -27,11 +27,20 @@ EditorBuildSettings:
     path: Assets/FRONT END/AR stuff/IMAGE TRACKED ANCHOR/ImageTracking.unity
     guid: afbe117eeb62f564db426e007e3f37c5
   - enabled: 0
-    path: Assets/FRONT END/AR stuff/ARMaster/ARSceneOne.unity
-    guid: adbf5d9cf047c4b478446fa3f51d24a4
-  - enabled: 1
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: Assets/FRONT END/AR stuff/ARMaster/UISetupCopy.unity
     guid: 46afdd1643d1e2a41af80868406da75f
+  - enabled: 1
+    path: Assets/Scenes/ModeSelection.unity
+    guid: 76212c717107d9f45a82ebb15c59d037
+  - enabled: 0
+    path: Assets/Scenes/DesktopTest.unity
+    guid: e5b4ef993d2d32e468dfae4c172c3e09
+  - enabled: 1
+    path: Assets/MASTER/ARMaster.unity
+    guid: 065cbb44740961a4da1962381ec8b6b7
   m_configObjects:
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: af59f17ec567c6544aa430beac819da2,
       type: 2}

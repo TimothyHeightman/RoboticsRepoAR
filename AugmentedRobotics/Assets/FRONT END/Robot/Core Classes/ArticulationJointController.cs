@@ -10,10 +10,20 @@ public class ArticulationJointController : MonoBehaviour
     private float userInput;
 
     private Touch touch;
+    private bool mobile;
     void Start()
     {
         //Grab the ArticulationBody of this joint
         articulation = GetComponent<ArticulationBody>();
+        if (ModeControl.Instance != null)
+        {
+            mobile = ModeControl.Instance.isMobile;
+        }
+        else
+        {
+            mobile = false;
+        }
+
     }
 
     private void OnEnable()
@@ -28,27 +38,37 @@ public class ArticulationJointController : MonoBehaviour
 
     private void Update()
     {
-        //userInput = Input.GetAxis("Horizontal");
-        touch = Input.GetTouch(0);
+        if (mobile)
+        {
+            touch = Input.GetTouch(0);
+        }
+        else
+        {
+            userInput = Input.GetAxis("Horizontal");
+        }              
     }
 
     private void FixedUpdate()
     {
-        //if (userInput != 0)
-        //{
-        //    float rotationChange = userInput * speed * Time.fixedDeltaTime;
-        //    float rotationGoal = CurrentPrimaryAxisRotation() + rotationChange;
-        //    RotateTo(rotationGoal);
-        //}
-
-        if (touch.phase == TouchPhase.Moved)
+        if (mobile)
         {
-            Debug.Log("ROTATING");
-            float rotationChange = -touch.deltaPosition.x * speed;
-            float rotationGoal = CurrentPrimaryAxisRotation() + rotationChange;
-            RotateTo(rotationGoal);
+            if (touch.phase == TouchPhase.Moved)
+            {
+                Debug.Log("ROTATING");
+                float rotationChange = -touch.deltaPosition.x * speed;
+                float rotationGoal = CurrentPrimaryAxisRotation() + rotationChange;
+                RotateTo(rotationGoal);
+            }
         }
-
+        else
+        {
+            if (userInput != 0)
+            {
+                float rotationChange = userInput * speed * Time.fixedDeltaTime;
+                float rotationGoal = CurrentPrimaryAxisRotation() + rotationChange;
+                RotateTo(rotationGoal);
+            }
+        }
 
     }
 
