@@ -48,7 +48,7 @@ public class Placement : MonoBehaviour
     }
 
     private void UpdatePlacementPose() {
-        var screenCenter = Camera.current.ViewportToScreenPoint(new Vector3(0.5f, 0.5f));
+        var screenCenter = Camera.main.ViewportToScreenPoint(new Vector3(0.5f, 0.5f));
         var hits = new List<ARRaycastHit>();
         aRRaycastManager.Raycast(screenCenter, hits, TrackableType.PlaneEstimated);
 
@@ -57,7 +57,7 @@ public class Placement : MonoBehaviour
             PlacementPose = hits[0].pose;
 
             //may not be necessary
-            var cameraForward = Camera.current.transform.forward;
+            var cameraForward = Camera.main.transform.forward;
             var cameraBearing = new Vector3(cameraForward.x, 0, cameraForward.z).normalized;
             PlacementPose.rotation = Quaternion.LookRotation(cameraBearing);
 

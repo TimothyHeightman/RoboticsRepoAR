@@ -44,6 +44,7 @@ public class InventoryToolFunction : Function
         {
             mesh.card.GetComponent<Button>().onClick.AddListener( delegate{ InstantiateRobot(mesh.id); });
         }
+        inventoryToolHighlight = UIManager.Instance.useInAR.gameObject;
         inventoryToolHighlight = UIManager.Instance.useInAR.GetChild(2).GetChild(1).GetChild(1).GetChild(0).gameObject;
     }
 

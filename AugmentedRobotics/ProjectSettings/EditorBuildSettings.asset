@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/FRONT END/UICanvas/DevScenes/InitialUISetup.unity
-    guid: 39e8455eb86a49047aeea9bdb83a4250
-  - enabled: 0
     path: Assets/FRONT END/AR stuff/ROTATION/AR ROTATION/RotateAR.unity
     guid: e5401b73602d50b4683eaea59cabe55b
   - enabled: 1
@@ -35,6 +32,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/ModeSelection.unity
     guid: 76212c717107d9f45a82ebb15c59d037
+  - enabled: 0
+    path: Assets/FRONT END/UICanvas/DevScenes/InitialUISetup.unity
+    guid: 39e8455eb86a49047aeea9bdb83a4250
   - enabled: 0
     path: Assets/Scenes/DesktopTest.unity
     guid: e5b4ef993d2d32e468dfae4c172c3e09
