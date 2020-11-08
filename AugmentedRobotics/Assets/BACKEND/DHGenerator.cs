@@ -13,7 +13,7 @@ public class DHGenerator : MonoBehaviour
     void Start()
     {
         robot = this.GetComponent<Robot>();
-        List<Transform> tempFrames = robot.parts;
+        tempFrames = robot.parts;
         dhParams = new Vector4[tempFrames.Count - 1];
         matrices = new Matrix4x4[tempFrames.Count - 1];
     }
