@@ -18,7 +18,7 @@ public class DHParameterDisplay : MonoBehaviour
 
     void Start()
     {
-        robot = UIManager.Instance.meshParent.GetChild(0).gameObject;
+        robot = SelectionManager.Instance.robot.gameObject;
         dHGenerator = robot.GetComponent<DHGenerator>();
         dHParamArray = dHGenerator.dhParams;
     }

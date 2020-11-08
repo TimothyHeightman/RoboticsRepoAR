@@ -304,7 +304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   robotPart: {fileID: 0}
-  startToEndAngles: {x: 0, y: 0, z: 0}
+  startToEndAngles: {x: -90, y: 0, z: 0}
   isBase: 0
   isEnd: 1
   articulationBody: {fileID: 0}
@@ -1152,7 +1152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   robotPart: {fileID: 0}
-  startToEndAngles: {x: 0, y: -90, z: 0}
+  startToEndAngles: {x: 0, y: 0, z: 0}
   isBase: 0
   isEnd: 0
   articulationBody: {fileID: 0}
@@ -1265,6 +1265,7 @@ GameObject:
   - component: {fileID: 3760180890501928894}
   - component: {fileID: 4515404340033282025}
   - component: {fileID: 8559911720678152606}
+  - component: {fileID: 2644686396468545529}
   m_Layer: 0
   m_Name: FrankV5Body
   m_TagString: Untagged
@@ -1326,6 +1327,24 @@ MonoBehaviour:
   tempFrames: []
   dhParams: []
   matrices: []
+--- !u!114 &2644686396468545529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4568066418198973700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6327c9a757e934ad39c6ed052d53ea08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axesGizmoPrefab: {fileID: 2765338095531798958, guid: 73764071a7d724cccb14b7bc2f05213a,
+    type: 3}
+  rotationGizmoPrefab: {fileID: 3961019825504864848, guid: 9733255b16f1b468d9e9feb9316c9cea,
+    type: 3}
+  dhGizmoPrefab: {fileID: 5976145620406312555, guid: 08fb4e95b6d9d4e47af7ae9cd5c429d5,
+    type: 3}
 --- !u!1 &4632297070695981967
 GameObject:
   m_ObjectHideFlags: 0
@@ -2290,7 +2309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   robotPart: {fileID: 0}
-  startToEndAngles: {x: 0, y: 90, z: 0}
+  startToEndAngles: {x: 90, y: 0, z: 0}
   isBase: 0
   isEnd: 0
   articulationBody: {fileID: 0}
@@ -2474,7 +2493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   robotPart: {fileID: 0}
-  startToEndAngles: {x: -90, y: 0, z: 0}
+  startToEndAngles: {x: 90, y: 0, z: 0}
   isBase: 0
   isEnd: 0
   articulationBody: {fileID: 0}
@@ -2738,7 +2757,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   robotPart: {fileID: 0}
-  startToEndAngles: {x: 0, y: 90, z: 0}
+  startToEndAngles: {x: -90, y: 0, z: 0}
   isBase: 0
   isEnd: 0
   articulationBody: {fileID: 0}
