@@ -16,8 +16,8 @@ public class Modal : MonoBehaviour
     void Awake ()
     {
         // Define all of the variables required, inherited from parent Modal class
-        modal = this.gameObject;
-        modalOverlay = this.transform.GetChild(0).GetComponent<Button>();
+        modal = gameObject;
+        modalOverlay = transform.GetChild(0).GetComponent<Button>();
         CloseListeners();
     }
 

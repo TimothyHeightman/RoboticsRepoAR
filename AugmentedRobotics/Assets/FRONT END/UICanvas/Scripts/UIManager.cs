@@ -30,6 +30,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] public Transform toolFunctionParent;
     [SerializeField] public Transform meshParent;
     [SerializeField] public Transform arUI;
+
+    [SerializeField] public GameObject justRobotTool;
+    [SerializeField] public GameObject robotPlusSkeletonTool;
+    [SerializeField] public GameObject justSkeletonTool;
     
 
     [Header("No Assignment Needed")]
