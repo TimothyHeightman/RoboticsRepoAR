@@ -4,5 +4,8 @@ using UnityEngine;
 
 public abstract class Function : MonoBehaviour
 {
-
+    public virtual void OnDisable()
+    {
+        UIManager.Instance.activeTool = null;
+    }
 }

@@ -16,8 +16,6 @@ public class RotateToolFunction : Function
     public Material tempMaterial;
 
 
-
-
     private void Start()
     {
         selectedJointIndex = 0;     //corresponding to base selected, will not allow any movement        
@@ -34,8 +32,9 @@ public class RotateToolFunction : Function
         }
     }
 
-    private void OnDisable()
+    public override void OnDisable()
     {
+        UIManager.Instance.activeTool = null;
         if (selectedJoint != null)
         {
             ToggleMovement(false);

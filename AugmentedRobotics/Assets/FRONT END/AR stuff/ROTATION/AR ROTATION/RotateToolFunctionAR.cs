@@ -34,7 +34,7 @@ public class RotateToolFunctionAR : Function
         }
     }
 
-    private void OnDisable()
+    public override void OnDisable()
     {
         if (selectedJoint != null)
         {

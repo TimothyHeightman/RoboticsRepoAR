@@ -52,6 +52,7 @@ public abstract class Tool : MonoBehaviour, IPointerDownHandler
 
         // Enable the function script
         SwitchTool();
+        this.transform.GetChild(0).gameObject.SetActive(true);
         functionObject.SetActive(true);
     }
 

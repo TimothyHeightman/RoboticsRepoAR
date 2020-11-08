@@ -9,7 +9,14 @@ public class UIManager : MonoBehaviour
     {   get
     {
             if (instance == null)
-                Debug.LogError("UIManager is NULL.");
+                // Test 1
+                instance = FindObjectOfType<UIManager>();
+
+                if (instance == null)
+                {
+                    // Test 2
+                    Debug.LogError("UIManager is NULL.");
+                }
 
             return instance;
 
@@ -22,6 +29,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] public GameObject homeScreen;
     [SerializeField] public Transform toolFunctionParent;
     [SerializeField] public Transform meshParent;
+    [SerializeField] public Transform arUI;
     
 
     [Header("No Assignment Needed")]
@@ -49,6 +57,5 @@ public class UIManager : MonoBehaviour
 
         return newObject;
     }
-
 
 }

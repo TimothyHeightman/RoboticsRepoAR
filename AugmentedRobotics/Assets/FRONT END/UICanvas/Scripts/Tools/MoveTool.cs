@@ -13,14 +13,8 @@ public class MoveTool : Tool
     public void Initialise()
     {
         Transform functionParent = UIManager.Instance.toolFunctionParent;
-        if (SelectionManager.Instance.moveToolFunction == null)
-        {
-            functionObject = UIManager.Instance.InstantiatePrefab(moveToolFunctionPrefab, functionParent);            
-            SelectionManager.Instance.moveToolFunction = functionObject.GetComponent<MoveToolFunction>();
-            functionObject.SetActive(false);
-            //SelectionManager.Instance.moveToolFunction.gameObject.SetActive(false);
-        }
-        
+        functionObject = UIManager.Instance.InstantiatePrefab(moveToolFunctionPrefab, functionParent);
+        functionObject.SetActive(false);
     }
     void Awake()
     {

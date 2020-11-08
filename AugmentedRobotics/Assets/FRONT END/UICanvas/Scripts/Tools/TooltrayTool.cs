@@ -12,13 +12,11 @@ public class TooltrayTool : Tool
     void Awake()
     {
         functionObject = UIManager.Instance.openedTools;
-
     }
 
     public override void ActivateTool()
     {
         // Activate open tooltray
-        SwitchTool();
         UIManager.Instance.closedTools.SetActive(false);
         UIManager.Instance.openedTools.SetActive(true);
     }
@@ -28,13 +26,12 @@ public class TooltrayTool : Tool
         // Deactivate open tooltray
         UIManager.Instance.openedTools.SetActive(false);
         UIManager.Instance.closedTools.SetActive(true);
-        UIManager.Instance.activeTool = null;
     }
 
     public override void CheckIfToolIsActive()
     {
         // Check which object this script is attached to
         if (this.name == "OpenToolsButton") isToolAlreadyActive = false;
-        else if (this.name == "CloseToolsButton"|| this.name == "Overlay") isToolAlreadyActive = true;
+        else if (this.name == "CloseToolsButton") isToolAlreadyActive = true;
     }
 }

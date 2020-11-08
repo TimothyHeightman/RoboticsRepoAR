@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 
 public class SelectionManager : MonoBehaviour
 {
-    private static SelectionManager _instance;
+    private static SelectionManager instance;
     public Camera cam;
     public Material outline;
 
@@ -13,13 +13,18 @@ public class SelectionManager : MonoBehaviour
     public static SelectionManager Instance
     {
         get
-        {
-            if (_instance == null)
-            {
-                Debug.LogError("SelectionManager is NULL.");
-            }
+        {   
+            if (instance == null)
+                // Test 1
+                instance = FindObjectOfType<SelectionManager>();
 
-            return _instance;
+                if (instance == null)
+                {
+                    // Test 2
+                    Debug.LogError("SelectionManager is NULL.");
+                }
+
+            return instance;
         }
     }
 
@@ -44,7 +49,7 @@ public class SelectionManager : MonoBehaviour
 
     private void Awake()
     {
-        _instance = this;
+        instance = this;
         cam = Camera.main;
         previous = null;
     }

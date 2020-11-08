@@ -78,7 +78,7 @@ public class MoveToolFunction : Function
     }
 
 
-    private void OnDisable()
+    public override void OnDisable()
     {
         //halt all movement on disabling of tool
         StopCoroutine("Translator");

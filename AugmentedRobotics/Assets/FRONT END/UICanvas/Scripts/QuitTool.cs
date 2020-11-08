@@ -2,9 +2,9 @@
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class QuitTool : ButtonAnim
+public class QuitTool : ButtonAnim, IPointerClickHandler
 {
-    public override void OnPointerClick(PointerEventData data)
+    public void OnPointerClick(PointerEventData data)
     {
         Application.Quit();
     }

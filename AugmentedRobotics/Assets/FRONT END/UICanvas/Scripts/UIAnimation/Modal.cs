@@ -11,6 +11,7 @@ public class Modal : MonoBehaviour
     protected GameObject activeBckg;
     protected Button modalOverlay;
     protected Button closeModalBtn;
+    //private GameObject inventoryToolHighlight;
 
     void Awake ()
     {
@@ -24,6 +25,12 @@ public class Modal : MonoBehaviour
     {
         // Deactivate modal and active tool cue
         modal.SetActive (false);
+        UIManager.Instance.activeTool = null;
+
+        /*if(this.name = )
+        {
+            inventoryToolHighlight.SetActive(false);
+        }*/
     }
 
     public virtual void CloseListeners()

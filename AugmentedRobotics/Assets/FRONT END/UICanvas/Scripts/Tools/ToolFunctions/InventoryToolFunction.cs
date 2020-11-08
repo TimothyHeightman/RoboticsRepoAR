@@ -10,14 +10,14 @@ public enum RobotMesh {
 }
 
 [System.Serializable]
-public class Mesh
+public class MeshCard
 {
     public RobotMesh id;
     public GameObject card;
     public GameObject prefab;
 
 
-    public Mesh(RobotMesh id, GameObject card, GameObject prefab)
+    public MeshCard(RobotMesh id, GameObject card, GameObject prefab)
     {
         this.id = id;
         this.card = card;
@@ -30,23 +30,27 @@ public class InventoryToolFunction : Function
 {
 
     [Header("Robots: Assign Prefabs and Modal Cards to Enum")]
-    [SerializeField] private List<Mesh> availableMeshes = new List<Mesh>();
+    [SerializeField] private List<MeshCard> availableMeshes = new List<MeshCard>();
+    private GameObject inventoryToolHighlight;
     private Dictionary<RobotMesh, GameObject> availableMeshesDict = new Dictionary<RobotMesh, GameObject>();
     private Dictionary<RobotMesh, GameObject> availableMeshCardsDict = new Dictionary<RobotMesh, GameObject>();
     private Dictionary<RobotMesh, GameObject> activeMeshes = new Dictionary<RobotMesh, GameObject>();
 
+    [SerializeField] private GameObject dhTablePrefab;
+
     void Awake()
     {
-        foreach(Mesh mesh in availableMeshes)
+        foreach(MeshCard mesh in availableMeshes)
         {
             mesh.card.GetComponent<Button>().onClick.AddListener( delegate{ InstantiateRobot(mesh.id); });
         }
+        inventoryToolHighlight = UIManager.Instance.useInAR.GetChild(2).GetChild(1).GetChild(1).GetChild(0).gameObject;
     }
 
     public void SpawnRobot(out GameObject robotReference)
     {
         robotReference = null;
-        foreach (Mesh mesh in availableMeshes)
+        foreach (MeshCard mesh in availableMeshes)
         {
             robotReference = InstantiateRobot(mesh.id);
         }
@@ -55,7 +59,7 @@ public class InventoryToolFunction : Function
     private void DictionaryMeshes()
     {
         // Assigns a key to each card to ease calling each object in program
-        foreach(Mesh mesh in availableMeshes)
+        foreach(MeshCard mesh in availableMeshes)
         {
             availableMeshesDict.Add(mesh.id, mesh.prefab);
             availableMeshCardsDict.Add(mesh.id, mesh.card);
@@ -87,14 +91,28 @@ public class InventoryToolFunction : Function
     {
         if (activeMeshes.ContainsKey(item) == false)
         {
+            // Instantiate mesh
             GameObject meshPrefab = returnFromKey(availableMeshesDict, item);
             GameObject newMesh = UIManager.Instance.InstantiatePrefab(meshPrefab, UIManager.Instance.meshParent);
+
+            // Instantiate DH Parameter table
+            GameObject dhTable = UIManager.Instance.InstantiatePrefab(dhTablePrefab, UIManager.Instance.arUI);
+
+            // Make sure it won't instantiate again
             activeMeshes.Add(item, newMesh);
             returnFromKey(availableMeshCardsDict, item).GetComponent<Button>().interactable = false;
             this.gameObject.SetActive(false);
             return newMesh;
         }
         return null;
+    }
+    public override void OnDisable()
+    {
+        UIManager.Instance.activeTool = null;
+        if ( inventoryToolHighlight.activeSelf == true)
+        {
+            inventoryToolHighlight.SetActive(false);
+        }
     }
 
 }

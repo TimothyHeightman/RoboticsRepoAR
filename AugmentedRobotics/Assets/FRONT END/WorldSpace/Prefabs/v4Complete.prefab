@@ -409,6 +409,7 @@ GameObject:
   - component: {fileID: 2557453656729204849}
   - component: {fileID: 1418310224753513341}
   - component: {fileID: 9056694151868146299}
+  - component: {fileID: -8413230937362039477}
   m_Layer: 0
   m_Name: v4Complete
   m_TagString: Untagged
@@ -467,7 +468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   robot: {fileID: 0}
-  frames: []
+  tempFrames: []
   dhParams: []
   matrices: []
 --- !u!114 &9056694151868146299
@@ -493,6 +494,24 @@ MonoBehaviour:
   lineAX: {fileID: 8979210096490737579, guid: 57f6738eced8fff4f92880bf83394a23, type: 3}
   lineDZ: {fileID: 613798085651359561, guid: 845fe1c041ac0e7438be92cf0f0b8209, type: 3}
   lines: []
+--- !u!114 &-8413230937362039477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2557453656729204814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6327c9a757e934ad39c6ed052d53ea08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axesGizmoPrefab: {fileID: 2765338095531798958, guid: 73764071a7d724cccb14b7bc2f05213a,
+    type: 3}
+  rotationGizmoPrefab: {fileID: 3961019825504864848, guid: 9733255b16f1b468d9e9feb9316c9cea,
+    type: 3}
+  dhGizmoPrefab: {fileID: 5976145620406312555, guid: 08fb4e95b6d9d4e47af7ae9cd5c429d5,
+    type: 3}
 --- !u!1 &4207667750020573729
 GameObject:
   m_ObjectHideFlags: 0

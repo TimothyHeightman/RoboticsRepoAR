@@ -19,11 +19,7 @@ public class InventoryTool : Tool
     public void Initialise()
     {
         Transform functionParent = UIManager.Instance.modalsParent;
-        if (SelectionManager.Instance.InventoryToolFunction == null)
-        {
-            functionObject = UIManager.Instance.InstantiatePrefab(inventoryModalPrefab, functionParent);
-            SelectionManager.Instance.InventoryToolFunction = functionObject.GetComponent<InventoryToolFunction>();
-            functionObject.SetActive(false);
-        }        
+        functionObject = UIManager.Instance.InstantiatePrefab(inventoryModalPrefab, functionParent);
+        functionObject.SetActive(false);
     }
 }
