@@ -38,6 +38,7 @@ public class RotateToolFunction : Function
         if (selectedJoint != null)
         {
             ToggleMovement(false);
+            ToggleOutline(selectedJoint, false);
         }
     }
 

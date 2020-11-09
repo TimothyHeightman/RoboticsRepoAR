@@ -126,7 +126,7 @@ public class ModeControl : MonoBehaviour
 
     public void LoadVRScene()
     {
-        SceneManager.LoadScene("InitialUISetup");
+        SceneManager.LoadScene("DesktopTest");
     }
 
     public void LoadImageARScene()
