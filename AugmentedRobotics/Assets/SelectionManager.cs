@@ -41,7 +41,19 @@ public class SelectionManager : MonoBehaviour
     public ModeControl modeControl;
     public GameObject openTools;
 
+    IEnumerator Init()
+    {
+        openTools.SetActive(true);
+        yield return new WaitForSeconds(.1f);
+        openTools.SetActive(false);
+    }
+
     private void Start()
+    {
+        StartCoroutine("Init");
+    }
+
+    public void Initialise()
     {
         openTools.SetActive(false);
     }

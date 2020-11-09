@@ -18,6 +18,15 @@ public class ARInventoryToolAccess : MonoBehaviour
         moveTool = GetComponent<ARMoveToolAccess>();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GameObject temp;
+            SpawnRobot(Vector3.zero, out temp);
+        }            
+    }
+
     public void SpawnRobot(Vector3 targetPos, out GameObject robotReference)
     {
         if (inventory == null)
@@ -41,6 +50,8 @@ public class ARInventoryToolAccess : MonoBehaviour
         }
         moveTool.MoveRobot(targetPos);
     }
+
+
 
 
 
