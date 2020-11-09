@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -64,10 +64,10 @@ public class ArticulationJointController : MonoBehaviour
         {
             if (userInput != 0)
             {
-                float rotationChange = userInput * speed * Time.fixedDeltaTime;
+                float rotationChange = userInput * speed * Time.fixedDeltaTime;                
                 float rotationGoal = CurrentPrimaryAxisRotation() + rotationChange;
                 RotateTo(rotationGoal);
-            }
+            }            
         }
 
     }

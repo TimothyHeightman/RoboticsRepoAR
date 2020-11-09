@@ -27,6 +27,11 @@ public class DHGenerator : MonoBehaviour
             Vector3 displacement = new Vector3();
             displacement = frames[i+1].position - frames[i].position;
 
+            for (int j = 0; j < 3; j++)
+            {
+                displacement[j] = displacement[j] * frames[i].localScale[j];        //Correction for distances being affecting by scaling
+            }
+
             a = Vector3.Dot(displacement, frames[i].right);
             d = Vector3.Dot(displacement, frames[i].forward);
 

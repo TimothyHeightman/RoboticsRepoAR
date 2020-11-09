@@ -45,10 +45,10 @@ public class Robot : MonoBehaviour
             joint.PlaceMarker(previousRotation);
             previousRotation = joint.marker.transform.rotation;
 
-            joint.dhFrame = new GameObject();
+            joint.dhFrame = new GameObject();            
             joint.dhFrame.transform.parent = joints[i].robotPart.transform;
             joint.dhFrame.transform.rotation = joint.marker.transform.rotation;
-            joint.dhFrame.transform.position = joint.marker.transform.position;
+            joint.dhFrame.transform.position = joint.marker.transform.position;            
             joint.dhFrame.name = "DH Frame";
 
             if (i > 1 && i < joints.Length - 1)     //special cases here for Franka - base and effector always skipped, first element has parallel z axis so we skip
@@ -56,7 +56,7 @@ public class Robot : MonoBehaviour
                 joint.PlaceDHFrame(joint.dhFrame, joints[i - 1].dhFrame);
             }
 
-            GameObject.Destroy(joint.marker);       //Removes old joint markers for clarity
+            //GameObject.Destroy(joint.marker);       //Removes old joint markers for clarity
         }
     }
 

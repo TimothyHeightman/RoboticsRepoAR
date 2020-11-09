@@ -18,6 +18,7 @@ public class Joint : MonoBehaviour
     {
         robotPart = this.gameObject;
         articulationBody = this.GetComponent<ArticulationBody>();
+        jointController = this.GetComponent < ArticulationJointController>();
     }
 
 

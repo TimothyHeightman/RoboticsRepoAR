@@ -1085,9 +1085,9 @@ ArticulationBody:
   m_Enabled: 1
   m_Mass: 1
   m_ParentAnchorPosition: {x: 0, y: 0, z: 0.013110003}
-  m_ParentAnchorRotation: {x: 0, y: 0.7071068, z: 0, w: -0.7071068}
+  m_ParentAnchorRotation: {x: 0.7071068, y: -0.000000030908623, z: -0.7071068, w: 0.000000030908623}
   m_AnchorPosition: {x: 0, y: 0, z: 0.01311}
-  m_AnchorRotation: {x: 0, y: 0.70710677, z: 0, w: -0.70710677}
+  m_AnchorRotation: {x: 0.70710677, y: -0.00000003090862, z: -0.70710677, w: 0.00000003090862}
   m_ComputeParentAnchor: 1
   m_ArticulationJointType: 2
   m_LinearX: 2
@@ -1265,7 +1265,7 @@ GameObject:
   - component: {fileID: 3760180890501928894}
   - component: {fileID: 4515404340033282025}
   - component: {fileID: 8559911720678152606}
-  - component: {fileID: 2644686396468545529}
+  - component: {fileID: 6222096048821143343}
   m_Layer: 0
   m_Name: FrankV5Body
   m_TagString: Untagged
@@ -1327,7 +1327,7 @@ MonoBehaviour:
   tempFrames: []
   dhParams: []
   matrices: []
---- !u!114 &2644686396468545529
+--- !u!114 &6222096048821143343
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2242,9 +2242,9 @@ ArticulationBody:
   m_Enabled: 1
   m_Mass: 1
   m_ParentAnchorPosition: {x: -0.004110001, y: 0.00008000136, z: 0.06915007}
-  m_ParentAnchorRotation: {x: 0, y: 0.7071068, z: 0, w: -0.7071068}
+  m_ParentAnchorRotation: {x: 0.7071068, y: -0.000000030908623, z: -0.7071068, w: 0.000000030908623}
   m_AnchorPosition: {x: -0.004110001, y: 0.00008000136, z: 0.06915005}
-  m_AnchorRotation: {x: 0, y: 0.70710677, z: 0, w: -0.70710677}
+  m_AnchorRotation: {x: 0.70710677, y: -0.00000003090862, z: -0.70710677, w: 0.00000003090862}
   m_ComputeParentAnchor: 1
   m_ArticulationJointType: 2
   m_LinearX: 2

@@ -108,7 +108,6 @@ public class RotateToolFunction : Function
         selectedJointIndex = GetIndexFromJoint();
         if (selectedJointIndex != 0)
         {
-            Debug.Log(selectedJointIndex);
             selectedRobot.ChangeRotationState(selectedJointIndex, activate);        //This line will trigger the backend
 
             if (activate)

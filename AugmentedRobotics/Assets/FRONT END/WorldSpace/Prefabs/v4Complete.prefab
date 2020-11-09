@@ -483,10 +483,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4a7428cfabc4aa4bb04ef91f3c7105c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  robot: {fileID: 0}
-  dHGenerator: {fileID: 0}
-  dhparams: []
-  joints: []
   sphere: {fileID: 3209932363326786678, guid: dda9fc59631cfce438092b68a8c8da05, type: 3}
   spheres: []
   newMaterialRef:
@@ -608,9 +604,9 @@ ArticulationBody:
   m_Enabled: 1
   m_Mass: 1
   m_ParentAnchorPosition: {x: 0, y: 0, z: 0.013110003}
-  m_ParentAnchorRotation: {x: 0, y: 0.7071068, z: 0, w: -0.7071068}
+  m_ParentAnchorRotation: {x: 0.7071068, y: -0.000000030908623, z: -0.7071068, w: 0.000000030908623}
   m_AnchorPosition: {x: 0, y: 0, z: 0.01311}
-  m_AnchorRotation: {x: 0, y: 0.70710677, z: 0, w: -0.70710677}
+  m_AnchorRotation: {x: 0.70710677, y: -0.00000003090862, z: -0.70710677, w: 0.00000003090862}
   m_ComputeParentAnchor: 1
   m_ArticulationJointType: 2
   m_LinearX: 2
@@ -1456,8 +1452,8 @@ ArticulationBody:
   m_ParentAnchorPosition: {x: -0.004110001, y: 0.00008000136, z: 0.06915007}
   m_ParentAnchorRotation: {x: 0, y: 0.70710677, z: 0, w: -0.70710677}
   m_AnchorPosition: {x: -0.004110001, y: 0.00008000136, z: 0.06915005}
-  m_AnchorRotation: {x: 0, y: 0.70710677, z: 0, w: -0.70710677}
-  m_ComputeParentAnchor: 0
+  m_AnchorRotation: {x: 0.70710677, y: -0.00000003090862, z: -0.70710677, w: 0.00000003090862}
+  m_ComputeParentAnchor: 1
   m_ArticulationJointType: 2
   m_LinearX: 2
   m_LinearY: 2
