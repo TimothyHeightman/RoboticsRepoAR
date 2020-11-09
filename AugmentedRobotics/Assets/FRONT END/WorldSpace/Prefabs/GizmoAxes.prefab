@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5271608526424836296}
   m_Layer: 0
   m_Name: YAxisGizmo
-  m_TagString: Untagged
+  m_TagString: hasInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 4227679495528202682}
   m_Layer: 0
   m_Name: ArrowsConnectorGizmo
-  m_TagString: Untagged
+  m_TagString: hasInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 4142452568570421400}
   m_Layer: 0
   m_Name: XAxisGizmo
-  m_TagString: Untagged
+  m_TagString: hasInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 3254876524368063252}
   m_Layer: 0
   m_Name: GizmoAxes
-  m_TagString: Untagged
+  m_TagString: hasInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -290,7 +290,7 @@ GameObject:
   - component: {fileID: 197993028323439714}
   m_Layer: 0
   m_Name: ZArrowGizmo
-  m_TagString: Untagged
+  m_TagString: hasInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

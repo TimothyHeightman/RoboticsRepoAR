@@ -7,8 +7,15 @@ using UnityEngine.EventSystems;
 public class SkeletonToggle : MonoBehaviour
 {
     private GameObject skeletonControlToolFunction;
+    private Skeleton skeleton;
+    private StandaloneSkeleton staSkel;
+
+
+
     void Start()
     {
+        skeleton = GameObject.Find("RobotMeshes").GetComponentInChildren<Skeleton>();
+        staSkel = GameObject.Find("Skeleton").GetComponent<StandaloneSkeleton>();
         Transform functionParent = UIManager.Instance.toolFunctionParent;
         skeletonControlToolFunction = functionParent.Find("SkeletonControlToolFunction").gameObject;   
         // Add listener to selection button
@@ -32,7 +39,11 @@ public class SkeletonToggle : MonoBehaviour
                 }*/
 
                 // Abdullah: do any hooking below here. This will enable the robot only mode
-
+                if (skeleton.enabled) {
+                    skeletonClearParams();
+                    skeleton.enabled = false;
+                }
+                staSkel.switchToggle = true;
 
                 UIManager.Instance.justRobotTool.SetActive(true);
                 UIManager.Instance.robotPlusSkeletonTool.SetActive(false);
@@ -46,7 +57,7 @@ public class SkeletonToggle : MonoBehaviour
         else if (thisButtonName == "RobotPlusSkeleton")
         {
             if(UIManager.Instance.robotPlusSkeletonTool.activeSelf != true)
-            {   
+            {
                 // If just skeleton mode is active, respawn robot
                 /*if (UIManager.Instance.justSkeletonTool.activeSelf == true)
                 {
@@ -54,7 +65,8 @@ public class SkeletonToggle : MonoBehaviour
                 }*/
 
                 // Abdullah: do any hooking below here. This will enable the robot + skeleton mode
-
+                skeleton.startFunc();
+                skeleton.enabled = true;
 
                 UIManager.Instance.justRobotTool.SetActive(false);
                 UIManager.Instance.robotPlusSkeletonTool.SetActive(true);
@@ -70,7 +82,8 @@ public class SkeletonToggle : MonoBehaviour
             if(UIManager.Instance.justSkeletonTool.activeSelf != true)
             {
                 // Abdullah: do any hooking below here. This will enable the skeleton only mode
-
+                skeletonClearParams();
+                staSkel.switchToggle = true;
 
                 UIManager.Instance.justRobotTool.SetActive(false);
                 UIManager.Instance.robotPlusSkeletonTool.SetActive(false);
@@ -91,4 +104,27 @@ public class SkeletonToggle : MonoBehaviour
     {
 
     }*/
+
+    void skeletonClearParams() {
+        DeleteLineChildren(GameObject.Find("RobotMeshes"));
+        skeleton.spheres.Clear();
+        skeleton.lines.Clear();
+    }
+
+    private void DeleteLineChildren(GameObject obj) {
+        if (null == obj)
+            return;
+
+        foreach (Transform child in obj.transform) {
+            if (null == child)
+                continue;
+            if (child.CompareTag("Line") || child.CompareTag("Effects")) {//makes sure its a line renderer 
+                DeleteLineChildren(child.gameObject);
+                Destroy(child.gameObject);
+            }
+            else {
+                DeleteLineChildren(child.gameObject);
+            }
+        }
+    }
 }

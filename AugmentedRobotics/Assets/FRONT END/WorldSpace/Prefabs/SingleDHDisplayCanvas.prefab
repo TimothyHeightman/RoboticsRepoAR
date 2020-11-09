@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5976145618960944598}
   m_Layer: 0
   m_Name: ai
-  m_TagString: Untagged
+  m_TagString: hasInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67,9 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'a<sub>1</sub> = '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cdf350f3ae183487aa8718252a2489e8, type: 2}
-  m_sharedMaterial: {fileID: -1121365408870655619, guid: cdf350f3ae183487aa8718252a2489e8,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -93,8 +92,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.02
-  m_fontSizeBase: 0.02
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -148,7 +147,7 @@ GameObject:
   - component: {fileID: 5976145619875336434}
   m_Layer: 0
   m_Name: alphai
-  m_TagString: Untagged
+  m_TagString: hasInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -202,9 +201,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u03B1<sub>1</sub> = "
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cdf350f3ae183487aa8718252a2489e8, type: 2}
-  m_sharedMaterial: {fileID: -1121365408870655619, guid: cdf350f3ae183487aa8718252a2489e8,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -228,8 +226,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.02
-  m_fontSizeBase: 0.02
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -283,7 +281,7 @@ GameObject:
   - component: {fileID: 5976145620105303081}
   m_Layer: 0
   m_Name: FrameTitle
-  m_TagString: Untagged
+  m_TagString: hasInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -421,7 +419,7 @@ GameObject:
   - component: {fileID: 5976145620406312553}
   m_Layer: 0
   m_Name: SingleDHDisplayCanvas
-  m_TagString: Untagged
+  m_TagString: hasInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -561,7 +559,7 @@ GameObject:
   - component: {fileID: 5976145620455287624}
   m_Layer: 0
   m_Name: di
-  m_TagString: Untagged
+  m_TagString: hasInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -615,9 +613,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'd<sub>1</sub> = '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cdf350f3ae183487aa8718252a2489e8, type: 2}
-  m_sharedMaterial: {fileID: -1121365408870655619, guid: cdf350f3ae183487aa8718252a2489e8,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -641,8 +638,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.02
-  m_fontSizeBase: 0.02
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -696,7 +693,7 @@ GameObject:
   - component: {fileID: 5976145620544882480}
   m_Layer: 0
   m_Name: Bckg
-  m_TagString: Untagged
+  m_TagString: hasInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -771,7 +768,7 @@ GameObject:
   - component: {fileID: 5976145620814725941}
   m_Layer: 0
   m_Name: thetai
-  m_TagString: Untagged
+  m_TagString: hasInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -825,9 +822,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u03B8<sub>1</sub> = "
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cdf350f3ae183487aa8718252a2489e8, type: 2}
-  m_sharedMaterial: {fileID: -1121365408870655619, guid: cdf350f3ae183487aa8718252a2489e8,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -851,8 +847,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.02
-  m_fontSizeBase: 0.02
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

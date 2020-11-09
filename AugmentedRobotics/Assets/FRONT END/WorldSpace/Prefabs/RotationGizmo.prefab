@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3511486772661716126}
   m_Layer: 0
   m_Name: RotationMesh
-  m_TagString: Untagged
+  m_TagString: hasInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 6127067571331443646}
   m_Layer: 0
   m_Name: RotationControl
-  m_TagString: Untagged
+  m_TagString: hasInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 4446053559155233002}
   m_Layer: 0
   m_Name: RotationGizmo
-  m_TagString: Untagged
+  m_TagString: hasInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

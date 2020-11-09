@@ -9,6 +9,8 @@ public class Skeleton : MonoBehaviour
     //gets robot and dHGenerator scripts from gameobject
     private DHGenerator dHGenerator;
     private SkeletonDHGenerator skelDHGen;
+    private GameObject toolFunc;
+    private GameObject rotateTool;
 
     //holds frames firat in dhparams then in transforms
     private Vector4[] dhparams;
@@ -19,7 +21,7 @@ public class Skeleton : MonoBehaviour
     public List<GameObject> spheres;
 
     //material to make robot mesh translucent
-    public Material[] newMaterialRef = new Material[1];
+    public Material[] newMaterialRef = new Material[2];
 
     //line renderers for d and a dh parameters
     public LineRenderer lineAX = new LineRenderer();
@@ -31,13 +33,29 @@ public class Skeleton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //getting scripts and appropriate lists
+        startFunc();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        //updates robot to stay translucent
+        if (GetComponent<DHGenerator>() && (!toolFunc.GetComponentInChildren<RotateToolFunction>())) {
+            GetChildMaterial(this.gameObject);
+        }
+        //updates line renderers to new frames
+        setLineRenderers();//possible optimisation is that this method is called upon a detected change in the app rather than on every update
+    }
+
+    public void startFunc() {
         if (GetComponent<DHGenerator>()) {
             dHGenerator = GetComponent<DHGenerator>();
             dhparams = dHGenerator.dhParams;
             joints = dHGenerator.tempFrames;
             skeleton = GameObject.Find("Skeleton");
             skeleton.GetComponent<StandaloneSkeleton>().enabled = true;
+            toolFunc = GameObject.Find("ToolsFunctions");
+
         }
         else {
             skelDHGen = GetComponent<SkeletonDHGenerator>();
@@ -58,17 +76,6 @@ public class Skeleton : MonoBehaviour
         setLineRenderers();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //updates robot to stay translucent
-        if (GetComponent<DHGenerator>()) {
-            GetChildMaterial(this.gameObject);
-        }
-        //updates line renderers to new frames
-        setLineRenderers();//possible optimisation is that this method is called upon a detected change in the app rather than on every update
-    }
-
     //recursively finding each child of object and assigning material
     private void GetChildMaterial(GameObject obj) {
         if (null == obj)
@@ -77,7 +84,7 @@ public class Skeleton : MonoBehaviour
         foreach (Transform child in obj.transform) {
             if (null == child)
                 continue;
-            if (child.GetComponent<Renderer>() && (!child.CompareTag("Effects")) && (!child.CompareTag("Line"))) {//to exclude empty objects, spheres and lines
+            if (child.GetComponent<Renderer>() && (!child.CompareTag("Effects")) && (!child.CompareTag("Line")) && (!child.CompareTag("hasInfo"))) {//to exclude empty objects, spheres and lines
                 child.GetComponent<Renderer>().materials = newMaterialRef;
             }
             GetChildMaterial(child.gameObject);
