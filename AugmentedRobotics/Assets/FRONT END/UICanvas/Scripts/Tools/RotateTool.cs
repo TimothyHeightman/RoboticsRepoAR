@@ -11,10 +11,11 @@ public class RotateTool : Tool
 {
     [SerializeField] private GameObject rotateToolFunctionPrefab;
 
-    void Awake()
+    void Start()
     {
         Transform functionParent = UIManager.Instance.toolFunctionParent;
         functionObject = UIManager.Instance.InstantiatePrefab(rotateToolFunctionPrefab, functionParent);
+        SelectionManager.Instance.rotateToolFunction = functionObject.GetComponent<RotateToolFunction>();
         functionObject.SetActive(false);
     }
 

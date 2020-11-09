@@ -11,7 +11,7 @@ public class InventoryTool : Tool
 {
     [SerializeField] private GameObject inventoryModalPrefab;
 
-    void Awake()
+    void Start()
     {
         Initialise();
     }
@@ -20,6 +20,7 @@ public class InventoryTool : Tool
     {
         Transform functionParent = UIManager.Instance.modalsParent;
         functionObject = UIManager.Instance.InstantiatePrefab(inventoryModalPrefab, functionParent);
+        SelectionManager.Instance.InventoryToolFunction = functionObject.GetComponent<InventoryToolFunction>();
         functionObject.SetActive(false);
     }
 }

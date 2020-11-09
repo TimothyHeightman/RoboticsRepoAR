@@ -39,11 +39,11 @@ public class SelectionManager : MonoBehaviour
     public InventoryToolFunction InventoryToolFunction;
 
     public ModeControl modeControl;
+    public GameObject openTools;
 
     private void Start()
     {
-        moveTool.Initialise();
-        inventoryTool.Initialise();
+        openTools.SetActive(false);
     }
 
 
