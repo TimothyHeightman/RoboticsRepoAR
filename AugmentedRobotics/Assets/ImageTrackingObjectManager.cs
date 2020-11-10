@@ -137,22 +137,13 @@ public class ImageTrackingObjectManager : MonoBehaviour
             {
                 if (image.referenceImage.guid == s_FirstImageGUID)
                 {
-                    moveTool.MoveRobot(image.transform.position);
-                    
-                    
-                    m_SpawnedOnePrefab.transform.SetPositionAndRotation(image.transform.position, image.transform.rotation);
-                    
+                    //moveTool.MoveRobot(image.transform.position, image.transform.rotation);
+                    //m_SpawnedOnePrefab.transform.SetPositionAndRotation(image.transform.position, image.transform.rotation);
+                    moveTool.ImageTransform = image.transform;
                 }
                 else if (image.referenceImage.guid == s_SecondImageGUID)
                 {
-                    if (m_SpawnedTwoPrefab.CompareTag("Robot"))
-                    {
-                        moveTool.MoveRobot(image.transform.position);
-                    }
-                    else
-                    {
-                        m_SpawnedTwoPrefab.transform.SetPositionAndRotation(image.transform.position, image.transform.rotation);
-                    }
+                    m_SpawnedTwoPrefab.transform.SetPositionAndRotation(image.transform.position, image.transform.rotation);
                 }
             }
         }

@@ -23,7 +23,7 @@ public class ARMoveToolAccess : MonoBehaviour
     [Range(-1f, 1f)] public float z_pos;
     [Range(-1f, 1f)] public float y_pos;
 
-    public void MoveRobot(Vector3 targetPos)
+    public void MoveRobot(Vector3 targetPos, Quaternion targetRotation)
     {
         if(moveTool == null)
         {
@@ -35,6 +35,10 @@ public class ARMoveToolAccess : MonoBehaviour
 
         moveTool.inputPos = targetPos;
 
+        //targetRotation *= Quaternion.Euler(-90, 0, 0);
+
+        moveTool.selectedRobot.transform.parent.SetPositionAndRotation(targetPos, targetRotation);
+
         Debug.Log("move tool newPos : " + moveTool.newPos);
         Debug.Log("move tool targetPos: " + moveTool.targetPos);
         Debug.Log("move tool inputPos: " + moveTool.inputPos);
@@ -44,8 +48,8 @@ public class ARMoveToolAccess : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(imageTransform.position);
-        MoveRobot(imageTransform.position);
+        //Debug.Log(imageTransform.position);
+        MoveRobot(imageTransform.position, imageTransform.rotation);
     }
 
     IEnumerator WaitSeconds(float time)

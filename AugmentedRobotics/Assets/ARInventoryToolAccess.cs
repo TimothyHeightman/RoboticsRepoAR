@@ -47,8 +47,8 @@ public class ARInventoryToolAccess : MonoBehaviour
         {
             Robot = robotReference;
             Debug.Log(Robot);
+            inventory.gameObject.SetActive(false);
         }
-        moveTool.MoveRobot(targetPos);
     }
 
 
