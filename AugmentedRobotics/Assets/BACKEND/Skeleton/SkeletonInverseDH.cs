@@ -35,6 +35,7 @@ public class SkeletonInverseDH : MonoBehaviour
                     break;
 
                 case 1: //alpha
+                    currentFrame.transform.RotateAround(currentFrame.transform.position, prevFrame.right.normalized, valDiff);
                     break;
 
                 case 2: //d
@@ -43,6 +44,7 @@ public class SkeletonInverseDH : MonoBehaviour
                     break;
 
                 case 3: //theta
+                    currentFrame.transform.RotateAround(currentFrame.transform.position, prevFrame.forward.normalized, valDiff);
                     break;
 
                 default:
@@ -59,44 +61,53 @@ public class SkeletonInverseDH : MonoBehaviour
         
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            inputIndex += 1;
-        }
+    //PROTO DESKTOP INPUT MECHANISM
 
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            inputIndex -= 1;
-        }
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.W))
+    //    {
+    //        inputIndex += 1;
+    //    }
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            float oldVal = skelDHGen.dhParams[inputIndex-1].x;
-            float newVal = oldVal - 0.1f;
-            ChangeParams(inputIndex, 0, newVal);
-        }
+    //    if (Input.GetKeyDown(KeyCode.S))
+    //    {
+    //        inputIndex -= 1;
+    //    }
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            float oldVal = skelDHGen.dhParams[inputIndex-1].x;
-            float newVal = oldVal + 0.1f;
-            ChangeParams(inputIndex, 0, newVal);
-        }
+    //    if (Input.GetKeyDown(KeyCode.LeftArrow))
+    //    {
+    //        float oldVal = skelDHGen.dhParams[inputIndex-1].x;
+    //        float newVal = oldVal - 0.1f;
+    //        ChangeParams(inputIndex, 0, newVal);
+    //    }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            float oldVal = skelDHGen.dhParams[inputIndex-1].z;
-            float newVal = oldVal + 0.1f;
-            ChangeParams(inputIndex, 2, newVal);
-        }
+    //    if (Input.GetKeyDown(KeyCode.RightArrow))
+    //    {
+    //        float oldVal = skelDHGen.dhParams[inputIndex-1].x;
+    //        float newVal = oldVal + 0.1f;
+    //        ChangeParams(inputIndex, 0, newVal);
+    //    }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            float oldVal = skelDHGen.dhParams[inputIndex-1].z;
-            float newVal = oldVal - 0.1f;
-            ChangeParams(inputIndex, 2, newVal);
-        }
-    }
+    //    if (Input.GetKeyDown(KeyCode.UpArrow))
+    //    {
+    //        float oldVal = skelDHGen.dhParams[inputIndex-1].z;
+    //        float newVal = oldVal + 0.1f;
+    //        ChangeParams(inputIndex, 2, newVal);
+    //    }
+
+    //    if (Input.GetKeyDown(KeyCode.DownArrow))
+    //    {
+    //        float oldVal = skelDHGen.dhParams[inputIndex-1].z;
+    //        float newVal = oldVal - 0.1f;
+    //        ChangeParams(inputIndex, 2, newVal);
+    //    }
+
+    //    if (Input.GetKeyDown(KeyCode.Space))
+    //    {
+    //        float oldVal = skelDHGen.dhParams[inputIndex - 1].y;
+    //        float newVal = oldVal + 20f;
+    //        ChangeParams(inputIndex, 1, newVal);
+    //    }
+    //}
 }
