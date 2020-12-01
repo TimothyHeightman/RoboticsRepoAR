@@ -12,7 +12,7 @@ public class Tester : MonoBehaviour
     void Start()
     {
         Vector3 z = sphere1.transform.forward;
-        Debug.Log(z);
+        //Debug.Log(z);
 
 
         /*
@@ -49,6 +49,10 @@ public class Tester : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnEnable() {
+        Debug.Log("ok");
     }
 
     private Vector3 vectorAbs(Vector3 vec) {

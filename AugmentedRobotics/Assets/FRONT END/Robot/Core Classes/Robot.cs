@@ -60,7 +60,7 @@ public class Robot : MonoBehaviour
         }
     }
 
-     void UpdatePartsTransforms()
+     public void UpdatePartsTransforms()
     {
         //TODO
         //Updates the contents of parts which is used by the backend for matrix calculations, these need to be the marker transforms

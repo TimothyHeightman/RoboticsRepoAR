@@ -44,7 +44,6 @@ public class SkeletonToggle : MonoBehaviour
                     skeleton.enabled = false;
                 }
                 staSkel.switchToggle = true;
-
                 UIManager.Instance.justRobotTool.SetActive(true);
                 UIManager.Instance.robotPlusSkeletonTool.SetActive(false);
                 UIManager.Instance.justSkeletonTool.SetActive(false);
@@ -65,9 +64,8 @@ public class SkeletonToggle : MonoBehaviour
                 }*/
 
                 // Abdullah: do any hooking below here. This will enable the robot + skeleton mode
-                skeleton.startFunc();
+                //skeleton.startFunc();
                 skeleton.enabled = true;
-
                 UIManager.Instance.justRobotTool.SetActive(false);
                 UIManager.Instance.robotPlusSkeletonTool.SetActive(true);
                 UIManager.Instance.justSkeletonTool.SetActive(false);
@@ -107,7 +105,6 @@ public class SkeletonToggle : MonoBehaviour
 
     void skeletonClearParams() {
         DeleteLineChildren(GameObject.Find("RobotMeshes"));
-        skeleton.spheres.Clear();
         skeleton.lines.Clear();
     }
 

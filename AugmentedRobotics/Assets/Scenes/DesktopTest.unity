@@ -2183,6 +2183,12 @@ PrefabInstance:
       propertyPath: metal.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c08185385ddff93429840cf464d316aa, type: 2}
+    - target: {fileID: 2542037060983428556, guid: b3a2eaedb00adb643b467f08b6437b3c,
+        type: 3}
+      propertyPath: sphere
+      value: 
+      objectReference: {fileID: 3209932363326786678, guid: dda9fc59631cfce438092b68a8c8da05,
+        type: 3}
     - target: {fileID: 2542037060983428557, guid: b3a2eaedb00adb643b467f08b6437b3c,
         type: 3}
       propertyPath: m_LocalPosition.x

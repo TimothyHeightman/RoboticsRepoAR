@@ -31,9 +31,10 @@ public class Skeleton : MonoBehaviour
     private GameObject skeleton;
 
     // Start is called before the first frame update
-    void Start()
-    {
+ 
+    private void OnEnable() {
         startFunc();
+        sphereFunc();
     }
 
     // Update is called once per frame
@@ -50,6 +51,8 @@ public class Skeleton : MonoBehaviour
     public void startFunc() {
         if (GetComponent<DHGenerator>()) {
             dHGenerator = GetComponent<DHGenerator>();
+            dHGenerator.robot.UpdatePartsTransforms();
+            dHGenerator.tempFrames = dHGenerator.robot.parts;
             dhparams = dHGenerator.dhParams;
             joints = dHGenerator.tempFrames;
             skeleton = GameObject.Find("Skeleton");
@@ -67,13 +70,15 @@ public class Skeleton : MonoBehaviour
         if (GetComponent<DHGenerator>()) {
             GetChildMaterial(this.gameObject);
         }
-        //instantiate sphere at each frame
-        foreach (Transform t in joints) {
-            spheres.Add(Instantiate(sphere, t));
-        }
+
 
         //Instantiate line renderers
         setLineRenderers();
+    }
+
+    public void sphereFunc() {
+        SphereGen spheres = gameObject.AddComponent<SphereGen>();
+        spheres.instantiateSpheres(joints, sphere);
     }
 
     //recursively finding each child of object and assigning material

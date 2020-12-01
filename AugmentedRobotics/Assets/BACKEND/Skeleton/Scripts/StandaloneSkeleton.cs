@@ -13,17 +13,19 @@ public class StandaloneSkeleton : MonoBehaviour
     private Robot robot;
     public List<Transform> joints;
     private GameObject joint;
-    private List<GameObject> jointObjs = new List<GameObject>();
+    public List<GameObject> jointObjs = new List<GameObject>();
     public Material[] matteBlack = new Material[1];
     public Material[] matteRed = new Material[1];
     public Material[] metal = new Material[1];
+
+    public GameObject sphere;
+
 
     private bool gizmoTog = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        joint = new GameObject("Joint");
         frankaRobot = GameObject.Find("RobotMeshes");
         frankaRobot = frankaRobot.transform.Find("v4Complete").gameObject;
         robot = frankaRobot.GetComponent<Robot>();
@@ -61,21 +63,27 @@ public class StandaloneSkeleton : MonoBehaviour
         disableMeshRenderer(frankaRobot);
         setSkeletonStructure();
         skelDHGen.enabled = true;
-        skeleton.enabled = true;
+        sphereFunc();
     }
 
     public void toFranka() {
         skelDHGen.enabled = false;
         skeleton.enabled = false;
         skelGizmos.enabled = false;
-        DeleteJointChildren(this.gameObject);
+        //DeleteJointChildren(this.gameObject);
         joints.Clear();
         frankaRobot.GetComponentInChildren<Skeleton>().enabled = false;
         enableMeshRenderer(frankaRobot);
         resetFrankaMat();
     }
 
+    public void sphereFunc() {
+        SphereGen spheres = gameObject.AddComponent<SphereGen>();
+        spheres.instantiateSpheres(joints, sphere);
+    }
+
     void setSkeletonStructure() {
+        joint = new GameObject("Joint");
         jointObjs.Add(Instantiate(joint, joints[0]));
         jointObjs[0].transform.parent = this.transform;
         joints[0] = jointObjs[0].transform;
