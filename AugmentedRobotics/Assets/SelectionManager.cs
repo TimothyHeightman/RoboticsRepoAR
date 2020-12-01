@@ -43,6 +43,7 @@ public class SelectionManager : MonoBehaviour
 
     IEnumerator Init()
     {
+        //Coroutine run fron initialisation of scene to access references of tools
         openTools.SetActive(true);
         yield return new WaitForSeconds(.1f);
         openTools.SetActive(false);

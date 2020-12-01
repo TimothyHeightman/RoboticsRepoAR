@@ -116,7 +116,7 @@ public class Skeleton : MonoBehaviour
         
     }
 
-    private void setLineRenderers() {
+    public void setLineRenderers() {
         DeleteLineChildren(this.gameObject);//deletes previous lines, need to empty array as well
         Vector3 obj1, obj2, dir, inter, temp;
         LineRenderer line;//placeholder line renderer object

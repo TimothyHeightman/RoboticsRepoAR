@@ -9,6 +9,7 @@ public class StandaloneSkeleton : MonoBehaviour
     private GameObject frankaRobot;
     private Skeleton skeleton;
     private SkeletonDHGenerator skelDHGen;
+    private SkeletonInverseDH skelInvDH;
     private SkelGizmoControl skelGizmos;
     private Robot robot;
     public List<Transform> joints;
@@ -22,16 +23,18 @@ public class StandaloneSkeleton : MonoBehaviour
 
 
     private bool gizmoTog = false;
+    private bool hasChanged = true;     //Update dh params when we first switch into skeleton only mode
 
     // Start is called before the first frame update
     void Start()
-    {
-        frankaRobot = GameObject.Find("RobotMeshes");
-        frankaRobot = frankaRobot.transform.Find("v4Complete").gameObject;
-        robot = frankaRobot.GetComponent<Robot>();
+    {       
+        robot = SelectionManager.Instance.robot;
+        frankaRobot = robot.gameObject;
+
         joints = robot.parts;
         skeleton = GetComponent<Skeleton>();
         skelDHGen = GetComponent<SkeletonDHGenerator>();
+        skelInvDH = GetComponent<SkeletonInverseDH>();
         skelGizmos = GetComponent<SkelGizmoControl>();
         //need to attach dhgenerator to this, and generate a parent structured heirarchy for all the dh params
     }
@@ -53,7 +56,11 @@ public class StandaloneSkeleton : MonoBehaviour
             switchToggle = false;
         }
         if (currState && skelDHGen.isActiveAndEnabled && (skelDHGen.dhParams.Length > 0)) {
-            skelDHGen.GenerateAllParameters(joints);
+            if (hasChanged)     //LM - Only update skeleton params when a change has occurred to the configuration (in mode with only skeleton)
+            {
+                skelDHGen.GenerateAllParameters(joints);
+                hasChanged = false;
+            }
             switchOnGizmos();
         }
         
@@ -61,8 +68,10 @@ public class StandaloneSkeleton : MonoBehaviour
 
     public void toSkeleton() {
         disableMeshRenderer(frankaRobot);
+        //skeleton.enabled = true;
         setSkeletonStructure();
         skelDHGen.enabled = true;
+        skelInvDH.enabled = true;
         sphereFunc();
     }
 
@@ -70,6 +79,7 @@ public class StandaloneSkeleton : MonoBehaviour
         skelDHGen.enabled = false;
         skeleton.enabled = false;
         skelGizmos.enabled = false;
+        skelInvDH.enabled = false;
         //DeleteJointChildren(this.gameObject);
         joints.Clear();
         frankaRobot.GetComponentInChildren<Skeleton>().enabled = false;

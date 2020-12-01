@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2542037060983428556}
   - component: {fileID: 2542037060983428558}
   - component: {fileID: 2542037060983428559}
+  - component: {fileID: 6404967928060073604}
   m_Layer: 0
   m_Name: Skeleton
   m_TagString: Untagged
@@ -47,6 +48,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switchToggle: 0
   joints: []
+  matteBlack:
+  - {fileID: 0}
+  matteRed:
+  - {fileID: 0}
+  metal:
+  - {fileID: 0}
 --- !u!114 &2542037060983428558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,3 +88,15 @@ MonoBehaviour:
   tempFrames: []
   dhParams: []
   matrices: []
+--- !u!114 &6404967928060073604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2542037060983428555}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22b97ab7d5c7dcd4f9092362ba45e60b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

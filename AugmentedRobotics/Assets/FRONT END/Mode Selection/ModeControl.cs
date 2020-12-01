@@ -11,6 +11,12 @@ public class ModeControl : MonoBehaviour
      * operation that the user can choose between.
      */
 
+    //LM 26/11/20
+    /*Android checking now also done by checking for ARCore. As we will only be implementing image
+     * tracking then this solution is adaquate. Also IOS support can now be specified device by device
+     * to give us additional control over the devices we support.
+     */ 
+
     public bool isMobile, isARCapable, isARIdeal;   //false by default
     RuntimePlatform platform;
 
@@ -22,6 +28,8 @@ public class ModeControl : MonoBehaviour
     public GameObject modePanel;
     public GameObject arPanel;
     public GameObject vrButton, arButton, imageButton, planeButton;
+
+    private const string ARCorePackageName = "com.google.ar.core";
 
     private static ModeControl _instance;
 
@@ -62,7 +70,7 @@ public class ModeControl : MonoBehaviour
             isMobile = true;
             int SDK = getSDKInt();
 
-            if (SDK >= minAndroidSDK)
+            if (SDK >= minAndroidSDK && AndroidIsSupported())
             {
                 isARCapable = true;     //Is device capable of ARCore?
 
@@ -87,7 +95,7 @@ public class ModeControl : MonoBehaviour
             isMobile = true;
             float version = iOSVersion;
 
-            if (version >= minIOSVersion)
+            if (version >= minIOSVersion && IOSIsSupported())
             {
                 isARCapable = true;     //Is device capable of ARCore?
 
@@ -162,5 +170,72 @@ public class ModeControl : MonoBehaviour
 
             return osVersion;
         }
+    }
+
+    
+
+    public static bool AndroidIsSupported()
+    {
+        var unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+        var context = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
+        var packageManager = context.Call<AndroidJavaObject>("getPackageManager");
+        AndroidJavaObject packageInfo = null;
+        try
+        {
+            packageInfo = packageManager.Call<AndroidJavaObject>("getPackageInfo", ARCorePackageName, 0);
+        }
+        catch
+        {
+
+        }
+        if (packageInfo != null)
+            return true;
+        else
+            return false;
+    }
+
+    public static bool IOSIsSupported()
+    {
+        //Specify devices that are not supported based on ARKit docs, not suitable for even image tracking
+        #if UNITY_EDITOR
+        return true;
+        #endif
+
+        #if UNITY_IOS
+        var gen = UnityEngine.iOS.Device.generation;
+        Debug.Log("gen:" + gen);
+
+        if (gen == UnityEngine.iOS.DeviceGeneration.iPhone4 ||
+            gen == UnityEngine.iOS.DeviceGeneration.iPhone4S ||
+            gen == UnityEngine.iOS.DeviceGeneration.iPhone5 ||
+            gen == UnityEngine.iOS.DeviceGeneration.iPhone5C ||
+            gen == UnityEngine.iOS.DeviceGeneration.iPhone5S ||
+            gen == UnityEngine.iOS.DeviceGeneration.iPhone6 ||
+            gen == UnityEngine.iOS.DeviceGeneration.iPhone6Plus ||
+            gen == UnityEngine.iOS.DeviceGeneration.iPad1Gen ||
+            gen == UnityEngine.iOS.DeviceGeneration.iPad2Gen ||
+            gen == UnityEngine.iOS.DeviceGeneration.iPad3Gen ||
+            gen == UnityEngine.iOS.DeviceGeneration.iPad4Gen ||
+            gen == UnityEngine.iOS.DeviceGeneration.iPadAir1 ||
+            gen == UnityEngine.iOS.DeviceGeneration.iPadAir2 ||
+            gen == UnityEngine.iOS.DeviceGeneration.iPadMini1Gen ||
+            gen == UnityEngine.iOS.DeviceGeneration.iPadMini2Gen ||
+            gen == UnityEngine.iOS.DeviceGeneration.iPadMini3Gen ||
+            gen == UnityEngine.iOS.DeviceGeneration.iPadMini4Gen ||
+            gen == UnityEngine.iOS.DeviceGeneration.iPodTouch1Gen ||
+            gen == UnityEngine.iOS.DeviceGeneration.iPodTouch2Gen ||
+            gen == UnityEngine.iOS.DeviceGeneration.iPodTouch3Gen ||
+            gen == UnityEngine.iOS.DeviceGeneration.iPodTouch4Gen ||
+            gen == UnityEngine.iOS.DeviceGeneration.iPodTouch5Gen ||
+            gen == UnityEngine.iOS.DeviceGeneration.iPodTouch6Gen)
+        {
+            Debug.Log("Device not supported");
+            return false;
+        }
+
+        return true;
+        #endif
+
+        return false;
     }
 }
