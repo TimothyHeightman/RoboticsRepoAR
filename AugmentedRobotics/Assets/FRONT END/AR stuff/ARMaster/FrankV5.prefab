@@ -92,8 +92,8 @@ ArticulationBody:
   m_GameObject: {fileID: 282559606573170441}
   m_Enabled: 1
   m_Mass: 1
-  m_ParentAnchorPosition: {x: 0.08699001, y: 0.8859006, z: -0.41000062}
-  m_ParentAnchorRotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+  m_ParentAnchorPosition: {x: 0.08699001, y: 0.8859008, z: -0.41000065}
+  m_ParentAnchorRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_AnchorPosition: {x: 0.08699001, y: 0.8859006, z: -0.4100006}
   m_AnchorRotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
   m_ComputeParentAnchor: 1
@@ -250,8 +250,8 @@ ArticulationBody:
   m_GameObject: {fileID: 978781155699913361}
   m_Enabled: 1
   m_Mass: 1
-  m_ParentAnchorPosition: {x: 0.00789, y: 0.04106, z: 0.0886}
-  m_ParentAnchorRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_ParentAnchorPosition: {x: 0.00789, y: 0.04106001, z: 0.08860003}
+  m_ParentAnchorRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
   m_AnchorPosition: {x: 0, y: 0, z: 0}
   m_AnchorRotation: {x: 0, y: 0, z: 0, w: 1}
   m_ComputeParentAnchor: 1
@@ -405,7 +405,7 @@ ArticulationBody:
   m_Enabled: 1
   m_Mass: 1
   m_ParentAnchorPosition: {x: 0, y: 0, z: 0}
-  m_ParentAnchorRotation: {x: 0, y: 0, z: 0.70710677, w: 0.70710677}
+  m_ParentAnchorRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_AnchorPosition: {x: 0, y: 0, z: 0}
   m_AnchorRotation: {x: 0, y: 0, z: 0.70710677, w: 0.70710677}
   m_ComputeParentAnchor: 1
@@ -931,8 +931,8 @@ ArticulationBody:
   m_GameObject: {fileID: 2327003927366388211}
   m_Enabled: 1
   m_Mass: 1
-  m_ParentAnchorPosition: {x: 0.07171, y: 0.8859006, z: -0.4100004}
-  m_ParentAnchorRotation: {x: 0, y: 0.7080318, z: 0, w: 0.7061806}
+  m_ParentAnchorPosition: {x: 0.07171, y: 0.8859008, z: -0.41000047}
+  m_ParentAnchorRotation: {x: 0, y: 0.70803183, z: 0, w: 0.70618063}
   m_AnchorPosition: {x: 0.07171, y: 0.8859006, z: -0.4100004}
   m_AnchorRotation: {x: 0, y: 0.7080318, z: 0, w: 0.7061806}
   m_ComputeParentAnchor: 1
@@ -1000,8 +1000,8 @@ GameObject:
   - component: {fileID: 2773176407309541237}
   - component: {fileID: 2773176407309541236}
   - component: {fileID: 2773176407309541225}
-  - component: {fileID: 3798249609949033190}
   - component: {fileID: 3188736986569690750}
+  - component: {fileID: 7926778934212087850}
   m_Layer: 0
   m_Name: Bone1
   m_TagString: hasInfo
@@ -1084,8 +1084,8 @@ ArticulationBody:
   m_GameObject: {fileID: 2773176407309541227}
   m_Enabled: 1
   m_Mass: 1
-  m_ParentAnchorPosition: {x: 0, y: 0, z: 0.01311}
-  m_ParentAnchorRotation: {x: 0.70710677, y: -0.00000003090862, z: -0.70710677, w: 0.00000003090862}
+  m_ParentAnchorPosition: {x: 0, y: 0, z: 0.013110003}
+  m_ParentAnchorRotation: {x: 0.7071068, y: -0.000000030908623, z: -0.7071068, w: 0.000000030908623}
   m_AnchorPosition: {x: 0, y: 0, z: 0.01311}
   m_AnchorRotation: {x: 0.70710677, y: -0.00000003090862, z: -0.70710677, w: 0.00000003090862}
   m_ComputeParentAnchor: 1
@@ -1159,24 +1159,6 @@ MonoBehaviour:
   jointController: {fileID: 0}
   marker: {fileID: 0}
   dhFrame: {fileID: 0}
---- !u!114 &3798249609949033190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2773176407309541227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 349e335bdb0b9eb45a135baeab0595d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InfoTiers:
-  - {fileID: 1231610610591513706}
-  - {fileID: 4321280445883476307}
-  offDistance: 1
-  tierOneDistance: 0.5
-  tierTwoDistance: 0.05
 --- !u!114 &3188736986569690750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1190,6 +1172,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.2
+--- !u!114 &7926778934212087850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2773176407309541227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752ff2f20fc7b3b4d8e7bc76a7ae017f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InfoItems: []
+  offDistance: 1
 --- !u!1 &3312728602301253215
 GameObject:
   m_ObjectHideFlags: 0
@@ -1471,8 +1467,8 @@ ArticulationBody:
   m_GameObject: {fileID: 4862423772465319274}
   m_Enabled: 1
   m_Mass: 1
-  m_ParentAnchorPosition: {x: 0.007935004, y: 0.024999982, z: 0.08860006}
-  m_ParentAnchorRotation: {x: 4.5474735e-13, y: -0.000004184988, z: 0.70710695, w: -0.7071066}
+  m_ParentAnchorPosition: {x: 0.007935004, y: 0.024999995, z: 0.08860009}
+  m_ParentAnchorRotation: {x: 4.547474e-13, y: -0.0000041849885, z: 0.707107, w: -0.70710665}
   m_AnchorPosition: {x: 0.007935004, y: 0.024999982, z: 0.08860006}
   m_AnchorRotation: {x: 4.5474735e-13, y: -0.000004184988, z: 0.70710695, w: -0.7071066}
   m_ComputeParentAnchor: 1
@@ -2007,9 +2003,10 @@ GameObject:
   - component: {fileID: 7433176592074636379}
   - component: {fileID: 7433176592074636378}
   - component: {fileID: 7433176592074636376}
+  - component: {fileID: 2792355232892363170}
   m_Layer: 0
   m_Name: Base
-  m_TagString: Untagged
+  m_TagString: hasInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2162,6 +2159,20 @@ MonoBehaviour:
   jointController: {fileID: 0}
   marker: {fileID: 0}
   dhFrame: {fileID: 0}
+--- !u!114 &2792355232892363170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7433176592074636377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752ff2f20fc7b3b4d8e7bc76a7ae017f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InfoItems: []
+  offDistance: 1
 --- !u!1 &8802381292137242141
 GameObject:
   m_ObjectHideFlags: 0
@@ -2177,9 +2188,10 @@ GameObject:
   - component: {fileID: 8802381292137242142}
   - component: {fileID: 8802381292137242131}
   - component: {fileID: 1370243507955583611}
+  - component: {fileID: 3375578956099660829}
   m_Layer: 0
   m_Name: Bone3
-  m_TagString: Untagged
+  m_TagString: hasInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2258,8 +2270,8 @@ ArticulationBody:
   m_GameObject: {fileID: 8802381292137242141}
   m_Enabled: 1
   m_Mass: 1
-  m_ParentAnchorPosition: {x: -0.004110001, y: 0.00008000136, z: 0.06915005}
-  m_ParentAnchorRotation: {x: 0.70710677, y: -0.00000003090862, z: -0.70710677, w: 0.00000003090862}
+  m_ParentAnchorPosition: {x: -0.004110001, y: 0.00008000136, z: 0.06915007}
+  m_ParentAnchorRotation: {x: 0.7071068, y: -0.000000030908623, z: -0.7071068, w: 0.000000030908623}
   m_AnchorPosition: {x: -0.004110001, y: 0.00008000136, z: 0.06915005}
   m_AnchorRotation: {x: 0.70710677, y: -0.00000003090862, z: -0.70710677, w: 0.00000003090862}
   m_ComputeParentAnchor: 1
@@ -2346,6 +2358,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.1
+--- !u!114 &3375578956099660829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8802381292137242141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752ff2f20fc7b3b4d8e7bc76a7ae017f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InfoItems: []
+  offDistance: 1
 --- !u!1 &9049477195907784016
 GameObject:
   m_ObjectHideFlags: 0
@@ -2361,9 +2387,10 @@ GameObject:
   - component: {fileID: 9049477195907784017}
   - component: {fileID: 9049477195907784022}
   - component: {fileID: 6006685956129805140}
+  - component: {fileID: 7959692933360331494}
   m_Layer: 0
   m_Name: Bone4
-  m_TagString: Untagged
+  m_TagString: hasInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2442,8 +2469,8 @@ ArticulationBody:
   m_GameObject: {fileID: 9049477195907784016}
   m_Enabled: 1
   m_Mass: 1
-  m_ParentAnchorPosition: {x: 0.0005099997, y: -0.00008000136, z: 0.08859008}
-  m_ParentAnchorRotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
+  m_ParentAnchorPosition: {x: 0.0005099997, y: -0.00008000136, z: 0.08859011}
+  m_ParentAnchorRotation: {x: 0, y: 1.0000001, z: 0, w: -0.000000043711392}
   m_AnchorPosition: {x: 0.0005099997, y: -0.00008000136, z: 0.08859008}
   m_AnchorRotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
   m_ComputeParentAnchor: 1
@@ -2530,6 +2557,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.1
+--- !u!114 &7959692933360331494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9049477195907784016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752ff2f20fc7b3b4d8e7bc76a7ae017f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InfoItems: []
+  offDistance: 1
 --- !u!1 &9171054280224807535
 GameObject:
   m_ObjectHideFlags: 0
@@ -2626,9 +2667,10 @@ GameObject:
   - component: {fileID: 9220037451509834999}
   - component: {fileID: 9220037451509834996}
   - component: {fileID: 5630359161107556941}
+  - component: {fileID: 3120163718710677745}
   m_Layer: 0
   m_Name: Bone2
-  m_TagString: Untagged
+  m_TagString: hasInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2706,8 +2748,8 @@ ArticulationBody:
   m_GameObject: {fileID: 9220037451509834998}
   m_Enabled: 1
   m_Mass: 1
-  m_ParentAnchorPosition: {x: -0.0021400002, y: 0, z: 0.038600024}
-  m_ParentAnchorRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_ParentAnchorPosition: {x: -0.0021400002, y: 0, z: 0.038600035}
+  m_ParentAnchorRotation: {x: 0, y: 0, z: 0, w: 1.0000001}
   m_AnchorPosition: {x: -0.00214, y: 0, z: 0.03860002}
   m_AnchorRotation: {x: 0, y: 0, z: 0, w: 1}
   m_ComputeParentAnchor: 1
@@ -2794,3 +2836,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.1
+--- !u!114 &3120163718710677745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9220037451509834998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752ff2f20fc7b3b4d8e7bc76a7ae017f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InfoItems: []
+  offDistance: 1
