@@ -5,7 +5,7 @@ using UnityEngine;
 public class SkeletonInverseDH : MonoBehaviour
 {
     private SkeletonDHGenerator skelDHGen;
-    private Skeleton skeleton;
+    public Skeleton skeleton;
 
     private int inputIndex = 1;
 
@@ -15,6 +15,34 @@ public class SkeletonInverseDH : MonoBehaviour
         skelDHGen = GetComponent<SkeletonDHGenerator>();
         skeleton = GetComponent<Skeleton>();
     }
+
+    
+    //LM 03/12/20 - Without these 3 functions, we endlessly generate new lines until crashing, unless the user manually changes dh params. Based on this,
+    //we use the following quick solution to simulate a movement of zero some short time after shifting to the skeleton mode.
+    //NEED TO REBUILD THIS DOWN THE LINE
+    IEnumerator Initialise()
+    {
+        yield return new WaitForSeconds(.1f);
+        Initialisation();        
+    }
+    private void OnEnable()
+    {
+        StartCoroutine("Initialise");
+    }
+
+    private void Initialisation()
+    {
+        skelDHGen = GetComponent<SkeletonDHGenerator>();
+        skeleton = GetComponent<Skeleton>();
+
+        if (!skeleton.enabled)
+        {
+            skeleton.enabled = true;
+        }
+        skelDHGen.GenerateAllParameters(SelectionManager.Instance.robot.parts);
+        skeleton.setLineRenderers();
+    }
+
 
     public void ChangeParams(int frameIndex, int valIndex, float newVal)
     {
@@ -77,28 +105,28 @@ public class SkeletonInverseDH : MonoBehaviour
 
     //    if (Input.GetKeyDown(KeyCode.LeftArrow))
     //    {
-    //        float oldVal = skelDHGen.dhParams[inputIndex-1].x;
+    //        float oldVal = skelDHGen.dhParams[inputIndex - 1].x;
     //        float newVal = oldVal - 0.1f;
     //        ChangeParams(inputIndex, 0, newVal);
     //    }
 
     //    if (Input.GetKeyDown(KeyCode.RightArrow))
     //    {
-    //        float oldVal = skelDHGen.dhParams[inputIndex-1].x;
+    //        float oldVal = skelDHGen.dhParams[inputIndex - 1].x;
     //        float newVal = oldVal + 0.1f;
     //        ChangeParams(inputIndex, 0, newVal);
     //    }
 
     //    if (Input.GetKeyDown(KeyCode.UpArrow))
     //    {
-    //        float oldVal = skelDHGen.dhParams[inputIndex-1].z;
+    //        float oldVal = skelDHGen.dhParams[inputIndex - 1].z;
     //        float newVal = oldVal + 0.1f;
     //        ChangeParams(inputIndex, 2, newVal);
     //    }
 
     //    if (Input.GetKeyDown(KeyCode.DownArrow))
     //    {
-    //        float oldVal = skelDHGen.dhParams[inputIndex-1].z;
+    //        float oldVal = skelDHGen.dhParams[inputIndex - 1].z;
     //        float newVal = oldVal - 0.1f;
     //        ChangeParams(inputIndex, 2, newVal);
     //    }
