@@ -11,13 +11,16 @@ public class SkeletonToggle : MonoBehaviour
     private StandaloneSkeleton staSkel;
 
 
-
     void Start()
     {
+        // Find skeleton and robot mesh references
         skeleton = GameObject.Find("RobotMeshes").GetComponentInChildren<Skeleton>();
         staSkel = GameObject.Find("Skeleton").GetComponent<StandaloneSkeleton>();
+
+        // Find the created gameObject
         Transform functionParent = UIManager.Instance.toolFunctionParent;
-        skeletonControlToolFunction = functionParent.Find("SkeletonControlToolFunction").gameObject;   
+        skeletonControlToolFunction = functionParent.Find("SkeletonControlToolFunction").gameObject; 
+
         // Add listener to selection button
         this.GetComponent<Button>().onClick.AddListener( delegate{ ActivateSkeletonOption(gameObject.name); });
     }
@@ -30,66 +33,57 @@ public class SkeletonToggle : MonoBehaviour
         if (thisButtonName == "JustRobot")
         {
             // If just robot not already active, activate just robot mode, and deactivate others
-            if(UIManager.Instance.justRobotTool.activeSelf != true)
+            
+            if(UIManager.Instance.robotTool.activeSelf != true)
             {
-                // If just skeleton mode is active, respawn robot
-                /*if (UIManager.Instance.justSkeletonTool.activeSelf == true)
-                {
-                    RespawnRobot();
-                }*/
-
                 // Abdullah: do any hooking below here. This will enable the robot only mode
                 if (skeleton.enabled) {
                     skeletonClearParams();
                     skeleton.enabled = false;
                 }
                 staSkel.switchToggle = true;
-                UIManager.Instance.justRobotTool.SetActive(true);
+                UIManager.Instance.robotTool.SetActive(true);
                 UIManager.Instance.robotPlusSkeletonTool.SetActive(false);
-                UIManager.Instance.justSkeletonTool.SetActive(false);
+                UIManager.Instance.skeletonTool.SetActive(false);
             }
 
             // If just robot is already active, deactivate tool highlight
-            UIManager.Instance.justRobotTool.transform.GetChild(0).gameObject.SetActive(false);
+            UIManager.Instance.robotTool.transform.GetChild(0).gameObject.SetActive(false);
         }
 
         else if (thisButtonName == "RobotPlusSkeleton")
         {
             if(UIManager.Instance.robotPlusSkeletonTool.activeSelf != true)
             {
-                // If just skeleton mode is active, respawn robot
-                /*if (UIManager.Instance.justSkeletonTool.activeSelf == true)
-                {
-                    RespawnRobot();
-                }*/
-
                 // Abdullah: do any hooking below here. This will enable the robot + skeleton mode
                 //skeleton.startFunc();
                 skeleton.enabled = true;
-                UIManager.Instance.justRobotTool.SetActive(false);
+
+                UIManager.Instance.robotTool.SetActive(false);
                 UIManager.Instance.robotPlusSkeletonTool.SetActive(true);
-                UIManager.Instance.justSkeletonTool.SetActive(false);
+                UIManager.Instance.skeletonTool.SetActive(false);
                 UIManager.Instance.robotPlusSkeletonTool.transform.GetChild(0).gameObject.SetActive(true);
             }
             
             UIManager.Instance.robotPlusSkeletonTool.transform.GetChild(0).gameObject.SetActive(false);
+
         }
 
         else if (thisButtonName == "JustSkeleton")
         {
-            if(UIManager.Instance.justSkeletonTool.activeSelf != true)
+            if(UIManager.Instance.skeletonTool.activeSelf != true)
             {
                 // Abdullah: do any hooking below here. This will enable the skeleton only mode
                 skeletonClearParams();
                 staSkel.switchToggle = true;
 
-                UIManager.Instance.justRobotTool.SetActive(false);
+                UIManager.Instance.robotTool.SetActive(false);
                 UIManager.Instance.robotPlusSkeletonTool.SetActive(false);
-                UIManager.Instance.justSkeletonTool.SetActive(true);
-                UIManager.Instance.justSkeletonTool.transform.GetChild(0).gameObject.SetActive(true); 
+                UIManager.Instance.skeletonTool.SetActive(true);
+                UIManager.Instance.skeletonTool.transform.GetChild(0).gameObject.SetActive(true); 
             }
             
-            UIManager.Instance.justSkeletonTool.transform.GetChild(0).gameObject.SetActive(false);
+            UIManager.Instance.skeletonTool.transform.GetChild(0).gameObject.SetActive(false);
         }
 
         // Deactivate selection pop up and SkeletonControlToolFunction
@@ -98,10 +92,6 @@ public class SkeletonToggle : MonoBehaviour
 
     }
 
-    /*void RespawnRobot()
-    {
-
-    }*/
 
     void skeletonClearParams() {
         DeleteLineChildren(GameObject.Find("RobotMeshes"));

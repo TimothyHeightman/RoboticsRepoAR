@@ -31,13 +31,14 @@ public class UIManager : MonoBehaviour
     [SerializeField] public Transform meshParent;
     [SerializeField] public Transform arUI;
 
-    [SerializeField] public GameObject justRobotTool;
+    [SerializeField] public GameObject robotTool;
     [SerializeField] public GameObject robotPlusSkeletonTool;
-    [SerializeField] public GameObject justSkeletonTool;
+    [SerializeField] public GameObject skeletonTool;
     
 
     [Header("No Assignment Needed")]
     public Tool activeTool;
+    public GameObject activeSkeletonToolObject;
 
     public Transform canvas;
     public Transform useInAR;

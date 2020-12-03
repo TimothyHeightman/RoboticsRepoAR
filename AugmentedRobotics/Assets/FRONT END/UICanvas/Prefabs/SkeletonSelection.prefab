@@ -132,8 +132,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a4f1b66cc4d9424096bcef31d25b782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonControlToolFunction: {fileID: 3839599606987535080, guid: 1cdd8cf8011ed40dfa892798ffce1818,
-    type: 3}
 --- !u!1 &362367167096703941
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,8 +264,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a4f1b66cc4d9424096bcef31d25b782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonControlToolFunction: {fileID: 3839599606987535080, guid: 1cdd8cf8011ed40dfa892798ffce1818,
-    type: 3}
 --- !u!1 &1352291810101454568
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,6 +276,7 @@ GameObject:
   - component: {fileID: 2097276501224772528}
   - component: {fileID: 2378788287027288560}
   - component: {fileID: 4174799762105651613}
+  - component: {fileID: -5046469325859366237}
   m_Layer: 5
   m_Name: SkeletonSelection
   m_TagString: Untagged
@@ -373,6 +370,18 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &-5046469325859366237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352291810101454568}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bacfa4215daf40ac9e84a6c3799d189, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3112290113084996393
 GameObject:
   m_ObjectHideFlags: 0
@@ -505,5 +514,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a4f1b66cc4d9424096bcef31d25b782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonControlToolFunction: {fileID: 3839599606987535080, guid: 1cdd8cf8011ed40dfa892798ffce1818,
-    type: 3}
