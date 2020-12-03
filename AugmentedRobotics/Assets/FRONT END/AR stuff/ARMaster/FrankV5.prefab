@@ -1004,7 +1004,7 @@ GameObject:
   - component: {fileID: 7926778934212087850}
   m_Layer: 0
   m_Name: Bone1
-  m_TagString: hasInfo
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1357,8 +1357,7 @@ MonoBehaviour:
   sphere: {fileID: 3209932363326786678, guid: dda9fc59631cfce438092b68a8c8da05, type: 3}
   spheres: []
   newMaterialRef:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 4b128d38533977b448537669cea18a85, type: 2}
   lineAX: {fileID: 8979210096490737579, guid: 57f6738eced8fff4f92880bf83394a23, type: 3}
   lineDZ: {fileID: 613798085651359561, guid: 845fe1c041ac0e7438be92cf0f0b8209, type: 3}
   lines: []
@@ -2027,7 +2026,7 @@ GameObject:
   - component: {fileID: 2792355232892363170}
   m_Layer: 0
   m_Name: Base
-  m_TagString: hasInfo
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2212,7 +2211,7 @@ GameObject:
   - component: {fileID: 3375578956099660829}
   m_Layer: 0
   m_Name: Bone3
-  m_TagString: hasInfo
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2411,7 +2410,7 @@ GameObject:
   - component: {fileID: 7959692933360331494}
   m_Layer: 0
   m_Name: Bone4
-  m_TagString: hasInfo
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2691,7 +2690,7 @@ GameObject:
   - component: {fileID: 3120163718710677745}
   m_Layer: 0
   m_Name: Bone2
-  m_TagString: hasInfo
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
