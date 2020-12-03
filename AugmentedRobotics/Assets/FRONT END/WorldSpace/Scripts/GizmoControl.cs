@@ -22,10 +22,6 @@ public class GizmoControl : MonoBehaviour
     private GameObject rotationGizmo;
     private bool isGizmoNeeded;
 
-    public List<Transform> gizmoTransforms;
-
-    private InfoBehaviour_NonTiered infoBehaviourScript;
-
     void Start()
     {
         // Get relevant scripts for transforms and parenting
@@ -33,7 +29,6 @@ public class GizmoControl : MonoBehaviour
         dHGenerator = GetComponent<DHGenerator>();
 
         SetupAllGizmos();
-        Debug.Log(gizmoTransforms.Count);
     }
 
     void SetupAllGizmos()
@@ -59,7 +54,8 @@ public class GizmoControl : MonoBehaviour
             gizmo.transform.position = robot.parts[i].position;
             gizmo.name = gizmoName;
             gizmo.SetActive(false);
-            gizmoTransforms.Add(gizmo.transform);
+
+            AddToGazeInteraction(i, gizmo.transform, robot.joints[i].robotPart);
 
             if(gizmoPrefab == rotationGizmoPrefab)
             {
@@ -80,13 +76,12 @@ public class GizmoControl : MonoBehaviour
         isGizmoNeeded = !isRotationGizmo || isNotEndsRotation;
     }
 
-    private void AddToGazeInteraction()
+    private void AddToGazeInteraction(int i, Transform gizmoTransform, GameObject robotPart)
     {
-        foreach(Transform gizmo in gizmoTransforms)
+        InfoBehaviour_NonTiered infoBehaviourScript = robotPart.GetComponent<InfoBehaviour_NonTiered>();
+        if (infoBehaviourScript != null)
         {
-            infoBehaviourScript = gameObject.GetComponent<InfoBehaviour_NonTiered>();
-            infoBehaviourScript.AddItem(gizmo);
+            infoBehaviourScript.AddItem(gizmoTransform);
         }
     }
-
 }

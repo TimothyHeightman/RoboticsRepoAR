@@ -6,67 +6,63 @@ public class SkeletonControlToolFunction : Function
 {
 
     [Header("References;")]
-    [SerializeField] private GameObject skeletonOptionsPrefab;
+    // This will be useful when all bugs between modes are gone
+    // [SerializeField] private GameObject allSkeletonOptionsPrefab;
 
-    private GameObject skeletonOptions;
+    // For now, use this list
+    [SerializeField] private List<GameObject> skeletonOptionsPrefabList;
 
-    private GameObject robotSelect;
-    private GameObject robotSkeletonSelect;
-    private GameObject skeletonSelect;
+    private List<GameObject> skeletonOptions = new List<GameObject>();
+    private List<GameObject> toolToSelect = new List<GameObject>();
+
+    private int option;
+
+    private GameObject optionSelect;
 
     void Awake()
     {
-        // Instantiate prefab
-        skeletonOptions = UIManager.Instance.InstantiatePrefab(skeletonOptionsPrefab, UIManager.Instance.openedTools.transform);
-        skeletonOptions.SetActive(false);
-
-        // Get references to the other selection buttons (only needed till skeleton bugs are fixed)
-        robotSelect = skeletonOptions.transform.GetChild(0).gameObject;
-        robotSkeletonSelect = skeletonOptions.transform.GetChild(1).gameObject;
-        skeletonSelect = skeletonOptions.transform.GetChild(2).gameObject;
-
-        // Default start with robot only as tool
-        DeactivateProblemSequences("RobotTool");
+        PopulateOptionsList();
     }
 
     void OnEnable()
     {
         // Activate options
-        skeletonOptions.SetActive(true);
-
-        // Deactivate modes that are currently creating bugs
-        DeactivateProblemSequences(UIManager.Instance.activeSkeletonToolObject.name);
+        SelectingRightOptionsWindow(UIManager.Instance.activeSkeletonToolObject.name);
+        Debug.Log(option);
+        skeletonOptions[option].SetActive(true);
     }
 
     public override void OnDisable()
     {
         // Deactivate options
-        skeletonOptions.SetActive(false);
+        skeletonOptions[option].SetActive(false);
     }
 
-    void DeactivateProblemSequences(string thisToolName)
+    private void PopulateOptionsList()
     {
-        // Method to deactivate modes to ensure only possible sequence is followed
-        // Only use this until we fix the skeleton bugs
-
-        if (thisToolName == "RobotTool")
+        foreach(GameObject window in skeletonOptionsPrefabList)
         {
-            robotSelect.SetActive(true);
-            robotSkeletonSelect.SetActive(true);
-            skeletonSelect.SetActive(false);
-        }
-        else if (thisToolName == "SkeletonPlusRobotTool")
-        {
-            robotSelect.SetActive(false);
-            robotSkeletonSelect.SetActive(true);
-            skeletonSelect.SetActive(true);
-        }
-        else if (thisToolName == "SkeletonTool")
-        {
-            robotSelect.SetActive(false);
-            robotSkeletonSelect.SetActive(false);
-            skeletonSelect.SetActive(true);
+            GameObject skeletonOption = UIManager.Instance.InstantiatePrefab(window, UIManager.Instance.openedTools.transform);
+            skeletonOptions.Add(skeletonOption);
+            skeletonOption.SetActive(false);
         }
     }
 
+    private void SelectingRightOptionsWindow(string currentToolInTooltray)
+    {
+        option = 0;
+        
+        switch (currentToolInTooltray)
+        {
+            case "RobotTool":
+                option = 0;
+                break;
+            case "SkeletonPlusRobotTool":
+                option = 1;
+                break;
+            case "SkeletonTool":
+                option = 2;
+                break;
+        }
+    }
 }

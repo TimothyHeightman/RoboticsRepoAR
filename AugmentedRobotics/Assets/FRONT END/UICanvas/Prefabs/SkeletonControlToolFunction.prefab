@@ -48,5 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38631256e11c94f91badb554731c90f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonOptionsPrefab: {fileID: 1352291810101454568, guid: 9312a765833694873b58f1f52d1fc357,
-    type: 3}
+  skeletonOptionsPrefabList:
+  - {fileID: 1352291810101454568, guid: 9312a765833694873b58f1f52d1fc357, type: 3}
+  - {fileID: 5335928421957073002, guid: 1f68ad93db0c341c7ad4436133906790, type: 3}
+  - {fileID: 4890006912234985657, guid: 52c2da60e0efe41519ca89627095055e, type: 3}

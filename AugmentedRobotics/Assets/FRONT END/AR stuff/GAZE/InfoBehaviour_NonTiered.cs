@@ -6,7 +6,7 @@ public class InfoBehaviour_NonTiered : MonoBehaviour
 {
     const float SPEED = 6f;
 
-    [SerializeField] List<Transform> InfoItems;
+    [SerializeField] public List<Transform> InfoItems;
     [SerializeField] float offDistance = 1f;
 
     //keeps track of the current tier

@@ -1262,6 +1262,7 @@ GameObject:
   - component: {fileID: 4515404340033282025}
   - component: {fileID: 8559911720678152606}
   - component: {fileID: 6222096048821143343}
+  - component: {fileID: 3932243110909631717}
   m_Layer: 0
   m_Name: FrankV5Body
   m_TagString: Untagged
@@ -1341,6 +1342,26 @@ MonoBehaviour:
     type: 3}
   dhGizmoPrefab: {fileID: 5976145620406312555, guid: 08fb4e95b6d9d4e47af7ae9cd5c429d5,
     type: 3}
+--- !u!114 &3932243110909631717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4568066418198973700}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4a7428cfabc4aa4bb04ef91f3c7105c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sphere: {fileID: 3209932363326786678, guid: dda9fc59631cfce438092b68a8c8da05, type: 3}
+  spheres: []
+  newMaterialRef:
+  - {fileID: 0}
+  - {fileID: 0}
+  lineAX: {fileID: 8979210096490737579, guid: 57f6738eced8fff4f92880bf83394a23, type: 3}
+  lineDZ: {fileID: 613798085651359561, guid: 845fe1c041ac0e7438be92cf0f0b8209, type: 3}
+  lines: []
 --- !u!1 &4632297070695981967
 GameObject:
   m_ObjectHideFlags: 0
