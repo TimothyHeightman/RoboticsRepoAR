@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6038155597833665494
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6038155597833665488}
+  - component: {fileID: 6038155597833665489}
+  - component: {fileID: 6038155597833665491}
+  - component: {fileID: 6038155597833665490}
+  - component: {fileID: 2913815618998810777}
+  - component: {fileID: 8110129412034977165}
+  m_Layer: 0
+  m_Name: Skeleton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6038155597833665488
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6038155597833665494}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.09564559, y: -0.46225893, z: 1.5920873}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6038155597833665489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6038155597833665494}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d6e0f6014609d04bb07d2cb7dea9a3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  switchToggle: 0
+  joints: []
+  jointObjs: []
+  matteBlack:
+  - {fileID: 2100000, guid: b693371d6399b894a9a958e70623cca5, type: 2}
+  matteRed:
+  - {fileID: 2100000, guid: 16c75a87fc4a82d408e2cc878622b497, type: 2}
+  metal:
+  - {fileID: 2100000, guid: c08185385ddff93429840cf464d316aa, type: 2}
+  sphere: {fileID: 3209932363326786678, guid: dda9fc59631cfce438092b68a8c8da05, type: 3}
+--- !u!114 &6038155597833665491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6038155597833665494}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4a7428cfabc4aa4bb04ef91f3c7105c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sphere: {fileID: 3209932363326786678, guid: dda9fc59631cfce438092b68a8c8da05, type: 3}
+  spheres: []
+  newMaterialRef:
+  - {fileID: 0}
+  lineAX: {fileID: 8979210096490737579, guid: 57f6738eced8fff4f92880bf83394a23, type: 3}
+  lineDZ: {fileID: 613798085651359561, guid: 845fe1c041ac0e7438be92cf0f0b8209, type: 3}
+  lines: []
+--- !u!114 &6038155597833665490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6038155597833665494}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd4389426eb1f554ab686f6b9362486b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tempFrames: []
+  dhParams: []
+  matrices: []
+--- !u!114 &2913815618998810777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6038155597833665494}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22b97ab7d5c7dcd4f9092362ba45e60b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skeleton: {fileID: 0}
+--- !u!114 &8110129412034977165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6038155597833665494}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e53cc6cd44b73942adabfe6d3d7f654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axesGizmoPrefab: {fileID: 2765338095531798958, guid: 73764071a7d724cccb14b7bc2f05213a,
+    type: 3}
+  rotationGizmoPrefab: {fileID: 3961019825504864848, guid: 9733255b16f1b468d9e9feb9316c9cea,
+    type: 3}
+  dhGizmoPrefab: {fileID: 5976145620406312555, guid: 08fb4e95b6d9d4e47af7ae9cd5c429d5,
+    type: 3}

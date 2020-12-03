@@ -39,13 +39,30 @@ public class InventoryToolFunction : Function
     [SerializeField] private GameObject dhTablePrefab;
 
     void Awake()
-    {
+    {   
+        // For each mesh card button in the inventory, add a listener to instantiate the mesh on click
         foreach(MeshCard mesh in availableMeshes)
         {
             mesh.card.GetComponent<Button>().onClick.AddListener( delegate{ InstantiateRobot(mesh.id); });
         }
+
+        // Button feedback for click
         inventoryToolHighlight = UIManager.Instance.useInAR.gameObject;
         inventoryToolHighlight = UIManager.Instance.useInAR.GetChild(2).GetChild(1).GetChild(1).GetChild(0).gameObject;
+    }
+
+    void OnEnable()
+    {
+        // Temporary fix for reinstantiating robot after destroying. Will need to be written better
+        // to generalise for multiple buttons
+        if (UIManager.Instance.isRobotInScene == false && activeMeshes.Count != 0)
+        {
+            foreach(MeshCard mesh in availableMeshes)
+            {
+                activeMeshes.Remove(mesh.id);
+                returnFromKey(availableMeshCardsDict, mesh.id).GetComponent<Button>().interactable = true;
+            }
+        }
     }
 
     public void SpawnRobot(out GameObject robotReference)
@@ -102,7 +119,20 @@ public class InventoryToolFunction : Function
             // Make sure it won't instantiate again
             activeMeshes.Add(item, newMesh);
             returnFromKey(availableMeshCardsDict, item).GetComponent<Button>().interactable = false;
-            this.gameObject.SetActive(false);
+
+            // Tell UIManager that robot is in scene, activate the robot tool for skeleton selection
+            UIManager.Instance.isRobotInScene = true;
+            UIManager.Instance.robotTool.SetActive(true);
+            UIManager.Instance.activeSkeletonToolObject = UIManager.Instance.robotTool;
+
+            // Instantiate skeleton
+            UIManager.Instance.skeletonObject = Instantiate(UIManager.Instance.skeletonObjectPrefab);
+            UIManager.Instance.skeletonObject.name = UIManager.Instance.skeletonObjectPrefab.name;
+
+            // Deactivate inventory and inventory tool
+            gameObject.SetActive(false);
+            UIManager.Instance.openedTools.transform.GetChild(1).GetChild(1).gameObject.SetActive(false);
+
             return newMesh;
         }
         return null;

@@ -31,8 +31,8 @@ public class SkeletonControlTool : Tool
         UIManager.Instance.activeSkeletonToolObject = gameObject;
     }
 
-    /*void OnEnable()
+    void OnEnable()
     {
         UIManager.Instance.activeSkeletonToolObject = gameObject;
-    }*/
+    }
 }

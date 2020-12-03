@@ -28,7 +28,6 @@ public class SkeletonControlToolFunction : Function
     {
         // Activate options
         SelectingRightOptionsWindow(UIManager.Instance.activeSkeletonToolObject.name);
-        Debug.Log(option);
         skeletonOptions[option].SetActive(true);
     }
 
@@ -51,18 +50,18 @@ public class SkeletonControlToolFunction : Function
     private void SelectingRightOptionsWindow(string currentToolInTooltray)
     {
         option = 0;
-        
-        switch (currentToolInTooltray)
+
+        if (currentToolInTooltray == "RobotTool")
         {
-            case "RobotTool":
-                option = 0;
-                break;
-            case "SkeletonPlusRobotTool":
-                option = 1;
-                break;
-            case "SkeletonTool":
-                option = 2;
-                break;
+            option = 0;
+        }
+        else if (currentToolInTooltray == "SkeletonPlusRobotTool")
+        {
+           option = 1; 
+        }
+        else if (currentToolInTooltray == "SkeletonTool")
+        {
+            option = 2;
         }
     }
 }

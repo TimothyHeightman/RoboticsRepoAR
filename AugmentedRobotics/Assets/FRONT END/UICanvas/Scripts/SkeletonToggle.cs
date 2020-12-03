@@ -9,13 +9,15 @@ public class SkeletonToggle : MonoBehaviour
     private GameObject skeletonControlToolFunction;
     private Skeleton skeleton;
     private StandaloneSkeleton staSkel;
+    private GameObject skelObj;
 
 
     void Start()
     {
         // Find skeleton and robot mesh references
-        skeleton = GameObject.Find("RobotMeshes").GetComponentInChildren<Skeleton>();
-        staSkel = GameObject.Find("Skeleton").GetComponent<StandaloneSkeleton>();
+        skeleton = UIManager.Instance.meshParent.GetComponentInChildren<Skeleton>();
+        staSkel = UIManager.Instance.skeletonObject.GetComponent<StandaloneSkeleton>();
+        skelObj = UIManager.Instance.skeletonObject;
 
         // Find the created gameObject
         Transform functionParent = UIManager.Instance.toolFunctionParent;
@@ -23,6 +25,15 @@ public class SkeletonToggle : MonoBehaviour
 
         // Add listener to selection button
         this.GetComponent<Button>().onClick.AddListener( delegate{ ActivateSkeletonOption(gameObject.name); });
+    }
+
+    void OnEnable()
+    {
+        if (skeleton == null)
+        {
+            skeleton = GameObject.Find("RobotMeshes").GetComponentInChildren<Skeleton>();
+            staSkel = GameObject.Find("Skeleton").GetComponent<StandaloneSkeleton>();
+        }
     }
 
     void ActivateSkeletonOption(string thisButtonName)
@@ -84,6 +95,26 @@ public class SkeletonToggle : MonoBehaviour
             }
             
             UIManager.Instance.skeletonTool.transform.GetChild(0).gameObject.SetActive(false);
+        }
+
+        else if (thisButtonName == "DeleteRobot")
+        {
+            // Destroy robot in scene - should we deactivate instead?
+            Destroy(UIManager.Instance.meshParent.GetChild(0).gameObject);
+            UIManager.Instance.isRobotInScene = false;
+
+            // Deactivate skeleton - faster way to do this?
+            skeletonClearParams();
+                
+            Destroy(skelObj);
+
+            // Deactivate skeleton tool from tooltray
+            UIManager.Instance.skeletonTool.SetActive(false);
+            UIManager.Instance.skeletonTool.transform.GetChild(0).gameObject.SetActive(false);
+
+            // Reactivate inventory tool
+            UIManager.Instance.openedTools.transform.GetChild(1).GetChild(1).gameObject.SetActive(true);
+
         }
 
         // Deactivate selection pop up and SkeletonControlToolFunction

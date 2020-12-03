@@ -30,6 +30,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] public Transform toolFunctionParent;
     [SerializeField] public Transform meshParent;
     [SerializeField] public Transform arUI;
+    [SerializeField] public GameObject skeletonObjectPrefab;
 
     [SerializeField] public GameObject robotTool;
     [SerializeField] public GameObject robotPlusSkeletonTool;
@@ -44,6 +45,8 @@ public class UIManager : MonoBehaviour
     public Transform useInAR;
     public Transform useOutsideAR;
     public Transform modalsParent;
+    public bool isRobotInScene;
+    public GameObject skeletonObject;
 
     private void Start()
     {
@@ -76,5 +79,7 @@ public class UIManager : MonoBehaviour
 
         return newObject;
     }
+
+
 
 }
