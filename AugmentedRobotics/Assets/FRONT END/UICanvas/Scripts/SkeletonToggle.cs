@@ -90,7 +90,8 @@ public class SkeletonToggle : MonoBehaviour
                 UIManager.Instance.robotTool.SetActive(false);
                 UIManager.Instance.robotPlusSkeletonTool.SetActive(false);
                 UIManager.Instance.skeletonTool.SetActive(true);
-                UIManager.Instance.skeletonTool.transform.GetChild(0).gameObject.SetActive(true); 
+                UIManager.Instance.skeletonTool.transform.GetChild(0).gameObject.SetActive(true);
+                UIManager.Instance.dhChangerTool.SetActive(true);
             }
             
             UIManager.Instance.skeletonTool.transform.GetChild(0).gameObject.SetActive(false);
@@ -129,6 +130,7 @@ public class SkeletonToggle : MonoBehaviour
             // Deactivate skeleton tool from tooltray
             UIManager.Instance.skeletonTool.SetActive(false);
             UIManager.Instance.skeletonTool.transform.GetChild(0).gameObject.SetActive(false);
+            UIManager.Instance.dhChangerTool.SetActive(false);
 
 
 

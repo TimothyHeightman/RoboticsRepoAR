@@ -38,7 +38,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] public GameObject robotTool;
     [SerializeField] public GameObject robotPlusSkeletonTool;
     [SerializeField] public GameObject skeletonTool;
-    
+    [SerializeField] public GameObject dhChangerTool;
+
 
     [Header("No Assignment Needed")]
     public Tool activeTool;
