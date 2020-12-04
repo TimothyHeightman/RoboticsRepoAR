@@ -1342,6 +1342,7 @@ MonoBehaviour:
     type: 3}
   dhGizmoPrefab: {fileID: 5976145620406312555, guid: 08fb4e95b6d9d4e47af7ae9cd5c429d5,
     type: 3}
+  gizmoScaleMultiplier: 0.02
 --- !u!114 &3932243110909631717
 MonoBehaviour:
   m_ObjectHideFlags: 0
