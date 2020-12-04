@@ -3644,6 +3644,7 @@ MonoBehaviour:
   inventoryTool: {fileID: 743521922}
   InventoryToolFunction: {fileID: 7542586254969880491, guid: 800c63c82304642f7a99fe54e12c1543,
     type: 3}
+  arSessionOrigin: {fileID: 1499097004}
   modeControl: {fileID: 0}
   openTools: {fileID: 171305119}
 --- !u!1 &1554448906

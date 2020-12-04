@@ -96,27 +96,57 @@ public class SkeletonToggle : MonoBehaviour
             UIManager.Instance.skeletonTool.transform.GetChild(0).gameObject.SetActive(false);
         }
 
-        else if (thisButtonName == "DeleteRobot")
+        else if (thisButtonName == "DeleteRobot" )
         {
+            //if (ModeControl.Instance.isInAR)
+            //{
+            //    ModeControl.Instance.LoadImageARScene();
+            //}
             skelObj = UIManager.Instance.skeletonObject;
-            // Destroy robot in scene - should we deactivate instead?
-            Destroy(UIManager.Instance.meshParent.GetChild(0).gameObject);
-            UIManager.Instance.isRobotInScene = false;
 
-            // Deactivate skeleton - faster way to do this?
-            skeletonClearParams();
-                
-            Destroy(skelObj);
+            if (ModeControl.Instance.isInVR)
+            {                
+                // Destroy robot in scene - should we deactivate instead?
+                Destroy(UIManager.Instance.meshParent.GetChild(0).gameObject);
+                UIManager.Instance.isRobotInScene = false;
 
-            //Delete table
-            Destroy(UIManager.Instance.dhTable);
+                // Deactivate skeleton - faster way to do this?
+                skeletonClearParams();
+
+                Destroy(skelObj);
+
+                //Delete table
+                Destroy(UIManager.Instance.dhTable);               
+
+                // Reactivate inventory tool
+                UIManager.Instance.openedTools.transform.GetChild(1).GetChild(1).gameObject.SetActive(true);
+            }
+            else  //if in AR
+            {
+                Application.Quit();     //temp fix 
+            }
 
             // Deactivate skeleton tool from tooltray
             UIManager.Instance.skeletonTool.SetActive(false);
             UIManager.Instance.skeletonTool.transform.GetChild(0).gameObject.SetActive(false);
 
-            // Reactivate inventory tool
-            UIManager.Instance.openedTools.transform.GetChild(1).GetChild(1).gameObject.SetActive(true);
+
+
+
+            //if (ModeControl.Instance.isInAR)
+            //{   
+            //       //spawn robot
+            //    GameObject newRobot = SelectionManager.Instance.InventoryToolFunction.InstantiateRobot(RobotMesh.Frank);
+
+            //    //Find image and set position of new robot
+            //    newRobot.transform.position = SelectionManager.Instance.arSessionOrigin.GetComponent<ImageTrackingObjectManager>()
+
+            //    //reset reference for ar
+            //    SelectionManager.Instance.arSessionOrigin.GetComponent<ImageTrackingObjectManager>().spawnedOnePrefab = newRobot;
+            //    SelectionManager.Instance.robot = newRobot.GetComponent<Robot>();
+            //}
+
+
 
         }
 
@@ -126,7 +156,7 @@ public class SkeletonToggle : MonoBehaviour
 
     }
 
-
+ 
     void skeletonClearParams() {
         DeleteLineChildren(GameObject.Find("RobotMeshes"));
         skeleton.lines.Clear();
