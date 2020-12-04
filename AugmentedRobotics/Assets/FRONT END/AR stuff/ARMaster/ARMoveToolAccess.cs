@@ -8,6 +8,7 @@ public class ARMoveToolAccess : MonoBehaviour
     public SelectionManager selectionManager;
     public MoveToolFunction moveTool;
 
+
     private Transform imageTransform;
     public Transform ImageTransform
     {           
@@ -39,9 +40,9 @@ public class ARMoveToolAccess : MonoBehaviour
 
         moveTool.selectedRobot.transform.parent.SetPositionAndRotation(targetPos, targetRotation);
 
-        Debug.Log("move tool newPos : " + moveTool.newPos);
-        Debug.Log("move tool targetPos: " + moveTool.targetPos);
-        Debug.Log("move tool inputPos: " + moveTool.inputPos);
+        //Debug.Log("move tool newPos : " + moveTool.newPos);
+        //Debug.Log("move tool targetPos: " + moveTool.targetPos);
+        //Debug.Log("move tool inputPos: " + moveTool.inputPos);
 
 
     }
@@ -49,8 +50,24 @@ public class ARMoveToolAccess : MonoBehaviour
     void Update()
     {
         //Debug.Log(imageTransform.position);
+        if (isRobotPresent())
+        {
+            MoveRobot(imageTransform.position, imageTransform.rotation);
+        }
+        
+    }
 
-        MoveRobot(imageTransform.position, imageTransform.rotation);
+    private bool isRobotPresent()
+    {
+        if (SelectionManager.Instance.robot != null)
+        {
+            //Debug.Log("ROBOT PRESENT");
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     IEnumerator WaitSeconds(float time)

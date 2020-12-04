@@ -9,7 +9,7 @@ using UnityEngine.UI;
 [ExecuteInEditMode]
 public class GazeInteraction : MonoBehaviour
 {
-    List<InfoBehaviour> infos = new List<InfoBehaviour>();
+    List<InfoBehaviour_NonTiered> infos = new List<InfoBehaviour_NonTiered>();
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +25,7 @@ public class GazeInteraction : MonoBehaviour
 
     private void FindInfos()
     {
-        infos = FindObjectsOfType<InfoBehaviour>().ToList();
+        infos = FindObjectsOfType<InfoBehaviour_NonTiered>().ToList();
     }
 
     // Update is called once per frame
@@ -34,12 +34,14 @@ public class GazeInteraction : MonoBehaviour
         FindInfos();
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit))
         {
+            Debug.Log("hit");
             GameObject target = hit.collider.gameObject;
-            
+            Debug.Log(target);
             if (target.CompareTag("hasInfo"))
             {
+                Debug.Log("hasInfo");
                 float rayLength = Vector3.Magnitude(target.transform.position - transform.position);
-                OpenTargetInfo(target.GetComponent<InfoBehaviour>(), rayLength);
+                OpenTargetInfo(target.GetComponent<InfoBehaviour_NonTiered>(), rayLength);
             }
             else
             {
@@ -52,10 +54,10 @@ public class GazeInteraction : MonoBehaviour
         }
     }
 
-    void OpenTargetInfo(InfoBehaviour targetInfo, float rayLength)
+    void OpenTargetInfo(InfoBehaviour_NonTiered targetInfo, float rayLength)
     {
         // loop through all info tags and close all of them except the target
-        foreach(InfoBehaviour info in infos)
+        foreach(InfoBehaviour_NonTiered info in infos)
         {
             if (info == targetInfo)
             {
@@ -70,7 +72,7 @@ public class GazeInteraction : MonoBehaviour
 
     void CloseAllInfo()
     {
-        foreach(InfoBehaviour info in infos)
+        foreach(InfoBehaviour_NonTiered info in infos)
         {
             info.CloseInfo();
         }

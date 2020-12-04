@@ -7,26 +7,32 @@ public class InfoBehaviour_NonTiered : MonoBehaviour
     const float SPEED = 6f;
 
     [SerializeField] public List<Transform> InfoItems;
-    [SerializeField] float offDistance = 1f;
+    const float offDistance = 2f;
 
-    //keeps track of the current tier
-    // tier 0 corresponds to no info
-    // tier 1 corresponds to the next layer, etc.
     bool isActive = false;
     Vector3 zeroScale = Vector3.zero; //default size = 0
-    Vector3 maxScale = Vector3.one;
+    Vector3 maxScale = Vector3.one * 0.25f;
 
     void ProcessTiers(List<Transform> InfoItems)
     {
-        Debug.Log("Processing Tiers");
-        Debug.Log("InfoTiers Length: " + InfoItems.Count);
+        //Debug.Log("Processing Tiers");
+        //Debug.Log("InfoTiers Length: " + InfoItems.Count);
 
         if (isActive)
         {
             foreach (Transform tier in InfoItems)
             {
+                //Debug.Log(tier);
                 tier.gameObject.SetActive(true);
                 tier.localScale = Vector3.Lerp(tier.localScale, maxScale, Time.deltaTime * SPEED);
+            }
+        }
+        else
+        {
+            foreach (Transform tier in InfoItems)
+            {
+                tier.gameObject.SetActive(false);
+                tier.localScale = Vector3.zero;
             }
         }
     }
@@ -34,7 +40,6 @@ public class InfoBehaviour_NonTiered : MonoBehaviour
     public void OpenInfo(float rayLength)
     {
         isActive = CheckValid(rayLength);
-        Debug.Log("gaze activated? :  " + isActive);
         ProcessTiers(InfoItems);
     }
 
