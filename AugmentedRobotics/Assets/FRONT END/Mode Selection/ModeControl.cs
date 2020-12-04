@@ -17,7 +17,7 @@ public class ModeControl : MonoBehaviour
      * to give us additional control over the devices we support.
      */ 
 
-    public bool isMobile, isARCapable, isARIdeal;   //false by default
+    public bool isMobile, isARCapable, isARIdeal, isInVR, isInAR;   //false by default
     RuntimePlatform platform;
 
     int minAndroidSDK = 24;     //Minimum API version for ARCore support (Android 7) - corresponds to isARCapable
@@ -49,7 +49,9 @@ public class ModeControl : MonoBehaviour
 
     // Start is called before the first frame update
     private void Start()
-    {        
+    {
+        isInVR = false;
+        isInAR = false;
         CheckDevice();
     }
 
@@ -122,6 +124,13 @@ public class ModeControl : MonoBehaviour
             isARIdeal = false;
             arButton.SetActive(false);      //Only allow VR if on desktop
         }
+
+        #if UNITY_EDITOR
+        isMobile = true;
+        isARCapable = true;
+        isARIdeal = true;
+        arButton.SetActive(true);      //Only allow VR if on desktop
+        #endif
     }
 
 
@@ -129,21 +138,29 @@ public class ModeControl : MonoBehaviour
 
     public void LoadDesktopScene()
     {
+        isInVR = true;
+        isInAR = false;
         SceneManager.LoadScene("DesktopTest");
     }
 
     public void LoadVRScene()
     {
+        isInVR = true;
+        isInAR = false;
         SceneManager.LoadScene("DesktopTest");
     }
 
     public void LoadImageARScene()
     {
+        isInVR = false;
+        isInAR = true;
         SceneManager.LoadScene("ARMaster");
     }
 
     public void LoadFullARScene()
     {
+        isInVR = false;
+        isInAR = true;
         SceneManager.LoadScene("ARMaster");
     }
 

@@ -27,7 +27,7 @@ public class ARMoveToolAccess : MonoBehaviour
     {
         if(moveTool == null)
         {
-            moveTool = selectionManager.moveToolFunction;
+            moveTool = SelectionManager.Instance.moveToolFunction;
             
         }
 
@@ -49,6 +49,7 @@ public class ARMoveToolAccess : MonoBehaviour
     void Update()
     {
         //Debug.Log(imageTransform.position);
+
         MoveRobot(imageTransform.position, imageTransform.rotation);
     }
 

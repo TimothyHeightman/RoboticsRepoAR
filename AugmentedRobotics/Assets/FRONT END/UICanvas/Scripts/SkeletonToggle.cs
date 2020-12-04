@@ -38,7 +38,6 @@ public class SkeletonToggle : MonoBehaviour
 
     void ActivateSkeletonOption(string thisButtonName)
     {
-
         // All options work the same
         // If button pressed is just robot
         if (thisButtonName == "JustRobot")
@@ -107,6 +106,9 @@ public class SkeletonToggle : MonoBehaviour
             skeletonClearParams();
                 
             Destroy(skelObj);
+
+            //Delete table
+            Destroy(UIManager.Instance.dhTable);
 
             // Deactivate skeleton tool from tooltray
             UIManager.Instance.skeletonTool.SetActive(false);

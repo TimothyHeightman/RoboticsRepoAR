@@ -31,7 +31,7 @@ public class ARInventoryToolAccess : MonoBehaviour
     {
         if (inventory == null)
         {
-            inventory = selectionManager.InventoryToolFunction;
+            inventory = SelectionManager.Instance.InventoryToolFunction;
             
         }
 

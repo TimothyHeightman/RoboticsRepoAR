@@ -16,9 +16,29 @@ public class TooltrayTool : Tool
 
     public override void ActivateTool()
     {
+
         // Activate open tooltray
-        UIManager.Instance.closedTools.SetActive(false);
+        UIManager.Instance.closedTools.SetActive(false);        
         UIManager.Instance.openedTools.SetActive(true);
+        UIManager.Instance.moveButton.SetActive(false);
+
+
+        if (ModeControl.Instance.isInAR)
+        {
+            UIManager.Instance.inventoryButton.SetActive(false);
+        }
+
+        if (SelectionManager.Instance.robot == null)
+        {
+            UIManager.Instance.robotTool.SetActive(false);
+        }
+        else
+        {
+            if (UIManager.Instance.robotPlusSkeletonTool.activeSelf || UIManager.Instance.skeletonTool.activeSelf)
+            {
+                UIManager.Instance.robotTool.SetActive(false);
+            }            
+        }
     }
 
     public override void DeactivateTool()

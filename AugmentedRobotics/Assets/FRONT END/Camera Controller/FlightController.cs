@@ -76,11 +76,11 @@ public class FlightController : MonoBehaviour {
             //}
             if (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.A))
             {
-                attachedCamera.transform.RotateAround(CentralTarget.position, Vector3.up, ROTATE_SPEED * Time.deltaTime);
+                attachedCamera.transform.RotateAround(CentralTarget.position, Vector3.up, 8 * ROTATE_SPEED * Time.deltaTime); //for some reason rotate speed isnt changing the behaviour?
             }
             if (Input.GetKey(KeyCode.X) || Input.GetKey(KeyCode.D))
             {
-                attachedCamera.transform.RotateAround(CentralTarget.position, Vector3.down, ROTATE_SPEED * Time.deltaTime);
+                attachedCamera.transform.RotateAround(CentralTarget.position, Vector3.down, 8 * ROTATE_SPEED * Time.deltaTime);
             }
         }
     }

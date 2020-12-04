@@ -64,7 +64,7 @@ public class ArticulationJointController : MonoBehaviour
         {
             if (userInput != 0)
             {
-                float rotationChange = userInput * speed * Time.fixedDeltaTime;                
+                float rotationChange = userInput * speed * Time.fixedDeltaTime * 2000;                
                 float rotationGoal = CurrentPrimaryAxisRotation() + rotationChange;
                 RotateTo(rotationGoal);
             }            

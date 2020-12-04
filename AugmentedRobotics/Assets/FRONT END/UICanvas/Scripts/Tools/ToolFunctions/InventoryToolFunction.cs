@@ -112,9 +112,10 @@ public class InventoryToolFunction : Function
             // Instantiate mesh
             GameObject meshPrefab = returnFromKey(availableMeshesDict, item);
             GameObject newMesh = UIManager.Instance.InstantiatePrefab(meshPrefab, UIManager.Instance.meshParent);
-
+            UIManager.Instance.robotTool.SetActive(true);
             // Instantiate DH Parameter table
             GameObject dhTable = UIManager.Instance.InstantiatePrefab(dhTablePrefab, UIManager.Instance.arUI);
+            UIManager.Instance.dhTable = dhTable;
 
             // Make sure it won't instantiate again
             activeMeshes.Add(item, newMesh);
@@ -131,7 +132,11 @@ public class InventoryToolFunction : Function
 
             // Deactivate inventory and inventory tool
             gameObject.SetActive(false);
-            UIManager.Instance.openedTools.transform.GetChild(1).GetChild(1).gameObject.SetActive(false);
+            //UIManager.Instance.openedTools.transform.GetChild(1).GetChild(1).gameObject.SetActive(false);
+            if (ModeControl.Instance.isInAR)
+            {
+                UIManager.Instance.inventoryButton.SetActive(false);
+            }            
 
             return newMesh;
         }

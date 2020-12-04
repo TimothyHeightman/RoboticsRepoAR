@@ -709,22 +709,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1532957139}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1308381297}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 2115763705}
+        m_TargetAssemblyTypeName: ModeControl, Assembly-CSharp
+        m_MethodName: LoadImageARScene
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -964,7 +952,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Tap to choose AR Mode
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cdf350f3ae183487aa8718252a2489e8, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: -1121365408870655619, guid: cdf350f3ae183487aa8718252a2489e8,
     type: 2}
   m_fontSharedMaterials: []
@@ -1099,9 +1087,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Tap to choose mode
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cdf350f3ae183487aa8718252a2489e8, type: 2}
-  m_sharedMaterial: {fileID: -1121365408870655619, guid: cdf350f3ae183487aa8718252a2489e8,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1125,8 +1112,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1346,7 +1333,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.9252474}
-  m_AnchoredPosition: {x: 0, y: -0.00079345703}
+  m_AnchoredPosition: {x: 0, y: -0.0008544922}
   m_SizeDelta: {x: 0, y: 0.0014648438}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1308381299
@@ -1700,7 +1687,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.9252474}
-  m_AnchoredPosition: {x: 0, y: -0.00079345703}
+  m_AnchoredPosition: {x: 0, y: -0.0008544922}
   m_SizeDelta: {x: 0, y: 0.0014648438}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1532957141
@@ -2492,6 +2479,8 @@ MonoBehaviour:
   isMobile: 1
   isARCapable: 0
   isARIdeal: 0
+  isInVR: 0
+  isInAR: 0
   modePanel: {fileID: 1308381297}
   arPanel: {fileID: 1532957139}
   vrButton: {fileID: 1784891546}

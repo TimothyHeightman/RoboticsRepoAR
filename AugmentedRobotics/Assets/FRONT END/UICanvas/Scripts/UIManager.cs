@@ -31,6 +31,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] public Transform meshParent;
     [SerializeField] public Transform arUI;
     [SerializeField] public GameObject skeletonObjectPrefab;
+    [SerializeField] public GameObject dhTable;
+    [SerializeField] public GameObject inventoryButton;
+    [SerializeField] public GameObject moveButton;
 
     [SerializeField] public GameObject robotTool;
     [SerializeField] public GameObject robotPlusSkeletonTool;
@@ -50,7 +53,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        UpdateRefs();
+        UpdateRefs();        
     }
 
     private void Awake()
@@ -60,6 +63,7 @@ public class UIManager : MonoBehaviour
         useInAR = canvas.GetChild(0);
         useOutsideAR = canvas.GetChild(1);
         modalsParent = canvas.GetChild(2);
+
     }
 
     private void UpdateRefs()
