@@ -985,5 +985,5 @@ MonoBehaviour:
     card: {fileID: 603385215029787174}
     prefab: {fileID: 3312728602301253215, guid: d80835dc0979395489987b80cd191ef3,
       type: 3}
-  dhTablePrefab: {fileID: 4778341120939976556, guid: 5474dab52503c470682ca98564754925,
+  dhTablePrefab: {fileID: 3819915696642130690, guid: d5ca18a60ef9b6846b8f565e17844bb8,
     type: 3}

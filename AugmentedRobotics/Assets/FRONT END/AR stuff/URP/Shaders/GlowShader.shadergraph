@@ -10,7 +10,7 @@
             "typeInfo": {
                 "fullName": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty"
             },
-            "JSONnodeData": "{\n    \"m_Guid\": {\n        \"m_GuidSerialized\": \"81d57e66-35f1-4a4e-957b-eb22ff443f09\"\n    },\n    \"m_Name\": \"FresnelPower\",\n    \"m_DefaultReferenceName\": \"Vector1_167D4F97\",\n    \"m_OverrideReferenceName\": \"\",\n    \"m_GeneratePropertyBlock\": true,\n    \"m_Precision\": 0,\n    \"m_GPUInstanced\": false,\n    \"m_Hidden\": false,\n    \"m_Value\": 3.0,\n    \"m_FloatType\": 1,\n    \"m_RangeValues\": {\n        \"x\": 1.0,\n        \"y\": 5.0\n    }\n}"
+            "JSONnodeData": "{\n    \"m_Guid\": {\n        \"m_GuidSerialized\": \"81d57e66-35f1-4a4e-957b-eb22ff443f09\"\n    },\n    \"m_Name\": \"FresnelPower\",\n    \"m_DefaultReferenceName\": \"Vector1_167D4F97\",\n    \"m_OverrideReferenceName\": \"\",\n    \"m_GeneratePropertyBlock\": true,\n    \"m_Precision\": 0,\n    \"m_GPUInstanced\": false,\n    \"m_Hidden\": false,\n    \"m_Value\": 3.0,\n    \"m_FloatType\": 1,\n    \"m_RangeValues\": {\n        \"x\": 1.0,\n        \"y\": 25.0\n    }\n}"
         },
         {
             "typeInfo": {
