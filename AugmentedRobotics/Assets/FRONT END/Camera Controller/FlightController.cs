@@ -5,7 +5,21 @@ public class FlightController : MonoBehaviour {
 
     public Transform CentralTarget;
     public int ROTATE_SPEED = 10;
-    
+
+    private string currentRotation;
+    public string CurrentRotation
+    {
+        get => currentRotation;
+        set => currentRotation = value;
+    }
+
+
+    private string currentTranslation;
+    public string CurrentTranslation
+    {
+        get => currentTranslation;
+        set => currentTranslation = value;
+    }
 
 
     [Tooltip("Enable/disable rotation control. For use in Unity editor only.")]
@@ -45,40 +59,26 @@ public class FlightController : MonoBehaviour {
     void Update() {
         if (translationEnabled)
         {
-            //float x = Input.GetAxis("Horizontal") * Time.deltaTime * straffeSpeed;
-            float z = Input.GetAxis("Vertical") * Time.deltaTime * straffeSpeed;
+            float z = Time.deltaTime * straffeSpeed;
+            if (currentTranslation == "fwd")
+            {
+                transform.Translate(0, 0, z);
 
-            transform.Translate(0, 0, z);
+            }
+            if (currentTranslation == "back")
+            {
+                transform.Translate(0, 0, -z);
+            }
         }
 
         if (rotationEnabled)
         {
-            //if (Input.GetMouseButtonDown(0))
-            //{
-            //    axisLastFrame = attachedCamera.ScreenToViewportPoint(Input.mousePosition);
-            //}
-            //if (Input.GetMouseButton(0))
-            //{
-            //    axis = attachedCamera.ScreenToViewportPoint(Input.mousePosition);
-            //    axisDelta = (axisLastFrame - axis) * 90f;
-            //    axisLastFrame = axis;
-
-            //    rotationX -= axisDelta.x * mouseSensitivity;
-            //    rotationY -= axisDelta.y * mouseSensitivity;
-
-            //    rotationX = ClampAngle (rotationX, minimumX, maximumX);
-            //    rotationY = ClampAngle (rotationY, minimumY, maximumY);
-
-            //    Quaternion xQuaternion = Quaternion.AngleAxis (rotationX, Vector3.up);
-            //    Quaternion yQuaternion = Quaternion.AngleAxis (rotationY, Vector3.left);
-
-            //    transform.localRotation = originalRotation * xQuaternion * yQuaternion;
-            //}
-            if (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.A))
+            float theta = ROTATE_SPEED * Time.deltaTime;
+            if (currentRotation == "left")
             {
                 attachedCamera.transform.RotateAround(CentralTarget.position, Vector3.up, 8 * ROTATE_SPEED * Time.deltaTime); //for some reason rotate speed isnt changing the behaviour?
             }
-            if (Input.GetKey(KeyCode.X) || Input.GetKey(KeyCode.D))
+            if (currentRotation == "right")
             {
                 attachedCamera.transform.RotateAround(CentralTarget.position, Vector3.down, 8 * ROTATE_SPEED * Time.deltaTime);
             }
