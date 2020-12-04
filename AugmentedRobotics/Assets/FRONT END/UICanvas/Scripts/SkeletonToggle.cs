@@ -98,6 +98,7 @@ public class SkeletonToggle : MonoBehaviour
 
         else if (thisButtonName == "DeleteRobot")
         {
+            skelObj = UIManager.Instance.skeletonObject;
             // Destroy robot in scene - should we deactivate instead?
             Destroy(UIManager.Instance.meshParent.GetChild(0).gameObject);
             UIManager.Instance.isRobotInScene = false;
