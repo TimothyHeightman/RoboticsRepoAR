@@ -38,6 +38,10 @@ public class ArticulationJointController : MonoBehaviour
 
     private void Update()
     {
+#if (UNITY_EDITOR)
+        userInput = Input.GetAxis("Horizontal");
+        
+#else
         if (mobile)
         {
             touch = Input.GetTouch(0);
@@ -45,11 +49,13 @@ public class ArticulationJointController : MonoBehaviour
         else
         {
             userInput = Input.GetAxis("Horizontal");
-        }              
+        }
+#endif
     }
 
     private void FixedUpdate()
     {
+#if (!UNITY_EDITOR)
         if (mobile)
         {
             if (touch.phase == TouchPhase.Moved)
@@ -69,6 +75,14 @@ public class ArticulationJointController : MonoBehaviour
                 RotateTo(rotationGoal);
             }            
         }
+#else
+        if (userInput != 0)
+        {
+            float rotationChange = userInput * speed * Time.fixedDeltaTime * 2000;
+            float rotationGoal = CurrentPrimaryAxisRotation() + rotationChange;
+            RotateTo(rotationGoal);
+        }
+#endif
 
     }
 

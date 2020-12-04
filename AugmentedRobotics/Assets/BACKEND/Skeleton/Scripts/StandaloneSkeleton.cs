@@ -73,6 +73,7 @@ public class StandaloneSkeleton : MonoBehaviour
         skelDHGen.enabled = true;
         skelInvDH.enabled = true;
         sphereFunc();
+        skeleton.transform.parent = SelectionManager.Instance.robot.transform;
     }
 
     public void toFranka() {
