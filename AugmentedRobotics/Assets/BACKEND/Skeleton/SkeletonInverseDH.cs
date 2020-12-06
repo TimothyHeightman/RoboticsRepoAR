@@ -44,7 +44,7 @@ public class SkeletonInverseDH : MonoBehaviour
     }
 
 
-    public void ChangeParams(int frameIndex, int valIndex, float newVal)
+    public void ChangeParams(int frameIndex, int valIndex, float valChange)
     {
         if (frameIndex < (skelDHGen.dhParams.Length + 1) && frameIndex > 0)
         {
@@ -52,7 +52,7 @@ public class SkeletonInverseDH : MonoBehaviour
             Transform currentFrame = skelDHGen.tempFrames[frameIndex];
             Transform prevFrame = skelDHGen.tempFrames[frameIndex - 1];
 
-            float valDiff = newVal - currentParams[valIndex];
+            float valDiff = valChange;
             Vector3 movement = Vector3.zero; 
 
             switch (valIndex)
@@ -103,17 +103,17 @@ public class SkeletonInverseDH : MonoBehaviour
     //        inputIndex -= 1;
     //    }
 
-    //    if (Input.GetKeyDown(KeyCode.LeftArrow))
+    //    if (Input.GetKey(KeyCode.LeftArrow))
     //    {
     //        float oldVal = skelDHGen.dhParams[inputIndex - 1].x;
-    //        float newVal = oldVal - 0.1f;
+    //        float newVal = oldVal - 0.01f;
     //        ChangeParams(inputIndex, 0, newVal);
     //    }
 
-    //    if (Input.GetKeyDown(KeyCode.RightArrow))
+    //    if (Input.GetKey(KeyCode.RightArrow))
     //    {
     //        float oldVal = skelDHGen.dhParams[inputIndex - 1].x;
-    //        float newVal = oldVal + 0.1f;
+    //        float newVal = oldVal + 0.01f;
     //        ChangeParams(inputIndex, 0, newVal);
     //    }
 
@@ -131,10 +131,10 @@ public class SkeletonInverseDH : MonoBehaviour
     //        ChangeParams(inputIndex, 2, newVal);
     //    }
 
-    //    if (Input.GetKeyDown(KeyCode.Space))
+    //    if (Input.GetKey(KeyCode.Space))
     //    {
     //        float oldVal = skelDHGen.dhParams[inputIndex - 1].y;
-    //        float newVal = oldVal + 20f;
+    //        float newVal = oldVal + 1f;
     //        ChangeParams(inputIndex, 1, newVal);
     //    }
     //}

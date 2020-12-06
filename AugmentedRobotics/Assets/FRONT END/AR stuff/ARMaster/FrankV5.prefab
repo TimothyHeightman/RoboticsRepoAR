@@ -741,7 +741,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InfoItems: []
-  offDistance: 1
 --- !u!1 &3312728602301253215
 GameObject:
   m_ObjectHideFlags: 0
@@ -1368,7 +1367,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InfoItems: []
-  offDistance: 1
 --- !u!1 &8802381292137242141
 GameObject:
   m_ObjectHideFlags: 0
@@ -1567,7 +1565,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InfoItems: []
-  offDistance: 1
 --- !u!1 &9049477195907784016
 GameObject:
   m_ObjectHideFlags: 0
@@ -1766,7 +1763,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InfoItems: []
-  offDistance: 1
 --- !u!1 &9171054280224807535
 GameObject:
   m_ObjectHideFlags: 0
@@ -2045,4 +2041,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InfoItems: []
-  offDistance: 1

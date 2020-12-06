@@ -123,6 +123,7 @@ public class ModeControl : MonoBehaviour
             isARCapable = false;
             isARIdeal = false;
             arButton.SetActive(false);      //Only allow VR if on desktop
+            LoadDesktopScene();     //automatically load desktop scene if on mobile
         }
 
         #if UNITY_EDITOR

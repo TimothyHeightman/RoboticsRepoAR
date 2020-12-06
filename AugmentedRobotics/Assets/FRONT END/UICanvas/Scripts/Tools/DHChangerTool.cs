@@ -18,8 +18,7 @@ public class DHChangerTool : Tool
 
     public void Initialise()
     {
-        Transform functionParent = UIManager.Instance.modalsParent;
-        functionObject = UIManager.Instance.InstantiatePrefab(dhChangerModalPrefab, functionParent);
+        functionObject = dhChangerModalPrefab;
         functionObject.SetActive(false);
     }
 }

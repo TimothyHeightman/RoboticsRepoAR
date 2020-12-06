@@ -7,60 +7,69 @@ public class DhChangerFunction : MonoBehaviour
 {
     public int jointID = 1;
     public int paramID = 1;
-    public float sliderval = 0.5f;
 
-    bool trueChange = true;
+    public float angleSpeed = 0.1f;
+    public float linearSpeed = 0.01f;
 
-    public GameObject jointDrop, paramDrop, valSlider;
+    SkeletonInverseDH skeletonInverseDH;
+    SkeletonDHGenerator skeletonDH;
 
 
-    private void OnStart()
+    public GameObject jointDrop, paramDrop;
+
+    private void Start()
     {
         jointID = 1;
         paramID = 0;
-        sliderval = 0.5f;
-        bool trueChange = true;
     }
+
+    private void OnEnable()
+    {
+        skeletonInverseDH = UIManager.Instance.skeletonObject.GetComponent<SkeletonInverseDH>();
+        skeletonDH = UIManager.Instance.skeletonObject.GetComponent<SkeletonDHGenerator>();
+    }
+
     public void NewJointID(int newVal)
     {
         jointID = newVal+1;
-        valSlider.GetComponent<Slider>().value = 0.5f;
-        trueChange = false;
     }
     public void NewParamID(int newVal)
     {
         paramID = newVal;
-        valSlider.GetComponent<Slider>().value = 0.5f;
-        trueChange = false;
     }
 
-    public void PushChangeToVals()
+    public void ChangeValue(bool isIncrease)
     {
-        SkeletonInverseDH skeletonInverseDH = UIManager.Instance.skeletonObject.GetComponent<SkeletonInverseDH>();
-        sliderval = valSlider.GetComponent<Slider>().value;
         float valChange = 0f;
 
         //angles
         if (paramID == 1 || paramID == 3)
         {
-            valChange = (sliderval - 0.5f)/0.5f * 180f;
+            if (isIncrease)
+            {
+                valChange = angleSpeed;
+            }
+            else
+            {
+                valChange = -angleSpeed;
+            }
+            
+            
         }
         else
         {
-            valChange = (sliderval - 0.5f)/0.5f * 1f;
+            if (isIncrease)
+            {
+                valChange = linearSpeed;
+            }
+            else
+            {
+                valChange = -linearSpeed;
+            }            
         }
 
-        if (trueChange)
-        {
-            skeletonInverseDH.ChangeParams(jointID, paramID, valChange);
-        }
-        else
-        {
-            trueChange = true;
-        }
+        skeletonInverseDH.ChangeParams(jointID, paramID, valChange);
         
-
-        //work out what a change to the slider val corresponds to in terms of each specific param
     }
 
 }
