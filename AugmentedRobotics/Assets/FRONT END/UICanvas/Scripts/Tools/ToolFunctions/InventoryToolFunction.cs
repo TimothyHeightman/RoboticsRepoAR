@@ -116,12 +116,18 @@ public class InventoryToolFunction : Function
             // Instantiate DH Parameter table
 
 
-            // link table to mesh
-            UIManager.Instance.arUI.transform.parent = newMesh.transform;
+            
 
 
             GameObject dhTable = UIManager.Instance.InstantiatePrefab(dhTablePrefab, UIManager.Instance.arUI);
             UIManager.Instance.dhTable = dhTable;
+
+            // link table to mesh
+            if (ModeControl.Instance.isInAR)
+            {
+                UIManager.Instance.arUI.transform.parent = newMesh.transform;
+            }
+            
 
             // Make sure it won't instantiate again
             activeMeshes.Add(item, newMesh);
