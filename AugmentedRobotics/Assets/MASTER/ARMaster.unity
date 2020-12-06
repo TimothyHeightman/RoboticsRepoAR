@@ -3054,7 +3054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14b9e64d145d64ec1b5312485ab8e0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryModalPrefab: {fileID: 8744570810062171904, guid: 800c63c82304642f7a99fe54e12c1543,
+  inventoryModalPrefab: {fileID: 8744570810062171904, guid: 5c23cc2ef746edf48996d49f6d0330dd,
     type: 3}
 --- !u!114 &743521923
 MonoBehaviour:

@@ -21,9 +21,7 @@ public class ImageTrackingObjectManager : MonoBehaviour
         moveTool = GetComponent<ARMoveToolAccess>();
         selectionManager = FindObjectOfType<SelectionManager>();
     }
-    /// <summary>
-    /// Get the <c>ARTrackedImageManager</c>
-    /// </summary>
+
     public ARTrackedImageManager ImageManager
     {
         get => m_ImageManager;
@@ -34,9 +32,6 @@ public class ImageTrackingObjectManager : MonoBehaviour
     [Tooltip("Reference Image Library")]
     XRReferenceImageLibrary m_ImageLibrary;
 
-    /// <summary>
-    /// Get the <c>XRReferenceImageLibrary</c>
-    /// </summary>
     public XRReferenceImageLibrary ImageLibrary
     {
         get => m_ImageLibrary;
@@ -47,9 +42,6 @@ public class ImageTrackingObjectManager : MonoBehaviour
     [Tooltip("Prefab for tracked 1 image")]
     GameObject m_OnePrefab;
 
-    /// <summary>
-    /// Get the one prefab
-    /// </summary>
     public GameObject onePrefab
     {
         get => m_OnePrefab;
@@ -58,9 +50,7 @@ public class ImageTrackingObjectManager : MonoBehaviour
 
     GameObject m_SpawnedOnePrefab;
 
-    /// <summary>
-    /// get the spawned one prefab
-    /// </summary>
+   
     public GameObject spawnedOnePrefab
     {
         get => m_SpawnedOnePrefab;
@@ -71,9 +61,7 @@ public class ImageTrackingObjectManager : MonoBehaviour
     [Tooltip("Prefab for tracked 2 image")]
     GameObject m_TwoPrefab;
 
-    /// <summary>
-    /// get the two prefab
-    /// </summary>
+   
     public GameObject twoPrefab
     {
         get => m_TwoPrefab;
@@ -82,9 +70,7 @@ public class ImageTrackingObjectManager : MonoBehaviour
 
     GameObject m_SpawnedTwoPrefab;
 
-    /// <summary>
-    /// get the spawned two prefab
-    /// </summary>
+    
     public GameObject spawnedTwoPrefab
     {
         get => m_SpawnedTwoPrefab;
@@ -122,11 +108,14 @@ public class ImageTrackingObjectManager : MonoBehaviour
                 moveTool.ImageTransform = image.transform;
                 SelectionManager.Instance.robot = m_SpawnedOnePrefab.GetComponentInChildren<Robot>();
             }
-            else if (image.referenceImage.guid == s_SecondImageGUID)
-            {
-                m_SpawnedTwoPrefab = Instantiate(m_TwoPrefab, image.transform.position, image.transform.rotation);
-                //SelectionManager.Instance.robot = m_SpawnedTwoPrefab.GetComponentInChildren<Robot>();
-            }
+
+            // in case we want to spawn a separate prefab for a different image
+
+            //else if (image.referenceImage.guid == s_SecondImageGUID)
+            //{
+            //    m_SpawnedTwoPrefab = Instantiate(m_TwoPrefab, image.transform.position, image.transform.rotation);
+            //    //SelectionManager.Instance.robot = m_SpawnedTwoPrefab.GetComponentInChildren<Robot>();
+            //}
         }
 
         // updated, set prefab position and rotation
@@ -137,14 +126,17 @@ public class ImageTrackingObjectManager : MonoBehaviour
             {
                 if (image.referenceImage.guid == s_FirstImageGUID)
                 {
-                    //moveTool.MoveRobot(image.transform.position, image.transform.rotation);
-                    //m_SpawnedOnePrefab.transform.SetPositionAndRotation(image.transform.position, image.transform.rotation);
                     moveTool.ImageTransform = image.transform;
                 }
-                else if (image.referenceImage.guid == s_SecondImageGUID)
-                {
-                    m_SpawnedTwoPrefab.transform.SetPositionAndRotation(image.transform.position, image.transform.rotation);
-                }
+
+
+
+                // in case we want to spawn a separate prefab for a different image
+
+                //else if (image.referenceImage.guid == s_SecondImageGUID)
+                //{
+                //    m_SpawnedTwoPrefab.transform.SetPositionAndRotation(image.transform.position, image.transform.rotation);
+                //}
             }
         }
 
@@ -155,10 +147,12 @@ public class ImageTrackingObjectManager : MonoBehaviour
             {
                 Destroy(m_SpawnedOnePrefab);
             }
-            else if (image.referenceImage.guid == s_FirstImageGUID)
-            {
-                Destroy(m_SpawnedTwoPrefab);
-            }
+
+
+            //else if (image.referenceImage.guid == s_FirstImageGUID)
+            //{
+            //    Destroy(m_SpawnedTwoPrefab);
+            //}
         }
     }
 
