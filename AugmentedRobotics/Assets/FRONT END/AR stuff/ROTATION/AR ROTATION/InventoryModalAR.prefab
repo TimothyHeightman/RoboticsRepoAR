@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Select a robot
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 0}
-  m_sharedMaterial: {fileID: 0}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -866,5 +866,5 @@ MonoBehaviour:
     card: {fileID: 603385215029787174}
     prefab: {fileID: 3312728602301253215, guid: d80835dc0979395489987b80cd191ef3,
       type: 3}
-  dhTablePrefab: {fileID: 3819915696642130690, guid: 97e1eae0be5ad3e44a02ed83b4c33cdc,
+  dhTablePrefab: {fileID: 3819915696642130690, guid: 39404391fde7a584eb91fa120ffa3b09,
     type: 3}

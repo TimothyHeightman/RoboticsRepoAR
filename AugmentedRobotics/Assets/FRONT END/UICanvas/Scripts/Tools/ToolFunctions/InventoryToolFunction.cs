@@ -114,6 +114,12 @@ public class InventoryToolFunction : Function
             GameObject newMesh = UIManager.Instance.InstantiatePrefab(meshPrefab, UIManager.Instance.meshParent);
             UIManager.Instance.robotTool.SetActive(true);
             // Instantiate DH Parameter table
+
+
+            // link table to mesh
+            UIManager.Instance.arUI.transform.parent = newMesh.transform;
+
+
             GameObject dhTable = UIManager.Instance.InstantiatePrefab(dhTablePrefab, UIManager.Instance.arUI);
             UIManager.Instance.dhTable = dhTable;
 
