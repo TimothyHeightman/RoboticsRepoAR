@@ -5983,6 +5983,7 @@ MonoBehaviour:
     type: 3}
   modeControl: {fileID: 0}
   openTools: {fileID: 171305119}
+  arSession: {fileID: 199993293}
 --- !u!1 &1549886711
 GameObject:
   m_ObjectHideFlags: 0

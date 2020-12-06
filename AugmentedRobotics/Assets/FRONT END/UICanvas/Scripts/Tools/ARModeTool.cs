@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /*  ARModeTool Class, controls the entering AR environment. Inherits from Tool class.
@@ -23,9 +24,22 @@ public class ARModeTool : Tool
 
     public override void DeactivateTool()
     {
-        // Deactivate AR mode (add homeScreen, deactivate AR)
-        highlightARButton.SetActive(false);
-        UIManager.Instance.homeScreen.SetActive(true);
+        if (ModeControl.Instance.isInAR)
+        {
+            // Deactivate AR mode (add homeScreen, deactivate AR)
+            highlightARButton.SetActive(false);
+            UIManager.Instance.homeScreen.SetActive(true);
+            SceneManager.LoadScene("ModeSelection");
+        }
+        else if (ModeControl.Instance.isMobile)
+        {
+            SceneManager.LoadScene("ModeSelection");
+        }
+        else
+        {
+            Application.Quit();
+        }
+        
     }
 
     public override void CheckIfToolIsActive()

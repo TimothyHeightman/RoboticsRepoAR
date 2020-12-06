@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class SkeletonToggle : MonoBehaviour
 {
@@ -101,8 +102,13 @@ public class SkeletonToggle : MonoBehaviour
         {
             //if (ModeControl.Instance.isInAR)
             //{
-            //    ModeControl.Instance.LoadImageARScene();
+            //    SceneManager.LoadScene("ModeSelection");
+            //    GameObject tempSession = Object.Instantiate(SelectionManager.Instance.arSession);
+            //    Destroy(SelectionManager.Instance.arSession);
+            //    SelectionManager.Instance.arSession = tempSession;
+
             //}
+
             skelObj = UIManager.Instance.skeletonObject;
 
             if (ModeControl.Instance.isInVR)
